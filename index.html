@@ -1,460 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The AI Brew — June 26, 2026</title>
-  <meta name="description" content="OpenAI cooks its own silicon — and brings the heat. Your daily AI newsletter.">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Brew · stockfilter.app — Saturday, June 27, 2026</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #FAFAF8;
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+  .topbar {
+    width: 100%;
+    background: #0F172A;
+    color: #94A3B8;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px 16px;
+    letter-spacing: 0.2px;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; }
+  .header {
+    background: #ffffff;
+    padding: 32px 24px 24px;
+  }
+  .eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #6B7280;
+    margin: 0 0 12px;
+  }
+  h1.tagline {
+    font-size: 28px;
+    font-weight: bold;
+    color: #0F172A;
+    line-height: 1.25;
+    margin: 0 0 20px;
+  }
+  .rule { border: none; border-top: 1px solid #E5E7EB; margin: 0; }
+  .body { padding: 24px; }
 
-    :root {
-      --ink: #0f172a;
-      --ink-light: #475569;
-      --ink-faint: #94a3b8;
-      --surface: #fafaf8;
-      --surface-2: #f1f5f9;
-      --border: #e2e8f0;
-      --accent: #0f172a;
-      --accent-warm: #c2410c;
-      --max: 680px;
-    }
+  /* Snapshot */
+  .snapshot {
+    background: #0F172A;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+  .snapshot h2 {
+    color: #ffffff;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin: 0 0 14px;
+  }
+  .signal { margin: 0 0 10px; font-size: 15px; line-height: 1.5; }
+  .signal .metric { color: #ffffff; font-weight: bold; }
+  .signal .quip { color: #94A3B8; }
+  .mood {
+    color: #64748B;
+    font-style: italic;
+    font-size: 14px;
+    border-top: 1px solid #1E293B;
+    margin-top: 16px;
+    padding-top: 14px;
+  }
 
-    html { scroll-behavior: smooth; }
+  /* Editor open */
+  .open { font-size: 16px; line-height: 1.7; margin: 0 0 8px; }
 
-    body {
-      font-family: Georgia, 'Times New Roman', serif;
-      background: var(--surface);
-      color: var(--ink);
-      font-size: 17px;
-      line-height: 1.75;
-    }
+  /* Lead stories */
+  h2.lead {
+    font-size: 20px;
+    color: #0F172A;
+    margin: 32px 0 10px;
+    line-height: 1.3;
+  }
+  .story p { font-size: 16px; line-height: 1.7; margin: 0 0 14px; }
+  .bottomline {
+    border-left: 3px solid #0F172A;
+    background: #F1F5F9;
+    padding: 12px 16px;
+    margin: 4px 0 8px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
 
-    a { color: #1d4ed8; }
-    a:hover { text-decoration-thickness: 2px; }
+  /* Quick hits */
+  .section-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #6B7280;
+    margin: 36px 0 12px;
+  }
+  ul.quickhits { list-style: none; padding: 0; margin: 0; }
+  ul.quickhits li { font-size: 14px; line-height: 1.8; margin-bottom: 8px; }
 
-    strong { font-weight: 700; }
-    em { font-style: italic; }
+  /* Big picture */
+  .bigpicture {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+  .bigpicture h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #0F172A;
+    margin: 0 0 12px;
+  }
+  .bigpicture p { font-size: 15px; font-style: italic; line-height: 1.7; margin: 0; }
 
-    /* ── Top bar ── */
-    .topbar {
-      background: var(--ink);
-      color: white;
-      text-align: center;
-      padding: 14px 24px;
-    }
-    .topbar-inner {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-    .brand {
-      font-family: system-ui, sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: white;
-      text-decoration: none;
-    }
-    .brand-dot { color: var(--ink-faint); }
-    .brand-domain {
-      font-size: 12px;
-      color: var(--ink-faint);
-      font-weight: 400;
-      letter-spacing: 0.08em;
-    }
+  /* One more thing */
+  .omt { border-top: 1px solid #E5E7EB; margin-top: 28px; padding-top: 8px; }
+  .omt h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #6B7280;
+    margin: 16px 0 12px;
+  }
+  .omt p { font-size: 15px; line-height: 1.7; margin: 0; }
 
-    /* ── Issue header ── */
-    .issue-header {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 48px 24px 32px;
-      border-bottom: 3px solid var(--ink);
-    }
-    .issue-kicker {
-      font-family: system-ui, sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      margin-bottom: 14px;
-    }
-    .issue-hed {
-      font-size: clamp(1.6rem, 4vw, 2.1rem);
-      font-weight: 700;
-      line-height: 1.2;
-      color: var(--ink);
-      margin-bottom: 0;
-    }
+  /* Sources */
+  .sources h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #6B7280;
+    margin: 36px 0 12px;
+  }
+  ol.sources-list { font-size: 13px; color: #4B5563; line-height: 1.7; padding-left: 20px; margin: 0; }
+  ol.sources-list li { margin-bottom: 6px; }
+  a.src { color: #0F172A; text-decoration: none; }
+  a.src:hover { text-decoration: underline; }
 
-    /* ── Snapshot card ── */
-    .snapshot {
-      background: var(--ink);
-      color: white;
-      border-radius: 14px;
-      padding: 28px 32px;
-      margin: 32px 0;
-    }
-    .snapshot-eyebrow {
-      font-family: system-ui, sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      margin-bottom: 18px;
-    }
-    .snapshot table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .snapshot td {
-      padding: 9px 0;
-      border-bottom: 1px solid #1e293b;
-      vertical-align: top;
-      font-size: 15px;
-    }
-    .snapshot tr:last-child td { border-bottom: none; }
-    .snapshot .col-signal {
-      font-family: system-ui, sans-serif;
-      font-weight: 600;
-      color: #94a3b8;
-      padding-right: 16px;
-      width: 30%;
-      white-space: nowrap;
-    }
-    .snapshot .col-num {
-      font-family: system-ui, sans-serif;
-      font-weight: 800;
-      color: white;
-      padding-right: 16px;
-      width: 12%;
-      white-space: nowrap;
-    }
-    .snapshot .col-vibe {
-      color: #cbd5e1;
-      line-height: 1.4;
-    }
-    .snapshot-mood {
-      margin-top: 18px;
-      padding-top: 14px;
-      border-top: 1px solid #1e293b;
-      font-family: system-ui, sans-serif;
-      font-size: 13px;
-      font-style: italic;
-      color: #94a3b8;
-    }
-
-    /* ── Content area ── */
-    .content {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 8px 24px 40px;
-    }
-
-    .lede {
-      font-size: 17.5px;
-      color: #334155;
-      margin-bottom: 32px;
-      padding-bottom: 32px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    /* ── Story blocks ── */
-    .story { margin-bottom: 0; }
-    .story + .story-divider { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
-
-    .story h2 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 14px;
-      line-height: 1.3;
-    }
-    .story p { margin-bottom: 16px; }
-    .story p:last-child { margin-bottom: 0; }
-
-    .bottom-line {
-      display: block;
-      background: var(--surface-2);
-      border-left: 3px solid var(--ink);
-      padding: 12px 18px;
-      font-size: 15.5px;
-      line-height: 1.6;
-      margin-top: 16px;
-      color: var(--ink);
-    }
-
-    /* ── Quick Hits ── */
-    .quick-hits h2 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-    .quick-hits ul { list-style: none; }
-    .quick-hits li {
-      padding: 11px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 15.5px;
-      line-height: 1.55;
-    }
-    .quick-hits li:last-child { border-bottom: none; }
-
-    /* ── Big Picture ── */
-    .big-picture {
-      background: var(--surface-2);
-      border-radius: 10px;
-      padding: 24px 28px;
-    }
-    .big-picture h2 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      font-family: system-ui, sans-serif;
-      letter-spacing: 0.01em;
-    }
-    .big-picture p { font-size: 16px; color: #334155; margin: 0; }
-
-    /* ── One More Thing ── */
-    .one-more-thing h2 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    /* ── Divider ── */
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 36px 0;
-    }
-
-    /* ── Sources ── */
-    .sources {
-      border-top: 1px dashed var(--border);
-      padding-top: 24px;
-      margin-top: 36px;
-    }
-    .sources-label {
-      font-family: system-ui, sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      margin-bottom: 12px;
-    }
-    .sources ol { padding-left: 18px; }
-    .sources li {
-      font-size: 12.5px;
-      color: var(--ink-light);
-      margin-bottom: 5px;
-      line-height: 1.45;
-    }
-    .sources a { color: #1d4ed8; text-decoration: none; }
-    .sources a:hover { text-decoration: underline; }
-
-    /* ── Archive ── */
-    .archive {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 28px 24px;
-      border-top: 3px solid var(--ink);
-    }
-    .archive-label {
-      font-family: system-ui, sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      margin-bottom: 14px;
-    }
-    .archive-pills { display: flex; gap: 10px; flex-wrap: wrap; }
-    .archive-pill {
-      font-family: system-ui, sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--ink);
-      text-decoration: none;
-      border: 1.5px solid var(--ink);
-      padding: 5px 14px;
-      border-radius: 100px;
-      transition: background 0.15s, color 0.15s;
-    }
-    .archive-pill:hover, .archive-pill.active {
-      background: var(--ink);
-      color: white;
-    }
-
-    /* ── Footer ── */
-    .footer {
-      background: var(--ink);
-      color: var(--ink-faint);
-      text-align: center;
-      padding: 20px 24px;
-      font-family: system-ui, sans-serif;
-      font-size: 12px;
-    }
-    .footer a { color: var(--ink-faint); }
-
-    /* ── Responsive ── */
-    @media (max-width: 560px) {
-      .snapshot { padding: 20px; border-radius: 10px; }
-      .snapshot .col-signal { white-space: normal; width: auto; }
-      .snapshot .col-num { white-space: normal; }
-      .big-picture { padding: 18px 20px; }
-    }
-  </style>
+  /* Archive footer */
+  .archive { text-align: center; margin: 40px 0 8px; }
+  .pill {
+    display: inline-block;
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    margin: 4px;
+    text-decoration: none;
+    font-family: Georgia, serif;
+  }
+  .pill.current { background: #0F172A; color: #ffffff; font-weight: bold; }
+  .pill.past { background: #E5E7EB; color: #1a1a1a; }
+  .copyright { text-align: center; font-size: 12px; color: #9CA3AF; margin: 14px 0 36px; }
+</style>
 </head>
 <body>
 
-  <!-- Top bar -->
-  <header class="topbar">
-    <div class="topbar-inner">
-      <a class="brand" href="/">☕ The AI Brew</a>
-      <span class="brand-dot">·</span>
-      <span class="brand-domain">stockfilter.app</span>
-    </div>
-  </header>
+  <div class="topbar">☕ The AI Brew · stockfilter.app</div>
 
-  <!-- Issue header -->
-  <div class="issue-header">
-    <div class="issue-kicker">Friday, June 26, 2026</div>
-    <h1 class="issue-hed">OpenAI cooks its own silicon&nbsp;— and brings the heat</h1>
-  </div>
+  <div class="wrap">
 
-  <!-- Main content -->
-  <div class="content">
-
-    <!-- Snapshot -->
-    <div class="snapshot">
-      <div class="snapshot-eyebrow">The Snapshot</div>
-      <table>
-        <tr>
-          <td class="col-signal">Nvidia (NVDA)</td>
-          <td class="col-num">−1.6%</td>
-          <td class="col-vibe">The king felt a draft the day OpenAI showed off its own chip.</td>
-        </tr>
-        <tr>
-          <td class="col-signal">Broadcom (AVGO)</td>
-          <td class="col-num">+1%</td>
-          <td class="col-vibe">Turns out building <em>someone else's</em> chip pays nicely.</td>
-        </tr>
-        <tr>
-          <td class="col-signal">OpenAI accelerator</td>
-          <td class="col-num">~10 GW</td>
-          <td class="col-vibe">What it aims to run with Microsoft — roughly ten nuclear reactors of "answer the prompt."</td>
-        </tr>
-        <tr>
-          <td class="col-signal">Time to build "Jalapeño"</td>
-          <td class="col-num">9 months</td>
-          <td class="col-vibe">Design to tape-out — OpenAI claims among the fastest big-chip sprints on record.</td>
-        </tr>
-        <tr>
-          <td class="col-signal">Big Tech 2026 capex</td>
-          <td class="col-num">~$725B</td>
-          <td class="col-vibe">Google, Amazon, Microsoft &amp; Meta combined — up ~77% in a year. Money's no object; electricity might be.</td>
-        </tr>
-      </table>
-      <div class="snapshot-mood">Mood: The model wars cooled for a day so the <em>hardware</em> wars could preheat.</div>
+    <div class="header">
+      <p class="eyebrow">SATURDAY, JUNE 27, 2026</p>
+      <h1 class="tagline">Washington found the AI off switch, and reached for it</h1>
+      <hr class="rule">
     </div>
 
-    <!-- Lede -->
-    <p class="lede">Happy Friday. Summer's barely a week old, and instead of easing into vacation mode, the AI labs spent the week brawling over the two things no model runs without: silicon and the people who design it. Today is about the stuff <em>underneath</em> the chatbot — chips, gigawatts, and a talent market now poaching Nobel laureates. Let's dig in.</p>
+    <div class="body">
 
-    <!-- Story 1 -->
-    <div class="story">
-      <h2>Bring Your Own Chip</h2>
-      <p>OpenAI doesn't just want to write the recipe — it wants the stove. On Wednesday, it and Broadcom unveiled <em>Jalapeño</em>, OpenAI's first custom chip, built specifically for inference (the part where a finished model actually answers you, not the months of training that taught it how). OpenAI says the chip went from design to "tape-out" — finalized and shipped to the fab — in about nine months, which it claims is among the fastest sprints ever for silicon this size. Early tests show "substantially better performance per watt" than today's best, per the company — a not-so-subtle jab at Nvidia, whose shares slipped ~1.6% on the news while Broadcom rose ~1%. The plan: roll out on the order of 10 gigawatts of these accelerators with Microsoft over the coming years, starting late 2026.</p>
-      <p class="bottom-line"><strong>Bottom line:</strong> Training gets the headlines, but inference is the part you pay for every single day. If OpenAI can shave the cost of answering you, it loosens Nvidia's grip on AI's most expensive line item — and every rival lab just got a reason to design its own.</p>
-    </div>
+      <div class="snapshot">
+        <h2>The Snapshot</h2>
+        <div class="signal"><span class="metric">3 &rarr; 0:</span> <span class="quip">OpenAI shipped three new GPT-5.6 models (Sol, Terra, Luna) and, at the government's request, made exactly zero of them available to you. Trusted partners only.</span></div>
+        <div class="signal"><span class="metric">100+:</span> <span class="quip">Cybersecurity pros who signed a letter begging the White House to un-bench Anthropic's restricted models. The defenders want their toy back.</span></div>
+        <div class="signal"><span class="metric">$1.5B:</span> <span class="quip">Baseten's new Series F, at up to a ~$13B valuation &mdash; because somebody has to <em>run</em> all those tokens, and inference just became the hottest real estate in AI.</span></div>
+        <div class="signal"><span class="metric">28.8M:</span> <span class="quip">Questions Anthropic says Alibaba-linked accounts funneled into Claude to clone it. That's not a chatbot session; that's a heist.</span></div>
+        <div class="signal"><span class="metric">4:</span> <span class="quip">Senior Google DeepMind researchers who've defected to Anthropic or OpenAI in about a week. The brain drain has a turnstile now.</span></div>
+        <div class="signal"><span class="metric">27 years:</span> <span class="quip">How long a security hole sat unnoticed in widely used software &mdash; until an AI found it in an afternoon. Cool. Cool cool cool.</span></div>
+        <div class="mood">Mood: the models finally got powerful enough to matter to national security &mdash; which is exactly when the government decided to hold the keys.</div>
+      </div>
 
-    <hr class="divider">
+      <p class="open"><strong>Good morning.</strong> It's Saturday, the one day the AI industry is contractually obligated to rest, and even it couldn't sit still. This week the genre was "be careful what you build": a model aced the government's hardest hacking test and got grounded for it, OpenAI launched its smartest systems straight into a velvet rope, and the people who actually defend networks started a petition to get the good stuff back. The throughline isn't a product. It's a question nobody's answered yet: when an AI is good enough to break into the nation's secrets, who's allowed to press "go"?</p>
 
-    <!-- Story 2 -->
-    <div class="story">
-      <h2>Brain Drain at the 'Plex</h2>
-      <p>Google keeps inventing the future, then watching it walk out the door. Per TechCrunch (citing Bloomberg), two researchers central to Gemini — Jonas Adler and Alexander Fritzel — are leaving for Anthropic. They're not alone: Noam Shazeer, a co-author of the 2017 Transformer paper that kicked off this whole era, is reportedly headed to OpenAI, and John Jumper, who shared the 2024 chemistry Nobel for AlphaFold, is leaving DeepMind for Anthropic. Google had paid up to keep some of these folks — including an effective ~$2.7B reacquisition of Shazeer's startup Character.AI. Didn't stick.</p>
-      <p class="bottom-line"><strong>Bottom line:</strong> Models can be cloned in months; the people who dream up the next architecture can't. The scarcest asset in AI isn't GPUs — it's the few hundred minds who know what to build with them, and right now Anthropic and OpenAI are writing the bigger checks.</p>
-    </div>
+      <div class="story">
+        <h2 class="lead">Frontier, meet the velvet rope</h2>
+        <p>OpenAI announced three new models on Friday &mdash; GPT-5.6 Sol, Terra, and Luna, tuned for heavy reasoning, everyday tasks, and cheap bulk jobs &mdash; and then did something it's never done: kept them behind a gate, at the U.S. government's request. Per CNBC and TechCrunch, the White House's cyber and science-policy offices asked OpenAI to limit the launch to a "small group of trusted partners" while officials build a framework for security-testing frontier models. It's the first time Washington has <em>preemptively</em> asked an American lab to throttle a release before it shipped.</p>
+        <p>The worry, per the reporting, is cyber capability &mdash; these models are good enough at finding and exploiting software flaws to make both Wall Street and Washington nervous. OpenAI complied but pushed back in the same breath, saying it doesn't believe "this kind of government access process should become the long-term default," and promising broader access through ChatGPT, Codex, and its API soon.</p>
+        <div class="bottomline"><strong>Bottom line:</strong> The era of "ship it to everyone on launch day" just hit its first government-issued speed bump. Capability and access used to be the same decision. As of Friday, they're not.</div>
+      </div>
 
-    <hr class="divider">
+      <div class="story">
+        <h2 class="lead">One off switch, everybody loses</h2>
+        <p>Exhibit B for the same trend, gloves off. Anthropic's most capable models &mdash; codenamed Mythos and Fable &mdash; have been effectively offline since June 12, after the administration restricted them to U.S. citizens (with no real way to verify nationality in real time, that's an off switch for everyone). The trigger: at a Senate hearing, lawmakers relayed that Mythos, tested against real classified systems, "broke into almost all of them, not in weeks, but in hours." Officials later clarified it found the holes fast but didn't necessarily walk through them.</p>
+        <p>This week, more than 100 cybersecurity experts signed a letter calling the shutdown a mistake, per Cybersecurity Dive. Their argument: these are exactly the tools defenders use to find bugs before attackers do, they're not uniquely dangerous next to what's already out there, and benching them "risked America's AI leadership without any real risk to justify it" &mdash; especially with China's best models "only months behind."</p>
+        <div class="bottomline"><strong>Bottom line:</strong> A model that can surface a 27-year-old security hole is a gift to whoever patches it and whoever attacks it &mdash; same tool, no setting that makes it only the good kind. Washington chose "nobody." The defenders are the ones who'll feel it first.</div>
+      </div>
 
-    <!-- Story 3 -->
-    <div class="story">
-      <h2>Chips Ahoy, Brussels</h2>
-      <p>Washington is shopping for friends. On Thursday, Bloomberg reported the US has pitched the European Union on a formal AI partnership aimed at locking down semiconductor supply chains as competition with China sharpens — built on "trusted collaboration, economic security, innovation, and fair competition." The timing's delicate: Europe's own AI Act starts biting on August 2, when its rules for "high-risk" systems kick in, and the two sides haven't exactly seen eye to eye on regulation. Meanwhile, allies aren't waiting around — a wave of "sovereign AI" funds and national strategies has countries racing to own their compute rather than rent it.</p>
-      <p class="bottom-line"><strong>Bottom line:</strong> Compute is the new oil, and 2026 is the year governments started acting like it. Expect more "trusted partner" alliances — and more nations quietly deciding they'd rather own the whole stack than lease it from Silicon Valley.</p>
-    </div>
+      <div class="story">
+        <h2 class="lead">Brain drain, now with an express lane</h2>
+        <p>The talent war has a body count this week, and it's all wearing Google badges. Within days, DeepMind lost AI-coding lead Jonas Adler and pretraining specialist Alexander Pritzel to Anthropic &mdash; joining Transformer co-author Noam Shazeer (now at OpenAI) and Nobel laureate John Jumper, the AlphaFold lead, who left for Anthropic earlier this month. Per TechCrunch and Bloomberg, that's four senior departures in roughly a week, and the AlphaFold core has essentially relocated across town.</p>
+        <p>The lure isn't a foosball table. Analysts tie the moves to pre-IPO equity: with OpenAI and Anthropic both circling public offerings, a grant signed today could be a yacht tomorrow. Google has the compute and Gemini's momentum; what it's losing is the irreplaceable part &mdash; the handful of people who know how to make the <em>next</em> model actually smarter.</p>
+        <div class="bottomline"><strong>Bottom line:</strong> Models are sliding toward commodity; the people who can build the next one are not. The pre-IPO equity bonfire is now the most effective recruiting tool in tech, and Google's the one getting singed.</div>
+      </div>
 
-    <hr class="divider">
+      <div class="story">
+        <h2 class="lead">Stop copying our homework</h2>
+        <p>Anthropic told U.S. senators that operators linked to Alibaba ran nearly 25,000 fake accounts to fire roughly 28.8 million questions at Claude between late April and early June &mdash; not to use it, but to harvest its answers and train a rival, per Global Banking &amp; Finance. The technique is called distillation: a smaller "student" model learns by imitating a smarter "teacher's" outputs. Labs do it to their own models constantly; doing it to someone else's, against the rules, is the part Anthropic is calling theft. It says it's the largest such campaign it's caught, and ties it to earlier efforts it blames on DeepSeek and others. (Alibaba hasn't publicly responded; treat it as an accusation for now.)</p>
+        <div class="bottomline"><strong>Bottom line:</strong> The smartest models are now valuable enough to steal just by asking them millions of questions. The moat was never only the weights &mdash; it's the answers, and they leak one prompt at a time.</div>
+      </div>
 
-    <!-- Quick Hits -->
-    <div class="quick-hits">
-      <h2>Quick Hits</h2>
-      <ul>
-        <li>📰 Reuters Institute finds ~10% of people get weekly news from AI chatbots — but just <strong>4%</strong> click through to the source (vs. 19% from search). Publishers, gulp.</li>
-        <li>🇰🇷 Korea's NAVER is building sovereign AI infra with Nvidia, starting at <strong>55 MW</strong> and scaling toward a gigawatt for its HyperCLOVA X models.</li>
-        <li>🇬🇧 The UK's <strong>£500M</strong> Sovereign AI Fund has backed nine homegrown startups with cash and compute — a hedge against leaning on foreign tech.</li>
-        <li>🇨🇦 Canada's "AI for All" strategy promises compute run "under Canadian control and Canadian law." Tech nationalism, eh?</li>
-        <li>🇪🇺 Clock's ticking: the EU AI Act's "high-risk" obligations take effect <strong>August 2</strong>, and plenty of US firms are still squinting at the fine print.</li>
+      <p class="section-label">Quick Hits</p>
+      <ul class="quickhits">
+        <li>💸 Inference is the new oil: Baseten raised a $1.5B Series F at up to a ~$13B valuation (BusinessWire), capping a week of megarounds as money rushes from <em>training</em> models to actually <em>running</em> them.</li>
+        <li>🪪 Anthropic updated its policy so Claude may ask flagged users for a government ID, a selfie, and facial geometry starting July 8 &mdash; a lot of paperwork to argue with a chatbot (TechCrunch).</li>
+        <li>🧬 A Jackson Lab immunologist says OpenAI's GPT-5 Pro cracked a T-cell pattern his team had missed since 2022, compressing months of analysis into minutes &mdash; humans still designed the experiments (Crypto Briefing).</li>
+        <li>😤 A Parloa survey found most people actively dodge service bots: 43.9% chant "human" like a spell, and 17% resort to profanity (Futurism).</li>
+        <li>🔁 Engineers are drowning in "workslop" &mdash; plausible AI code that compiles and quietly rots &mdash; as a Menlo Ventures partner warns the new "loops" of agents-prompting-agents have no human in the chair and no ceiling on the bill (TechCrunch).</li>
+        <li>🏫 The policy mill keeps grinding: California sent Gov. Newsom a ban on AI public-school teachers, and Rhode Island signed a chatbot-therapy ban into law (Transparency Coalition).</li>
+        <li>🧠 New York closed its legislative session by passing a kids' chatbot-safety bill, an AI training-data transparency act, and a data-center moratorium in one sitting.</li>
       </ul>
-    </div>
 
-    <hr class="divider">
+      <div class="bigpicture">
+        <h2>The Big Picture</h2>
+        <p>For three years the only question that mattered in AI was <em>can we build it.</em> This week the question quietly changed to <em>who's allowed to run it.</em> Two of the most capable models on earth are now gated by Washington, a third launched into a government-approved guest list, and the throughline is cyber: the same skill that lets a model patch a decades-old bug lets it pop a classified network, and there's no dial that delivers only the first. That nudges frontier AI toward something closer to controlled technology &mdash; export-controlled, citizenship-checked, access-by-policy &mdash; even as the compute beneath it (the chips, the data centers, the billion-dollar inference rounds) keeps scaling like nothing's wrong. The bet of the last cycle was that intelligence would get cheap and universal. The story of this week is that the smartest slice of it might not &mdash; and the people deciding aren't in the labs anymore.</p>
+      </div>
 
-    <!-- Big Picture -->
-    <div class="big-picture">
-      <h2>The Big Picture</h2>
-      <p>Strip away the branding and this week told one story: AI's value is migrating from the model to everything around it. When a frontier model can be matched in months, the durable advantages become the boring, capital-heavy stuff — custom silicon, gigawatts of power, distribution, and the handful of researchers who know what to build next. That's why OpenAI is taping out its own chips, why Google is bleeding talent to richer rivals, and why governments are treating compute like a strategic reserve. With roughly $725B in hyperscaler capex flowing this year, the "AI race" is quietly becoming an industrial-policy race. Follow the money: it's pooling in infrastructure and expertise, not in another chatbot.</p>
-    </div>
+      <div class="omt">
+        <h2>One More Thing</h2>
+        <p>Spare a thought for the customer-service chatbot, unloved and besieged. In that Parloa survey of 1,001 Americans, 43.9% said they try to reach a human by simply repeating "human" or "person" into the phone like a magic incantation, 17% have resorted to swearing at the bot, and only 13.6% trust AI with anything complicated. The twist: 85% said they'd happily use an AI agent &mdash; <em>if</em> it actually solved their problem. So the machines aced a classified-network exam this week but still can't get you a refund. Priorities.</p>
+      </div>
 
-    <hr class="divider">
+      <div class="sources">
+        <h2>Sources</h2>
+        <ol class="sources-list">
+          <li><a class="src" href="https://www.cnbc.com/2026/06/26/openai-limits-new-ai-models-to-trusted-partners-request-us-government.html">OpenAI limits new AI models to 'trusted partners' at request of U.S. government &mdash; CNBC</a></li>
+          <li><a class="src" href="https://techcrunch.com/2026/06/26/openai-limits-gpt-5-6-rollout-after-government-request-says-restrictions-shouldnt-be-the-norm/">OpenAI limits GPT-5.6 rollout after government request &mdash; TechCrunch</a></li>
+          <li><a class="src" href="https://www.cnn.com/2026/06/25/tech/openai-limit-release-white-house">White House asks OpenAI to limit its next model release &mdash; CNN Business</a></li>
+          <li><a class="src" href="https://www.cybersecuritydive.com/news/anthropic-us-government-export-ban-mythos-fable/822909/">Cybersecurity experts blast US government for restricting Anthropic's AI models &mdash; Cybersecurity Dive</a></li>
+          <li><a class="src" href="https://www.securityweek.com/anthropics-mythos-model-found-vulnerabilities-in-classified-us-government-systems-official-says/">Anthropic's Mythos model found vulnerabilities in classified U.S. systems, official says &mdash; SecurityWeek</a></li>
+          <li><a class="src" href="https://www.pbs.org/newshour/show/anthropic-disables-new-ai-model-after-white-house-security-directive">Anthropic disables new AI model after White House security directive &mdash; PBS NewsHour</a></li>
+          <li><a class="src" href="https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/">AI researchers continue to leave Google for its rivals &mdash; TechCrunch</a></li>
+          <li><a class="src" href="https://www.bloomberg.com/news/articles/2026-06-24/google-poised-to-lose-two-more-high-profile-ai-staffers-to-anthropic">Google poised to lose two more high-profile AI staffers to Anthropic &mdash; Bloomberg</a></li>
+          <li><a class="src" href="https://www.globalbankingandfinance.com/anthropic-alibaba-illicitly-extracted-claude-ai-model/">Anthropic accuses Alibaba of illicitly extracting Claude &mdash; Global Banking &amp; Finance</a></li>
+          <li><a class="src" href="https://www.businesswire.com/news/home/20260622645563/en/Baseten-Raises-$1.5-Billion-to-Power-the-Next-Era-of-AI-Inference">Baseten raises $1.5 billion to power the next era of AI inference &mdash; BusinessWire</a></li>
+          <li><a class="src" href="https://techcrunch.com/2026/06/22/anthropic-says-claude-may-want-to-see-your-id/">Anthropic says Claude may want to see your ID &mdash; TechCrunch</a></li>
+          <li><a class="src" href="https://cryptobriefing.com/gpt5-pro-t-cell-immunology-discovery/">GPT-5 Pro T-cell immunology discovery &mdash; Crypto Briefing</a></li>
+          <li><a class="src" href="https://futurism.com/artificial-intelligence/customers-fed-up-ai-service-agents">Customers are fed up with AI service agents &mdash; Futurism</a></li>
+          <li><a class="src" href="https://techcrunch.com/2026/06/22/the-ai-world-is-getting-loopy/">The AI world is getting loopy &mdash; TechCrunch</a></li>
+          <li><a class="src" href="https://www.transparencycoalition.ai/news/ai-legislative-update-june26-2026">AI Legislative Update, June 26, 2026 &mdash; Transparency Coalition</a></li>
+          <li><a class="src" href="https://www.neuralbuddies.com/p/ai-news-recap-june-26-2026">AI News Recap, June 26, 2026 &mdash; NeuralBuddies</a></li>
+        </ol>
+      </div>
 
-    <!-- One More Thing -->
-    <div class="one-more-thing">
-      <h2>One More Thing</h2>
-      <p>OpenAI named its first chip <em>Jalapeño</em>. No official word on why, though we like to picture a whiteboard, a late night, and someone insisting the next one be called <em>Habanero</em>. For scale: a jalapeño tops out around 8,000 Scoville units of heat; OpenAI's tops out around 10 gigawatts of the electrical kind — enough to power a small country, and decidedly worse on nachos. Stay cool out there. 🌶️</p>
-    </div>
+      <div class="archive">
+        <a class="pill current" href="ai-brew-2026-06-27.md">Jun 27</a>
+        <a class="pill past" href="ai-brew-2026-06-26.md">Jun 26</a>
+        <a class="pill past" href="ai-brew-2026-06-25.md">Jun 25</a>
+        <a class="pill past" href="ai-brew-2026-06-24.md">Jun 24</a>
+        <a class="pill past" href="ai-brew-2026-06-23.md">Jun 23</a>
+        <a class="pill past" href="ai-brew-2026-06-22.md">Jun 22</a>
+      </div>
+      <div class="copyright">© 2026 The AI Brew · stockfilter.app</div>
 
-    <!-- Sources -->
-    <div class="sources">
-      <div class="sources-label">Sources</div>
-      <ol>
-        <li><a href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/" target="_blank" rel="noopener">OpenAI unveils its first custom chip, built by Broadcom — TechCrunch</a></li>
-        <li><a href="https://www.cnbc.com/2026/06/24/openai-and-broadcom-reveal-jalapeno-first-ai-chip-in-partnership.html" target="_blank" rel="noopener">OpenAI and Broadcom reveal Jalapeño — CNBC</a></li>
-        <li><a href="https://edition.cnn.com/2026/06/24/tech/openai-broadcom-jalapeno-ai-chip" target="_blank" rel="noopener">OpenAI just announced its first custom chip — CNN Business</a></li>
-        <li><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/broadcom-and-openai-unveil-custom-built-jalapeno-inference-processor-openais-first-chip-is-a-massive-reticle-sized-asic-built-in-an-ultra-fast-nine-month-development-cycle" target="_blank" rel="noopener">Broadcom and OpenAI unveil Jalapeño inference processor — Tom's Hardware</a></li>
-        <li><a href="https://techcrunch.com/2026/06/24/ai-researchers-continue-to-leave-google-for-its-rivals/" target="_blank" rel="noopener">AI researchers continue to leave Google for its rivals — TechCrunch</a></li>
-        <li><a href="https://www.bloomberg.com/news/articles/2026-06-25/us-seeks-ai-partnership-with-eu-on-regulation-supply-chains" target="_blank" rel="noopener">US Proposes AI Partnership With EU — Bloomberg</a></li>
-        <li><a href="https://reutersinstitute.politics.ox.ac.uk/digital-news-report/2026/emerging-uses-ai-chatbots-news-and-what-it-means-journalism" target="_blank" rel="noopener">Emerging uses of AI chatbots for news — Reuters Institute 2026</a></li>
-        <li><a href="https://finance.yahoo.com/sectors/technology/article/meta-microsoft-amazon-and-alphabet-are-about-to-spend-a-shocking-amount-of-money-to-dominate-the-ai-era-115359575.html" target="_blank" rel="noopener">Big Tech's record 2026 AI capex — Yahoo Finance</a></li>
-      </ol>
-      <p style="margin-top:12px; font-size:12px; color:#94a3b8; font-style:italic; font-family:system-ui,sans-serif;">Curated from the last ~48 hours. Unverified items were left out — when in doubt, we leave it out.</p>
-    </div>
-
-  </div><!-- /content -->
-
-  <!-- Archive -->
-  <div class="archive">
-    <div class="archive-label">Past Issues</div>
-    <div class="archive-pills">
-      <a class="archive-pill active" href="ai-brew-2026-06-26.md">Jun 26</a>
-      <a class="archive-pill" href="ai-brew-2026-06-25.md">Jun 25</a>
-      <a class="archive-pill" href="ai-brew-2026-06-24.md">Jun 24</a>
     </div>
   </div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <p>The AI Brew · <a href="https://stockfilter.app">stockfilter.app</a> · Generated daily</p>
-  </footer>
 
 </body>
 </html>
