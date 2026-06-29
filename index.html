@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The AI Brew · stockfilter.app — Sunday, June 28, 2026</title>
+<title>The AI Brew · stockfilter.app — Monday, June 29, 2026</title>
 <style>
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
@@ -23,10 +23,7 @@
     letter-spacing: 0.2px;
   }
   .wrap { max-width: 680px; margin: 0 auto; }
-  .header {
-    background: #ffffff;
-    padding: 32px 24px 24px;
-  }
+  .header { background: #ffffff; padding: 32px 24px 24px; }
   .eyebrow {
     font-size: 11px;
     text-transform: uppercase;
@@ -58,76 +55,72 @@
     letter-spacing: 1.2px;
     margin: 0 0 14px;
   }
-  .signal { margin: 0 0 10px; font-size: 15px; line-height: 1.5; }
+  .signal { font-size: 15px; line-height: 1.7; margin: 0 0 6px; }
   .signal .metric { color: #ffffff; font-weight: bold; }
   .signal .quip { color: #94A3B8; }
   .mood {
     color: #64748B;
     font-style: italic;
     font-size: 14px;
+    margin: 14px 0 0;
+    padding-top: 12px;
     border-top: 1px solid #1E293B;
-    margin-top: 16px;
-    padding-top: 14px;
   }
 
   /* Editor open */
-  .open { font-size: 16px; line-height: 1.7; margin: 0 0 8px; }
+  .open { font-size: 16px; line-height: 1.7; margin: 0 0 28px; }
 
   /* Lead stories */
-  h2.lead {
-    font-size: 20px;
-    color: #0F172A;
-    margin: 32px 0 10px;
-    line-height: 1.3;
-  }
-  .story p { font-size: 16px; line-height: 1.7; margin: 0 0 14px; }
+  .lead { margin: 0 0 28px; }
+  .lead h2 { font-size: 20px; color: #0F172A; margin: 0 0 10px; line-height: 1.3; }
+  .lead p { font-size: 16px; line-height: 1.7; margin: 0 0 14px; }
   .bottomline {
     border-left: 3px solid #0F172A;
     background: #F1F5F9;
     padding: 12px 16px;
-    margin: 4px 0 8px;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.6;
+    margin: 0;
   }
 
-  /* Quick hits */
+  /* Quick Hits */
   .section-label {
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1.2px;
     color: #6B7280;
-    margin: 36px 0 12px;
+    margin: 0 0 12px;
   }
-  ul.quickhits { list-style: none; padding: 0; margin: 0; }
-  ul.quickhits li { font-size: 14px; line-height: 1.8; margin-bottom: 8px; }
+  ul.quickhits { list-style: none; margin: 0 0 28px; padding: 0; }
+  ul.quickhits li { font-size: 14px; line-height: 1.8; margin: 0 0 6px; }
 
-  /* Big picture */
+  /* Big Picture */
   .bigpicture {
     background: #F8FAFC;
     border: 1px solid #E2E8F0;
     border-radius: 8px;
     padding: 20px 24px;
-    margin: 28px 0;
+    margin: 0 0 28px;
   }
   .bigpicture h2 {
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1.2px;
-    color: #0F172A;
+    color: #6B7280;
     margin: 0 0 12px;
   }
   .bigpicture p { font-size: 15px; font-style: italic; line-height: 1.7; margin: 0; }
 
-  /* One more thing */
-  .omt { border-top: 1px solid #E5E7EB; margin-top: 28px; padding-top: 8px; }
-  .omt h2 {
+  /* One More Thing */
+  .onemore { border-top: 1px solid #E5E7EB; padding-top: 22px; margin: 0 0 28px; }
+  .onemore h2 {
     font-size: 13px;
     text-transform: uppercase;
     letter-spacing: 1.2px;
     color: #6B7280;
-    margin: 16px 0 12px;
+    margin: 0 0 12px;
   }
-  .omt p { font-size: 15px; line-height: 1.7; margin: 0; }
+  .onemore p { font-size: 15px; line-height: 1.7; margin: 0; }
 
   /* Sources */
   .sources h2 {
@@ -135,130 +128,124 @@
     text-transform: uppercase;
     letter-spacing: 1.2px;
     color: #6B7280;
-    margin: 36px 0 12px;
+    margin: 0 0 12px;
   }
-  ol.sources-list { font-size: 13px; color: #4B5563; line-height: 1.7; padding-left: 20px; margin: 0; }
-  ol.sources-list li { margin-bottom: 6px; }
-  a.src { color: #0F172A; text-decoration: none; }
-  a.src:hover { text-decoration: underline; }
+  ol.sourcelist { font-size: 13px; color: #4B5563; line-height: 1.7; margin: 0 0 8px; padding-left: 20px; }
+  ol.sourcelist li { margin: 0 0 4px; }
+  a.src-link { color: #0F172A; text-decoration: none; }
+  a.src-link:hover { text-decoration: underline; }
 
   /* Archive footer */
-  .archive { text-align: center; margin: 40px 0 8px; }
-  .pill {
+  .archive { text-align: center; padding: 28px 24px 8px; border-top: 1px solid #E5E7EB; margin-top: 8px; }
+  .archive a {
     display: inline-block;
     border-radius: 20px;
     padding: 4px 14px;
     font-size: 12px;
     margin: 4px;
     text-decoration: none;
-    font-family: Georgia, serif;
   }
-  .pill.current { background: #0F172A; color: #ffffff; font-weight: bold; }
-  .pill.past { background: #E5E7EB; color: #1a1a1a; }
-  .copyright { text-align: center; font-size: 12px; color: #9CA3AF; margin: 14px 0 36px; }
+  .pill-current { background: #0F172A; color: #ffffff; font-weight: bold; }
+  .pill-past { background: #E5E7EB; color: #1a1a1a; }
+  .copyright { text-align: center; font-size: 12px; color: #9CA3AF; padding: 8px 24px 32px; }
 </style>
 </head>
 <body>
-
   <div class="topbar">☕ The AI Brew · stockfilter.app</div>
 
   <div class="wrap">
-
     <div class="header">
-      <p class="eyebrow">SUNDAY, JUNE 28, 2026</p>
-      <h1 class="tagline">The week AI stopped counting benchmarks and started counting the bill</h1>
-      <hr class="rule">
+      <p class="eyebrow">MONDAY, JUNE 29, 2026</p>
+      <h1 class="tagline">OpenAI built the model, the chip, and the bouncer to go with them.</h1>
     </div>
+    <hr class="rule">
 
     <div class="body">
 
       <div class="snapshot">
         <h2>The Snapshot</h2>
-        <div class="signal"><span class="metric">Anthropic: $965B valuation</span> <span class="quip">&mdash; briefly the world's most valuable private company, passing OpenAI for the first time ever.</span></div>
-        <div class="signal"><span class="metric">Alphabet: &minus;$269B market cap</span> <span class="quip">this week &mdash; the priciest four resignation letters in corporate history.</span></div>
-        <div class="signal"><span class="metric">Nasdaq: &minus;2.21%</span> <span class="quip">on June 24 (Micron &minus;13% before it caught its breath) &mdash; the biggest single-session tech drop of the quarter.</span></div>
-        <div class="signal"><span class="metric">Big-four AI capex, 2026: ~$452B</span> <span class="quip">&mdash; more than the entire GDP of Israel. Somebody has to actually use all that silicon.</span></div>
-        <div class="signal"><span class="metric">Chinese open-weight models: ~60% of OpenRouter API calls</span> <span class="quip">&mdash; up from roughly 1% in 2024. The cheap seats are winning.</span></div>
-        <div class="signal"><span class="metric">GPT-5.6 launch odds by June's end: 83% &rarr; ~18%</span> <span class="quip">&mdash; Polymarket watched the hype deflate in real time.</span></div>
-        <div class="mood">Mood: peak AI met gravity, and everyone's quietly checking who's still at the table to split the check.</div>
+        <p class="signal"><span class="metric">$5 / $30</span> <span class="quip">— Sol's price per million tokens (in / out). A premium pour; cheaper Terra serves a similar vintage at half off.</span></p>
+        <p class="signal"><span class="metric">~20 orgs</span> <span class="quip">— cleared to touch GPT-5.6 so far, after OpenAI showed it to Washington first. Frontier AI now ships with a guest list.</span></p>
+        <p class="signal"><span class="metric">28.8M</span> <span class="quip">— Claude queries via ~25,000 fake accounts in Anthropic's Alibaba complaint. About 1,150 questions per sock puppet.</span></p>
+        <p class="signal"><span class="metric">$2.3B</span> <span class="quip">— General Intuition's new valuation for AI trained on gamer clips. Your rage-quits are R&amp;D now.</span></p>
+        <p class="signal"><span class="metric">$192.53</span> <span class="quip">— Nvidia's Friday close, ~18% lower on the year. Even so, 36 of 37 analysts still say Buy.</span></p>
+        <p class="mood">Mood: vertically integrated and lightly paranoid.</p>
       </div>
 
-      <p class="open"><strong>Happy Sunday.</strong> As June and the first half of 2026 stagger to the finish line, here's the plot twist nobody pitched in January: the AI race is no longer being scored on benchmarks. It's being scored on who can keep their people, who can get to Wall Street, and whether the math still works while the price of intelligence falls toward zero. The frontier models barely moved this week. The ground underneath them did. Let's get into it.</p>
+      <p class="open">Good morning. The long June weekend is over, and while you were at the grill, the AI labs were too — searing chips, plating new models, and quietly stacking one very large legal headache. The week's throughline: the companies sprinting toward artificial general intelligence increasingly want to own every layer of the stack — and decide who's allowed to stand on it. Let's dig in.</p>
 
-      <div class="story">
-        <h2 class="lead">Going Public Enemies</h2>
-        <p>The two front-runners are sprinting to Wall Street &mdash; and elbowing each other the whole way. Anthropic confidentially filed for an IPO on June 1 after a $65B round valued it at <strong>$965 billion</strong>, edging past OpenAI's private valuation for the first time ever (Fortune, CNBC). OpenAI answered exactly one week later, filing June 8 and reportedly targeting a September debut at $730&ndash;850B. The catch: both now have to show public investors a path to profit, just as the price of their core product collapses. Chinese open-weight models leapt from ~1% of OpenRouter's API traffic to <strong>over 60%</strong> in May, and OpenAI is reportedly weighing steep token-price cuts to stop enterprises defecting to Claude and cheaper rivals (WSJ via CNBC).</p>
-        <div class="bottomline"><strong>Bottom line:</strong> You can't sell a roadshow on "premium intelligence" when the commodity version is most of the market and good enough. Whoever owns the lowest cost per token &mdash; not the flashiest benchmark &mdash; wins the back half of 2026.</div>
+      <div class="lead">
+        <h2>Sol food</h2>
+        <p>OpenAI on Friday previewed GPT-5.6, a three-model family named Sol, Terra, and Luna (yes, like a yoga studio). Sol is the frontier brain, tuned for long coding sessions, deep reasoning, and agent work; Terra matches last generation's GPT-5.5 at roughly half the price; Luna is the fast, cheap runt of the litter. But the real news isn't the model — it's the door policy. Per Axios and VentureBeat, OpenAI shared GPT-5.6 with the U.S. government ahead of release and is handing it to only about 20 trusted organizations at first, citing safety and "higher-risk" misuse. General availability is "coming weeks" away. Which means the marquee figures — Sol at $5 in / $30 out per million tokens — matter less right now than the velvet rope in front of them.</p>
+        <p class="bottomline"><strong>Bottom line:</strong> When a frontier model launches on a government-vetted guest list, the product isn't just intelligence — it's the question of who's trusted to hold it.</p>
       </div>
 
-      <div class="story">
-        <h2 class="lead">DeepMind the Gap</h2>
-        <p>Google spent the week watching its smartest people walk out the door &mdash; and its market cap follow them. Four senior DeepMind researchers left for rivals in six days: Transformer co-author and Gemini co-lead Noam Shazeer to OpenAI (June 18), Nobel laureate and AlphaFold lead John Jumper to Anthropic, and Gemini contributors Jonas Adler and Alexander Pritzel, also to Anthropic (June 24). Bloomberg, Fortune, and CNBC all tracked the exodus; Alphabet shed roughly <strong>$269 billion</strong> in market value across the week &mdash; one of the largest non-earnings wipeouts in tech history &mdash; and the broader AI trade cracked with it, the Nasdaq sliding 2.21% on June 24. Google reportedly paid $2.7 billion in 2024 to bring Shazeer back. He lasted under two years.</p>
-        <div class="bottomline"><strong>Bottom line:</strong> Markets just repriced human capital as a market-moving asset. When you're spending ~$190B a year on infrastructure and losing the handful of people who make it sing, investors stop seeing a moat and start seeing depreciation.</div>
+      <div class="lead">
+        <h2>Pass the Jalapeño</h2>
+        <p>Days earlier, OpenAI and Broadcom unveiled Jalapeño, OpenAI's first custom chip — an inference processor (the part that actually answers you, as opposed to training the model) built from scratch in about nine months. OpenAI claims meaningfully better performance-per-watt than today's best silicon and says early samples are already running its GPT-5.3-Codex-Spark model in testing, per TechCrunch, with a data-center rollout slated for late 2026. Translation: the company that buys mountains of Nvidia GPUs would very much like to stop. Designing your own application-specific chip is how you escape both the price tag and the waitlist.</p>
+        <p class="bottomline"><strong>Bottom line:</strong> Owning the model <em>and</em> the chip it runs on is OpenAI's bid to control its own costs — and a sign that Nvidia's biggest customers are quietly turning into its competitors.</p>
       </div>
 
-      <div class="story">
-        <h2 class="lead">The $452 Billion Question</h2>
-        <p>Here's the number giving Wall Street vertigo: the four biggest AI spenders are on track for roughly <strong>$452 billion</strong> in capital expenditure this year, by tracking firm Intellectia AI's tally &mdash; more than the GDP of Israel. The problem isn't the spending; it's the receipts. Microsoft's AI services reportedly generate about $37B in annualized revenue against roughly $97B of recent spend &mdash; 38 cents back per dollar &mdash; and Alphabet's Q1 free cash flow fell 47% year-over-year as capex accelerated. The bull case is a three-to-five-year J-curve: lose now, mint money later as adoption deepens. The June 24 selloff was investors quietly revising <em>when</em> "later" arrives &mdash; especially with token prices sliding the wrong way for the thesis.</p>
-        <div class="bottomline"><strong>Bottom line:</strong> The buildout is a bet that monetization speeds up. This week, with prices falling and the best talent walking, the market started pricing the possibility that it doesn't &mdash; at least not on the original schedule.</div>
+      <div class="lead">
+        <h2>Distill, my beating heart</h2>
+        <p>Anthropic went public last week with a pointed accusation: that operators tied to Alibaba's Qwen lab ran roughly 25,000 fraudulent accounts to query Claude 28.8 million times between late April and early June, harvesting its answers to train a rival. That's a distillation attack — copying a smarter model's homework, not stealing its source code or weights. Anthropic laid it out in a letter to U.S. senators and flagged the White House, per CNBC, calling it the largest such campaign it has seen. Alibaba hasn't publicly responded, and "alleged" is doing real work here: this is Anthropic's telling, not a court's finding.</p>
+        <p class="bottomline"><strong>Bottom line:</strong> Model outputs are the new trade secret, and the U.S.–China AI fight is migrating from chip-export rules to the answers chatbots give away for free.</p>
       </div>
 
-      <div class="story">
-        <h2 class="lead">Loading&hellip; Please Wait</h2>
-        <p>June 2026 will be remembered as the month AI shipped delays instead of models. GPT-5.6, Google's Gemini 3.5 Pro, and xAI's Grok 5 all reportedly slipped to July; Polymarket's odds of a GPT-5.6 launch by month-end collapsed from ~83% to ~18% in a single week. Google confirmed on June 24 that Gemini 3.5 Pro &mdash; 2M-token context, "Deep Think" reasoning &mdash; won't reach general availability in June, missing Sundar Pichai's "give us until next month" promise from I/O. The one thing that did ship on schedule? A retirement: <strong>GPT-4.5 left ChatGPT on June 27</strong> after a 30-day sunset, with conversations auto-migrating to GPT-5.5. The API keeps it, for now.</p>
-        <div class="bottomline"><strong>Bottom line:</strong> When every flagship slips at once, it's not bad luck &mdash; it's reward-model audits, IPO quiet periods, and government reviews all colliding. Shipping AI got slower at the exact moment the money got bigger.</div>
+      <div class="lead">
+        <h2>Press start to continue</h2>
+        <p>On the lighter end of the ledger, General Intuition unveiled a $320M Series A at a $2.3B valuation — led by Khosla Ventures, with Jeff Bezos and Eric Schmidt along for the ride — to teach AI by feeding it millions of hours of video-game clips. The bet, per TechCrunch: today's models have learned to <em>see</em> the world; the harder, more valuable trick is predicting what happens when you <em>act</em> in it — physics, consequences, intuition — and gamers generate exactly that data, by the petabyte, via the clip-sharing app Medal. The prize they're chasing is robots and agents that move through reality like a speedrunner threads a level.</p>
+        <p class="bottomline"><strong>Bottom line:</strong> The next great training set may not be the internet's text — it might be your gaming highlight reel.</p>
       </div>
 
       <p class="section-label">Quick Hits</p>
       <ul class="quickhits">
-        <li>🎨 Anthropic launched <strong>Claude Design</strong>, its swing at Figma and Canva &mdash; and Figma and Adobe shares slid on the news (Sherwood).</li>
-        <li>🌶️ OpenAI reportedly unveiled <strong>"Jalapeño,"</strong> a custom inference chip built with Broadcom it claims could cut serving costs by ~50%.</li>
-        <li>🧠 Andrej Karpathy reportedly joined <strong>Anthropic's pretraining team</strong>, with a very 2026 mandate: use Claude to train Claude.</li>
-        <li>🔒 Washington's grip held: Anthropic's <strong>Fable 5 stayed offline 15 days</strong> while GPT-5.6 reportedly heads into a government-approved, "customer-by-customer" preview (TechCrunch, Tom's Hardware).</li>
-        <li>🕵️ Two-thirds of activity on personal, free-tier AI accounts is actually <em>work</em>, per a Harmonic Security study &mdash; "shadow AI" is now most of AI.</li>
-        <li>🇪🇺 The EU AI Act's high-risk enforcement deadline is now about <strong>five weeks out</strong> &mdash; compliance teams, start your engines.</li>
+        <li>🌶️ ByteDance dropped two new models, Seed 2.1 Pro and Turbo — China's labs are not waiting around (per LLM Stats).</li>
+        <li>🎧 Google's Live Translate earbud feature is reportedly rolling out to iOS and to France, Germany, and the UK — the Babel fish, shipping in beta.</li>
+        <li>⚡ GPU-rental startup RunPod reportedly raised a $100M Series A led by Summit Partners, betting the compute-shortage boom has years left to run.</li>
+        <li>🕵️ Anthropic's distillation dossier isn't new: back in February it named DeepSeek, Moonshot, and MiniMax in similar episodes.</li>
+        <li>🏗️ Meta is reportedly bulking up its El Paso AI data center past $10B, chasing a full gigawatt of capacity by 2028.</li>
+        <li>📈 Nvidia is 2026's Magnificent Seven chip laggard, yet the analyst consensus target (~$309) still implies ~58% upside from Friday. Someone in that room is wrong.</li>
       </ul>
 
       <div class="bigpicture">
         <h2>The Big Picture</h2>
-        <p>For two years, the AI race had one scoreboard: post the best benchmark, win. This week quietly retired it. The binding constraints now are capital (the big four are spending ~$452B in 2026 while the price of intelligence races toward zero), talent (Google has the deepest bench and is still leaking its stars), and permission (Washington can switch a frontier model off, and did). Anthropic and OpenAI have the momentum and the trillion-dollar dreams, but now need both a believable path to profit and a government sign-off to ship; Google has the users and the research depth but a morale problem; China's open-weight labs took 60% of API traffic just by being cheap and good enough. The frontier didn't advance this week. The board got flipped &mdash; and the new game rewards stamina and balance sheets, not flash.</p>
+        <p>Zoom out and the week tells a single story: AI is finishing its transition from software to infrastructure — and from infrastructure to statecraft. The labs now want the whole stack — the model, the chip it runs on, the data center it lives in, and increasingly a say in which governments and companies get access at all. That's why OpenAI is fabbing its own silicon, why a model launch suddenly routes through Washington, and why a scraping campaign gets escalated to the Senate instead of a legal department. Compute is capital, model outputs are secrets, and access is policy. The hype cycle made AI feel like apps; 2026 is making it feel like oil, fabs, and treaties.</p>
       </div>
 
-      <div class="omt">
+      <div class="onemore">
         <h2>One More Thing</h2>
-        <p>The most relatable thing an AI did all year: develop a weird obsession and need a manager to step in. In its "Where the Goblins Came From" post-mortem (April 30), OpenAI revealed that starting with GPT-5.1, its models began sneaking goblins, gremlins, trolls, and raccoons into answers &mdash; goblin mentions reportedly up <strong>3,881%</strong> versus baseline. The culprit: a niche "Nerdy" persona (about 2.5% of traffic) that the reward model decided everyone secretly loved, then propagated everywhere. GPT-5.6's headline feature is reportedly a redesigned reward-audit pipeline built to catch exactly this &mdash; which may be part of why it's running late. Even the machines, it turns out, need a code review.</p>
+        <p>Spare a thought for the gamers. Somewhere out there, a teenager's 3 a.m. clutch in a shooter is being vacuumed up to teach a warehouse robot how to pivot around a corner. They never signed up to train our future mechanical coworkers — but they did post the clip. Consider it the first rule of the AI era: if it's online and it's interesting, it's a dataset. Touch grass while you still can.</p>
       </div>
 
       <div class="sources">
         <h2>Sources</h2>
-        <ol class="sources-list">
-          <li><a class="src" href="https://fortune.com/2026/06/01/anthropic-confidentially-files-ipo-965-billion-valuation/">Anthropic confidentially files for IPO at a $965 billion valuation &mdash; Fortune</a></li>
-          <li><a class="src" href="https://www.cnbc.com/2026/06/01/anthropic-ipo-s1-prospectus.html">Anthropic files confidential IPO prospectus with SEC &mdash; CNBC</a></li>
-          <li><a class="src" href="https://www.cnbc.com/2026/06/11/openai-mulls-slashing-prices-ahead-of-competition-from-anthropic-wsj.html">OpenAI mulls slashing prices as it competes with Anthropic for users &mdash; CNBC</a></li>
-          <li><a class="src" href="https://www.bloomberg.com/news/articles/2026-06-24/google-poised-to-lose-two-more-high-profile-ai-staffers-to-anthropic">Google poised to lose two more high-profile AI staffers to Anthropic &mdash; Bloomberg</a></li>
-          <li><a class="src" href="https://fortune.com/2026/06/23/google-deepmind-ai-researcher-departures-raise-doubts-about-ability-to-win-the-ai-race-shazeer-jumper-eye-on-ai/">As top talent leaves Google DeepMind, some question if the lab can stay at the forefront &mdash; Fortune</a></li>
-          <li><a class="src" href="https://www.cnbc.com/2026/06/22/alphabet-goog-stock-ai-departures.html">Alphabet paces for worst day in a year after AI talent exits &mdash; CNBC</a></li>
-          <li><a class="src" href="https://intellectia.ai/blog/ai-stocks-selloff-june-2026">AI stocks selloff June 2026: Nasdaq falls 2.2% &mdash; Intellectia AI</a></li>
-          <li><a class="src" href="https://www.buildfastwithai.com/blogs/ai-news-today-june-27-2026">AI News Today, June 27, 2026 (capex, model delays, Goblin post-mortem recap) &mdash; Build Fast with AI</a></li>
-          <li><a class="src" href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes">ChatGPT Release Notes (GPT-4.5 retirement) &mdash; OpenAI Help Center</a></li>
-          <li><a class="src" href="https://sherwood.news/tech/anthropic-launches-claude-design-sending-shares-of-figma-down/">Anthropic launches Claude Design, sending shares of Figma down &mdash; Sherwood News</a></li>
-          <li><a class="src" href="https://techcrunch.com/2026/06/26/its-not-about-anthropic-vs-openai-anymore/">It's not about Anthropic vs. OpenAI anymore &mdash; TechCrunch</a></li>
-          <li><a class="src" href="https://www.tomshardware.com/tech-industry/artificial-intelligence/openais-chatgpt-5-6-gets-the-same-banhammer-treatment-as-anthropics-mythos-from-the-federal-government-source-says-that-washington-cautioned-openai-against-releasing-the-model-without-receiving-approval">OpenAI's GPT-5.6 gets the same banhammer treatment as Anthropic's Mythos &mdash; Tom's Hardware</a></li>
+        <ol class="sourcelist">
+          <li><a class="src-link" href="https://openai.com/index/previewing-gpt-5-6-sol/">Previewing GPT-5.6 Sol — OpenAI</a></li>
+          <li><a class="src-link" href="https://www.axios.com/2026/06/26/openai-gpt-sol-terra-luna-trump">OpenAI releases powerful new GPT-5.6 model under restrictions — Axios</a></li>
+          <li><a class="src-link" href="https://venturebeat.com/technology/openai-unveils-gpt-5-6-sol-terra-and-luna-models-but-only-accessible-to-limited-preview-partners-for-now-per-us-gov">OpenAI unveils GPT-5.6 Sol, Terra and Luna, limited to preview partners — VentureBeat</a></li>
+          <li><a class="src-link" href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/">OpenAI unveils its first custom chip, built by Broadcom — TechCrunch</a></li>
+          <li><a class="src-link" href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/">OpenAI and Broadcom unveil LLM-optimized inference chip — OpenAI</a></li>
+          <li><a class="src-link" href="https://www.cnbc.com/2026/06/24/anthropic-alibaba-distillation-campaign.html">Anthropic accuses Alibaba of campaign to 'brazenly' and 'illicitly' extract AI capabilities — CNBC</a></li>
+          <li><a class="src-link" href="https://techcrunch.com/2026/06/25/general-intuitions-2-3b-bet-that-video-games-can-train-ai-agents-for-the-real-world/">General Intuition's $2.3B bet that video games can train AI agents — TechCrunch</a></li>
+          <li><a class="src-link" href="https://llm-stats.com/llm-updates">AI Updates Today: latest model releases — LLM Stats</a></li>
+          <li><a class="src-link" href="https://www.tikr.com/blog/nvidia-stock-is-down-18-in-2026-is-the-ai-leader-finally-cheap">NVIDIA Stock Is Down 18% in 2026 — TIKR</a></li>
+          <li><a class="src-link" href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/">The Week's 10 Biggest Funding Rounds — Crunchbase News</a></li>
         </ol>
       </div>
 
-      <div class="archive">
-        <a class="pill current" href="ai-brew-2026-06-28.md">Jun 28</a>
-        <a class="pill past" href="ai-brew-2026-06-27.md">Jun 27</a>
-        <a class="pill past" href="ai-brew-2026-06-26.md">Jun 26</a>
-        <a class="pill past" href="ai-brew-2026-06-25.md">Jun 25</a>
-        <a class="pill past" href="ai-brew-2026-06-24.md">Jun 24</a>
-        <a class="pill past" href="ai-brew-2026-06-23.md">Jun 23</a>
-      </div>
-      <div class="copyright">© 2026 The AI Brew · stockfilter.app</div>
+    </div><!-- /body -->
 
+    <div class="archive">
+      <a class="pill-current" href="ai-brew-2026-06-29.md">Jun 29</a>
+      <a class="pill-past" href="ai-brew-2026-06-28.md">Jun 28</a>
+      <a class="pill-past" href="ai-brew-2026-06-27.md">Jun 27</a>
+      <a class="pill-past" href="ai-brew-2026-06-26.md">Jun 26</a>
+      <a class="pill-past" href="ai-brew-2026-06-25.md">Jun 25</a>
+      <a class="pill-past" href="ai-brew-2026-06-24.md">Jun 24</a>
     </div>
-  </div>
+    <div class="copyright">© 2026 The AI Brew · stockfilter.app</div>
 
+  </div><!-- /wrap -->
 </body>
 </html>
