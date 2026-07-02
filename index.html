@@ -3,250 +3,131 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The AI Brew · stockfilter.app — Wednesday, July 1, 2026</title>
+<title>The AI Brew — July 2, 2026</title>
+<meta name="description" content="The AI Brew: Cheaper agents, record chips, one 29-year-old bug — daily AI news for July 2, 2026.">
 <style>
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body {
-    font-family: Georgia, 'Times New Roman', serif;
-    background: #FAFAF8;
-    color: #1a1a1a;
-    line-height: 1.6;
-  }
-  .topbar {
-    width: 100%;
-    background: #0F172A;
-    color: #94A3B8;
-    font-size: 14px;
-    text-align: center;
-    padding: 10px 16px;
-    letter-spacing: 0.2px;
-  }
-  .wrap { max-width: 680px; margin: 0 auto; }
-  .header { background: #ffffff; padding: 32px 24px 24px; }
-  .eyebrow {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #6B7280;
-    margin: 0 0 12px;
-  }
-  h1.tagline {
-    font-size: 28px;
-    font-weight: bold;
-    color: #0F172A;
-    line-height: 1.25;
-    margin: 0 0 20px;
-  }
-  .rule { border: none; border-top: 1px solid #E5E7EB; margin: 0; }
-  .body { padding: 24px; }
-
-  /* Snapshot */
-  .snapshot {
-    background: #0F172A;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 24px;
-  }
-  .snapshot h2 {
-    color: #ffffff;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    margin: 0 0 14px;
-  }
-  .signal { font-size: 15px; line-height: 1.7; margin: 0 0 6px; }
-  .signal .metric { color: #ffffff; font-weight: bold; }
-  .signal .quip { color: #94A3B8; }
-  .mood {
-    color: #64748B;
-    font-style: italic;
-    font-size: 14px;
-    margin: 14px 0 0;
-    padding-top: 12px;
-    border-top: 1px solid #1E293B;
-  }
-
-  /* Editor open */
-  .open { font-size: 16px; line-height: 1.7; margin: 0 0 28px; }
-
-  /* Lead stories */
-  .lead { margin: 0 0 28px; }
-  .lead h2 { font-size: 20px; color: #0F172A; margin: 0 0 10px; line-height: 1.3; }
-  .lead p { font-size: 16px; line-height: 1.7; margin: 0 0 14px; }
-  .bottomline {
-    border-left: 3px solid #0F172A;
-    background: #F1F5F9;
-    padding: 12px 16px;
-    font-size: 15px;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* Quick Hits */
-  .section-label {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: #6B7280;
-    margin: 0 0 12px;
-  }
-  ul.quickhits { list-style: none; margin: 0 0 28px; padding: 0; }
-  ul.quickhits li { font-size: 14px; line-height: 1.8; margin: 0 0 6px; }
-
-  /* Big Picture */
-  .bigpicture {
-    background: #F8FAFC;
-    border: 1px solid #E2E8F0;
-    border-radius: 8px;
-    padding: 20px 24px;
-    margin: 0 0 28px;
-  }
-  .bigpicture h2 {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: #6B7280;
-    margin: 0 0 12px;
-  }
-  .bigpicture p { font-size: 15px; font-style: italic; line-height: 1.7; margin: 0; }
-
-  /* One More Thing */
-  .onemore { border-top: 1px solid #E5E7EB; padding-top: 22px; margin: 0 0 28px; }
-  .onemore h2 {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: #6B7280;
-    margin: 0 0 12px;
-  }
-  .onemore p { font-size: 15px; line-height: 1.7; margin: 0; }
-
-  /* Sources */
-  .sources h2 {
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: #6B7280;
-    margin: 0 0 12px;
-  }
-  ol.sourcelist { font-size: 13px; color: #4B5563; line-height: 1.7; margin: 0 0 8px; padding-left: 20px; }
-  ol.sourcelist li { margin: 0 0 4px; }
-  a.src-link { color: #0F172A; text-decoration: none; }
-  a.src-link:hover { text-decoration: underline; }
-
-  /* Archive footer */
-  .archive { text-align: center; padding: 28px 24px 8px; border-top: 1px solid #E5E7EB; margin-top: 8px; }
-  .archive a {
-    display: inline-block;
-    border-radius: 20px;
-    padding: 4px 14px;
-    font-size: 12px;
-    margin: 4px;
-    text-decoration: none;
-  }
-  .pill-current { background: #0F172A; color: #ffffff; font-weight: bold; }
-  .pill-past { background: #E5E7EB; color: #1a1a1a; }
-  .copyright { text-align: center; font-size: 12px; color: #9CA3AF; padding: 8px 24px 32px; }
+  body { margin:0; background:#FAFAF8; color:#1a1a1a; font-family: Georgia, 'Times New Roman', serif; }
+  .topbar { background:#0F172A; color:#94A3B8; font-size:14px; text-align:center; padding:10px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  .wrap { max-width:680px; margin:0 auto; padding:0 16px; }
+  .header { background:#FFFFFF; padding:32px 24px 24px; }
+  .eyebrow { font-size:11px; text-transform:uppercase; letter-spacing:2px; color:#6B7280; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin:0 0 12px; }
+  h1 { font-size:28px; font-weight:bold; color:#0F172A; margin:0 0 20px; line-height:1.3; }
+  .header hr { border:none; border-top:1px solid #E5E7EB; margin:0; }
+  .snapshot { background:#0F172A; border-radius:8px; padding:20px; margin:24px 0; }
+  .snapshot h2 { color:#FFFFFF; font-size:13px; text-transform:uppercase; letter-spacing:1.5px; margin:0 0 14px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  .signal { margin:0 0 10px; font-size:15px; line-height:1.5; }
+  .signal b { color:#FFFFFF; }
+  .signal span { color:#94A3B8; }
+  .mood { border-top:1px solid #1E293B; margin-top:14px; padding-top:12px; color:#64748B; font-style:italic; font-size:14px; }
+  h2.story { font-size:20px; color:#0F172A; margin:32px 0 10px; }
+  p { font-size:16px; line-height:1.7; margin:0 0 16px; }
+  .bottomline { border-left:3px solid #0F172A; background:#F1F5F9; padding:12px 16px; margin:0 0 24px; font-size:15px; line-height:1.6; }
+  .sechead { font-size:13px; text-transform:uppercase; letter-spacing:1.5px; color:#6B7280; margin:36px 0 12px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  ul.hits { list-style:none; padding:0; margin:0 0 8px; }
+  ul.hits li { font-size:14px; line-height:1.8; margin-bottom:8px; }
+  .bigpicture { background:#F8FAFC; border:1px solid #E2E8F0; border-radius:8px; padding:20px 24px; margin:16px 0 8px; }
+  .bigpicture h2 { font-size:13px; text-transform:uppercase; letter-spacing:1.5px; color:#6B7280; margin:0 0 10px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  .bigpicture p { font-size:15px; font-style:italic; margin:0; }
+  .onemore { border-top:1px solid #E5E7EB; margin-top:32px; padding-top:8px; }
+  .onemore p { font-size:15px; }
+  ol.sources { padding-left:20px; margin:0 0 32px; }
+  ol.sources li { font-size:13px; color:#4B5563; line-height:1.9; }
+  ol.sources a { color:#0F172A; text-decoration:none; }
+  .archive { text-align:center; padding:28px 0 36px; border-top:1px solid #E5E7EB; margin-top:32px; }
+  .pill { display:inline-block; border-radius:20px; padding:4px 14px; font-size:12px; margin:4px; text-decoration:none; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background:#E5E7EB; color:#1a1a1a; }
+  .pill.current { background:#0F172A; color:#FFFFFF; font-weight:bold; }
+  .copyright { font-size:12px; color:#9CA3AF; margin-top:16px; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
 </style>
 </head>
 <body>
-  <div class="topbar">☕ The AI Brew · stockfilter.app</div>
 
-  <div class="wrap">
-    <div class="header">
-      <p class="eyebrow">WEDNESDAY, JULY 1, 2026</p>
-      <h1 class="tagline">Big bills, bigger defections, one very large cat</h1>
-    </div>
-    <hr class="rule">
+<div class="topbar">☕ The AI Brew · stockfilter.app</div>
 
-    <div class="body">
+<div class="wrap">
 
-      <div class="snapshot">
-        <h2>The Snapshot</h2>
-        <p class="signal"><span class="metric">$200.09</span> <span class="quip">— NVDA closed up 2.6% Tuesday, still nursing a 23% wound from its May all-time high.</span></p>
-        <p class="signal"><span class="metric">1.6 trillion</span> <span class="quip">— parameters in Meituan's new LongCat-2.0, the first model its size trained and run entirely on Chinese-made chips.</span></p>
-        <p class="signal"><span class="metric">$84.75B</span> <span class="quip">— Alphabet's newly closed equity raise, the largest AI-infrastructure financing in corporate history.</span></p>
-        <p class="signal"><span class="metric">6</span> <span class="quip">— DeepMind researchers who've left for rivals since February, including a Nobel laureate.</span></p>
-        <p class="signal"><span class="metric">10x–50x</span> <span class="quip">— how much some developers' GitHub Copilot bills jumped once usage-based pricing kicked in.</span></p>
-        <p class="signal"><span class="metric">24x</span> <span class="quip">— the growth in AI-agent token consumption Goldman Sachs expects over the next four years.</span></p>
-        <p class="mood">Mood: Tuesday felt like the day AI stopped being free to love and started sending itemized invoices.</p>
-      </div>
+<div class="header">
+  <p class="eyebrow">Thursday, July 2, 2026</p>
+  <h1>Cheaper agents, record chips, one 29-year-old bug</h1>
+  <hr>
+</div>
 
-      <p class="open">Halfway through 2026, and the AI story is quietly changing shape. It used to be about what the models could do. Now it's about what running them costs, who controls the chips underneath them, and who's left holding the org chart when the researchers who built them walk out the door. Today's slate has all three — plus a very large cat. Let's get into it.</p>
+<div class="snapshot">
+  <h2>The Snapshot</h2>
+  <p class="signal"><b>$2/$10</b> — <span>Claude Sonnet 5's introductory per-million-token pricing, less than the model it replaces. Frontier deflation has arrived.</span></p>
+  <p class="signal"><b>$44.82B</b> — <span>South Korea's June chip exports, up 199.5% year over year. Memory is the new oil.</span></p>
+  <p class="signal"><b>$1.75B</b> — <span>what Britain's National Grid just paid for a 35% slice of the US AI power boom.</span></p>
+  <p class="signal"><b>750</b> — <span>tokens per second OpenAI is targeting for GPT-5.6 Sol on Cerebras hardware, roughly 15x today's norm.</span></p>
+  <p class="signal"><b>29</b> — <span>years the Squidbleed bug hid in plain sight before an AI found it.</span></p>
+  <p class="signal"><b>$729.4B</b> — <span>global equity issuance in the first half of 2026, up 73%, courtesy of the AI trade.</span></p>
+  <p class="mood">Wednesday was the day AI got cheaper, faster, and better at finding everyone else's mistakes.</p>
+</div>
 
-      <div class="lead">
-        <h2>The Cat's Out of the (Chip) Bag</h2>
-        <p>Meituan — yes, the Chinese food-delivery giant — open-sourced LongCat-2.0 on Tuesday: 1.6 trillion parameters, a 1-million-token context window, and a claim that matters more than the size. The model was pretrained <em>and</em> run entirely on domestic Chinese chips, via a 50,000-card homegrown ASIC cluster. Previous domestic-silicon flexes, like DeepSeek's V4-pro, only used Chinese chips for inference — the training itself still leaned on Nvidia. Meituan says it skipped Nvidia from the start, then gave the weights away for free.</p>
-        <p class="bottomline"><strong>Bottom line:</strong> Export controls were built on the assumption that frontier-scale training stays locked to Nvidia hardware. If Meituan's claim holds up under scrutiny, that assumption just got a lot shakier — and Beijing made sure everyone could see it.</p>
-      </div>
+<p>Welcome to the second half of 2026, where the AI race has quietly changed events. The first half was about who could build the smartest model. The scoreboard now tracks who can run one cheapest, serve it fastest, and keep the lights on underneath it. Today's slate has all three — plus a squid-shaped reminder that the machines are now debugging us. Let's get into it.</p>
 
-      <div class="lead">
-        <h2>Google Pays Up While Its Best People Walk Out</h2>
-        <p>Alphabet closed the largest AI-infrastructure equity raise in corporate history this week — $84.75B across a public offering, an at-the-market program, and a $10B private placement to Berkshire Hathaway at roughly $350 a share. The timing isn't subtle: Alphabet shed $269B in market cap the week its researchers started leaving. Six DeepMind names have exited since February, including Transformer co-architect Noam Shazeer (now at OpenAI) and AlphaFold's Nobel laureate John Jumper (now at Anthropic). Sergey Brin reportedly sent an internal memo demanding the company "urgently bridge the gap in agentic execution."</p>
-        <p class="bottomline"><strong>Bottom line:</strong> Google can out-fund almost anyone on compute. Whether money buys back the researchers who actually write the code is a different question — and right now the answer looks like no.</p>
-      </div>
+<h2 class="story">Sonnet Boom</h2>
+<p>Anthropic launched Claude Sonnet 5 on June 30 and made it the default for every Free and Pro user worldwide as of July 1. The pitch, per TechCrunch: "a cheaper way to run agents." At introductory pricing of $2 per million input tokens and $10 output (through August 31), it costs less than the Sonnet 4.6 it replaces while landing close to flagship Opus 4.8 on Anthropic's published benchmarks — including a 20-point jump on terminal-based agent tasks. The timing isn't subtle: enterprises spent Q2 gasping at agentic AI bills, and Anthropic is racing toward a reported October IPO. One catch for builders — it's not a drop-in swap. Sampling parameters are gone, extended thinking is on by default, and a new tokenizer means the same text can cost up to 35% more tokens.</p>
+<div class="bottomline"><b>Bottom line:</b> The frontier is now a pricing page. When near-flagship capability ships at below last-gen prices, the moat stops being intelligence and starts being unit economics.</div>
 
-      <div class="lead">
-        <h2>Copilot Sends You the Bill</h2>
-        <p>June 30 closed the first full billing cycle under GitHub Copilot's usage-based pricing, and developers are trading screenshots: $29 subscriptions turning into $750, $50 turning into $3,000, for anyone running heavy agentic workflows. GitHub's product chief wasn't apologetic about it, telling users flatly that "Copilot is not the same product it was a year ago." The old safety net — falling back to a cheaper model once you hit your limit — is gone too; now you just stop.</p>
-        <p class="bottomline"><strong>Bottom line:</strong> Unlimited-AI-for-a-flat-fee is ending industry-wide, not just at GitHub. Expect your coding assistant's pricing page to look different by fall.</p>
-      </div>
+<h2 class="story">Seoul Power</h2>
+<p>South Korea's monthly exports crossed $100 billion for the first time ever in June — $102.25 billion, up 70.9% year over year — and the engine was almost entirely AI, per UPI. Semiconductor shipments hit a record $44.82 billion, nearly tripling from a year earlier, as US and Chinese hyperscalers scrambled for high-bandwidth memory and DDR5 to feed AI servers. That's one country exporting more chips in a month than many countries export of everything. It lands days after Seoul announced a $1 trillion-plus AI and chip investment drive (Al Jazeera), a bid to make sure the memory boom doesn't stay a memory.</p>
+<div class="bottomline"><b>Bottom line:</b> The AI buildout's profits aren't just flowing to Santa Clara. Korea's memory makers are the quiet arms dealers of the compute war — and their government just went all-in on keeping it that way.</div>
 
-      <div class="lead">
-        <h2>Meta Plays Pretend to Catch Rivals Slipping</h2>
-        <p>Meta reportedly hired hundreds of contractors to pose as teenagers and test how rival chatbots from Google, OpenAI, and others respond to prompts about suicide, sex, and other high-risk topics, according to Wired. The stated goal is benchmarking safety gaps in competitors' models. The uncomfortable part is that it means running vulnerable-user scenarios against live systems at industrial scale — as much competitive intelligence as safety science.</p>
-        <p class="bottomline"><strong>Bottom line:</strong> Chatbot safety testing is turning into a genuine arms race. Whether that's reassuring rigor or a sign of how normalized this has become depends on your mood today.</p>
-      </div>
+<h2 class="story">Watt's the Big Idea</h2>
+<p>Britain's National Grid is putting $1.75 billion into Joulent, a US energy platform building power infrastructure for AI data centers, taking a 35% stake (PRNewswire). First up: Project Kilby, a 2.67-gigawatt gas-fired plant in West Texas — a 50/50 venture with Chevron — feeding a Microsoft-operated data center under a 20-year power deal, targeting first power by 2028. Translation: a 200-year-old British utility just bought a ticket to the American AI gold rush, because the grid interconnection queue is now the industry's longest line. Data Center Knowledge notes the deal was spurred precisely by those interconnect delays — if you can't plug in, you build your own plug.</p>
+<div class="bottomline"><b>Bottom line:</b> Compute follows power, and power is the new scarce asset. The smart infrastructure money has stopped asking "which model wins" and started asking "who owns the electrons."</div>
 
-      <p class="section-label">Quick Hits</p>
-      <ul class="quickhits">
-        <li>🇹🇼 Taiwan is investigating whether Super Micro diverted AI servers to China without authorization, per the WSJ — AI hardware is now treated like a national-security asset.</li>
-        <li>📦 Qualcomm confirmed its $3.92B purchase of Modular, buying a CUDA-rival software layer to make its own chips easier to deploy against Nvidia's.</li>
-        <li>💵 Amazon's custom silicon business (Trainium, Graviton, Nitro) crossed a $20B annual run rate, up more than 100% year-over-year, CEO Andy Jassy said.</li>
-        <li>🏗️ Nvidia gained ground as Firmus signed an eight-year deal for a 360-megawatt AI data center in Indonesia that could use up to 170,000 GPUs.</li>
-        <li>⏳ Gemini 3.5 Pro missed its June launch window entirely; Google now says July, after a Polymarket contract priced a June miss at 97%.</li>
-        <li>⚖️ The Supreme Court ruled broad geofence warrants for phone location data require individualized probable cause, tightening the leash on AI-era surveillance tools.</li>
-        <li>🚗 BMW launched a $300M venture fund targeting agentic and physical AI startups, pushing its AI-related capital under management past $1.1B.</li>
-      </ul>
+<h2 class="story">Squid Pro Quo</h2>
+<p>Meet Squidbleed (CVE-2026-47729): a memory-leak vulnerability in the Squid proxy server that quietly exposed HTTP credentials for 29 years — surviving nearly three decades of human code reviews and audits — until Claude Mythos 5 found it through Anthropic's Project Glasswing research program, per the disclosure covered by Build Fast with AI. Glasswing partners report 23,019 AI-flagged vulnerabilities across 1,000 open-source projects in the program's first month, with a claimed 90.6% confirmation rate. The irony writes itself: the same class of model governments restricted over cybersecurity fears just found a bug every human security team on Earth missed. If you run Squid, patch now and assume proxied HTTP credentials were exposed.</p>
+<div class="bottomline"><b>Bottom line:</b> AI-powered code auditing just went from demo to public service. The uncomfortable corollary: whatever defenders can find at this scale, attackers can too — patch faster.</div>
 
-      <div class="bigpicture">
-        <h2>The Big Picture</h2>
-        <p>June closes as arguably the most consequential month in AI's short history, and the shift heading into July is unmistakable: the story is moving from what models can do to what running them costs, who controls the chips underneath them, and who's left to keep training the next one. Billing is getting itemized. Export controls are getting tested by open-source releases built specifically to prove they don't work. And the people who built the last generation of frontier models are reshuffling between labs faster than org charts can track. None of that is really about capability anymore — it's about economics, geopolitics, and retention. Duller headline than "new model beats benchmark." Probably the one that decides who's still standing in 2027.</p>
-      </div>
+<p class="sechead">Quick Hits</p>
+<ul class="hits">
+  <li>🌐 Anthropic's Claude Fable 5 began restoring access globally July 1 after the Commerce Department lifted export controls on its most capable models.</li>
+  <li>🏛️ California's Claude deal — half-price AI for all state agencies, plus "Poppy," an assistant rolling out to 300,000 state workers this month — is the largest US government AI deployment yet, per CBS Sacramento.</li>
+  <li>🖼️ Google shipped two image models — Gemini 3.1 Flash Image and Gemini 3 Pro Image — while Gemini 3.5 Pro keeps slipping.</li>
+  <li>🤠 xAI's Grok 4.3 landed on Amazon Bedrock at $1.25/$2.50 per million tokens, the cheapest major-lab model on the platform.</li>
+  <li>🔬 Anthropic launched Claude Science, a research app aimed at drug discovery and biology, built on its Coefficient Bio acquisition and new hire John Jumper of AlphaFold fame.</li>
+  <li>🏗️ Applied Digital brought another 75 MW online at its North Dakota campus, hitting 175 MW of live AI capacity — on schedule, which in data-center land counts as news.</li>
+  <li>🏛️ The bipartisan CREATE AI Act — funding a national AI research resource so academics aren't priced out of frontier compute — is moving through Congress, argues Fortune.</li>
+</ul>
 
-      <div class="onemore">
-        <h2>One More Thing</h2>
-        <p>Meituan named its trillion-parameter model "LongCat" — yes, the same name as the absurdly elongated cartoon cat that broke the internet back in 2007. Somewhere, the original meme's fans are either delighted or deeply confused that his legacy now includes a Chinese ASIC supercluster. ☕</p>
-      </div>
+<div class="bigpicture">
+  <h2>The Big Picture</h2>
+  <p>Six months ago the AI story was capability: who's smartest. Today's issue barely mentions benchmarks, and that's the tell. Sonnet 5 competes on price. Cerebras competes on speed. Korea competes on supply. National Grid competes on electrons. The frontier hasn't stopped advancing — it's just that intelligence is becoming table stakes, and the margin is moving to whoever runs it cheapest, serves it fastest, and powers it most reliably. That's what maturing industries look like. It's also exactly what you'd expect three months before the two biggest AI labs try to go public: nothing focuses a pricing page like an S-1.</p>
+</div>
 
-      <div class="sources">
-        <h2>Sources</h2>
-        <ol class="sourcelist">
-          <li><a class="src-link" href="https://siliconangle.com/2026/06/30/chinas-meituan-open-sources-massive-longcat-2-0-ai-model-saying-trained-domestic-chips/">China's Meituan open-sources massive LongCat-2.0 AI model — SiliconANGLE</a></li>
-          <li><a class="src-link" href="https://www.buildfastwithai.com/blogs/ai-news-today-june-30-2026">AI News Today June 30 2026: 15 Biggest Stories — Build Fast with AI</a></li>
-          <li><a class="src-link" href="https://techstartups.com/2026/06/30/top-tech-news-today-june-30-2026/">Top Tech News Today, June 30, 2026 — Tech Startups</a></li>
-          <li><a class="src-link" href="https://www.wired.com/story/meta-contractors-pretending-to-be-teens-chatbot-testing/">Meta contractors pretending to be teens for chatbot testing — Wired</a></li>
-          <li><a class="src-link" href="https://github.blog/news-insights/company-news/github-copilot-is-moving-to-usage-based-billing/">GitHub Copilot is moving to usage-based billing — GitHub Blog</a></li>
-          <li><a class="src-link" href="https://www.bloomberg.com/news/articles/2026-06-24/qualcomm-confirms-buying-modular-to-help-ai-market-push">Qualcomm confirms buying Modular to help AI market push — Bloomberg</a></li>
-          <li><a class="src-link" href="https://cryptobriefing.com/google-delays-gemini-35-pro-launch-to-july-2026/">Google delays Gemini 3.5 Pro launch to July 2026 — CryptoBriefing</a></li>
-          <li><a class="src-link" href="https://polymarket.com/event/next-google-gemini-pro-model-released-onptptpt">Next Google Gemini Pro Model Released — Polymarket</a></li>
-          <li><a class="src-link" href="https://finance.yahoo.com/quote/NVDA/">NVIDIA Corporation (NVDA) Stock Quote — Yahoo Finance</a></li>
-        </ol>
-      </div>
+<div class="onemore">
+  <p class="sechead">One More Thing</p>
+  <p>California's new state-worker AI assistant is named Poppy, after the state flower, and was piloted by 2,800 employees across 67 departments before this month's rollout to 300,000. Somewhere, a consultant who would've charged eight figures to name it "CalGPT Enterprise Cloud" is quietly weeping into a golden poppy.</p>
+</div>
 
-    </div><!-- /body -->
+<p class="sechead">Sources</p>
+<ol class="sources">
+  <li><a href="https://techcrunch.com/2026/06/30/anthropic-launches-claude-sonnet-5-as-a-cheaper-way-to-run-agents/" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">TechCrunch — Anthropic launches Claude Sonnet 5 as a cheaper way to run agents</a></li>
+  <li><a href="https://venturebeat.com/technology/anthropic-launches-claude-sonnet-5-at-a-steep-discount-to-its-top-model-as-the-company-races-toward-a-blockbuster-ipo" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">VentureBeat — Anthropic launches Claude Sonnet 5 at a steep discount to its top model</a></li>
+  <li><a href="https://www.upi.com/Top_News/World-News/2026/07/01/exports-semiconductors-ai-trade-surplus/5901782949549/" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">UPI — South Korea's monthly exports top $100B for first time</a></li>
+  <li><a href="https://www.aljazeera.com/news/2026/6/29/south-korea-announces-more-than-1-trillion-ai-chip-investment-drive" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Al Jazeera — South Korea announces more than $1 trillion AI, chip investment drive</a></li>
+  <li><a href="https://www.prnewswire.com/news-releases/national-grid-ventures-to-invest-1-75bn-to-accelerate-power-solutions-for-us-data-centers-and-ai-302815750.html" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">PRNewswire — National Grid Ventures to invest $1.75bn in US data center and AI power</a></li>
+  <li><a href="https://www.datacenterknowledge.com/energy-power-supply/national-grid-agrees-to-1-75b-investment-in-joulent-to-expand-ai-power-infrastructure" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Data Center Knowledge — AI interconnect delays spur $1.75B National Grid–Joulent deal</a></li>
+  <li><a href="https://www.cbsnews.com/sacramento/news/california-claude-deal-gavin-newsom/" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">CBS Sacramento — California signs deal to bring Claude AI tools to state agencies</a></li>
+  <li><a href="https://www.techradar.com/pro/newsom-strikes-anthropic-deal-to-get-california-government-half-price-claude-ai-access" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">TechRadar — Newsom strikes Anthropic deal for half-price Claude AI access</a></li>
+  <li><a href="https://www.buildfastwithai.com/blogs/ai-news-today-july-1-2026" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Build Fast with AI — AI News Today July 1, 2026 (Squidbleed, Fable 5, Claude Science, Grok 4.3)</a></li>
+  <li><a href="https://www.datacamp.com/blog/gpt-5-6-sol-luna-terra" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">DataCamp — GPT-5.6 Sol, Terra, and Luna: OpenAI's next-gen model family</a></li>
+  <li><a href="https://au.finance.yahoo.com/news/ai-drives-global-ecm-surge-130000953.html" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Yahoo Finance — AI drives global ECM surge in 1H26</a></li>
+  <li><a href="https://ir.applieddigital.com/news-events/press-releases/detail/157/applied-digital-delivers-second-building-at-polaris-forge-1" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Applied Digital — Second building delivered at Polaris Forge 1</a></li>
+  <li><a href="https://fortune.com/2026/07/01/create-ai-act-bipartisan-deserves-to-pass-cognizant/" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Fortune — One rare bipartisan AI bill is moving through Congress</a></li>
+</ol>
 
-    <div class="archive">
-      <a class="pill-current" href="ai-brew-2026-07-01.md">Jul 1</a>
-      <a class="pill-past" href="ai-brew-2026-06-30.md">Jun 30</a>
-      <a class="pill-past" href="ai-brew-2026-06-29.md">Jun 29</a>
-      <a class="pill-past" href="ai-brew-2026-06-28.md">Jun 28</a>
-      <a class="pill-past" href="ai-brew-2026-06-27.md">Jun 27</a>
-      <a class="pill-past" href="ai-brew-2026-06-26.md">Jun 26</a>
-    </div>
-    <div class="copyright">© 2026 The AI Brew · stockfilter.app</div>
+<div class="archive">
+  <a class="pill current" href="ai-brew-2026-07-02.md">Jul 2</a>
+  <a class="pill" href="ai-brew-2026-07-01.md">Jul 1</a>
+  <a class="pill" href="ai-brew-2026-06-30.md">Jun 30</a>
+  <a class="pill" href="ai-brew-2026-06-29.md">Jun 29</a>
+  <a class="pill" href="ai-brew-2026-06-28.md">Jun 28</a>
+  <a class="pill" href="ai-brew-2026-06-27.md">Jun 27</a>
+  <div class="copyright">© 2026 The AI Brew · stockfilter.app</div>
+</div>
 
-  </div><!-- /wrap -->
+</div>
 </body>
 </html>
