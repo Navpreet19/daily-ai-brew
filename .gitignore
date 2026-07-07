@@ -1,2 +1,9 @@
 # Local deploy helper — keep the push script out of the public site repo
 push_to_github.bat
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
