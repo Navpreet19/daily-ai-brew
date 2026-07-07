@@ -1,5 +1,4 @@
 # Daily AI Brew
 
-Auto-generated daily AI newsletter, pushed by Cowork scheduled task.
-
-Each file is named `ai-brew-YYYY-MM-DD.md`.
+Auto-generated daily AI newsletter. Published every morning by the
+`.github/workflows/daily-ai-brew.yml` GitHub Acti

@@ -1,0 +1,47 @@
+name: Daily AI Brew
+
+# Runs the AI Brew newsletter generation every morning and publishes
+# straight to this repo (markdown issue + index.html), replacing the
+# Claude Cowork scheduled task. Authenticates with a Claude Pro/Max
+# subscription via CLAUDE_CODE_OAUTH_TOKEN (generated locally with
+# `claude setup-token`) rather than a metered API key.
+
+on:
+  schedule:
+    - cron: "30 1 * * *" # 07:00 IST daily (01:30 UTC)
+  workflow_dispatch: {} # allows manual "Run workflow" for testing
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-ai-brew
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Generate and publish today's AI Brew
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            Follow every instruction in the file .github/ai-brew-task-prompt.md
+            at the root of this checked-out repository, in order, without
+            skipping steps. That file is the complete spec for today's issue
+            of "The AI Brew" (research, writing, HTML build, and publishing).
+            Execute it autonomously — no one is present to answer questions,
+            so make reasonable, clearly-noted judgment calls if anything is
+            ambiguous. This is a real production run: at the end, the day's
+            markdown issue and index.html must actually be committed and
+            pushed to the main branch of this repository.
+          claude_args: |
+            --max-turns 60
+            --allowedTools "WebSearch,Bash,Read,Write,Edit,Glob,Grep"
