@@ -9,14 +9,26 @@ daily AI-news newsletter. There is no build system, no tests, no package.json. T
 "application" is a GitHub Actions workflow that invokes Claude Code itself to research, write,
 and publish each day's issue.
 
-## How publishing works
+## How publishing works (two stages)
 
-`.github/workflows/daily-ai-brew.yml` runs on a schedule (07:00 IST / 01:30 UTC daily, plus
-manual `workflow_dispatch`) on `ubuntu-latest`. It checks out the repo and runs
-`anthropics/claude-code-action@v1` with a prompt that tells Claude Code to follow
-`.github/ai-brew-task-prompt.md` step by step, autonomously, and push the result to `main`.
-Auth is via `CLAUDE_CODE_OAUTH_TOKEN` (a Pro/Max subscription token from `claude setup-token`),
-not a metered API key. Allowed tools for that run: `WebSearch,Bash,Read,Write,Edit,Glob,Grep`.
+**Stage 1 — content generation (GitHub Actions).** `.github/workflows/daily-ai-brew.yml` runs on
+a schedule (07:00 IST / 01:30 UTC daily, plus manual `workflow_dispatch`) on `ubuntu-latest`. It
+checks out the repo and runs `anthropics/claude-code-action@v1` with a prompt that tells Claude
+Code to follow `.github/ai-brew-task-prompt.md` step by step, autonomously, and push the result
+to `main`. Auth is via `CLAUDE_CODE_OAUTH_TOKEN` (a Pro/Max subscription token from
+`claude setup-token`), not a metered API key. Allowed tools for that run:
+`WebSearch,Bash,Read,Write,Edit,Glob,Grep`.
+
+**Stage 2 — site deploy (Cloudflare Workers Build).** The `main` branch is Git-connected to a
+Cloudflare Workers project named `daily-ai-brew`. Every push (including the automated commit from
+Stage 1) triggers a Cloudflare build that runs `npx wrangler deploy`, which publishes the repo
+root as static assets (per `wrangler.jsonc`'s `assets.directory: "."`) to stockfilter.app. This
+deploy is config-driven: `wrangler.jsonc` and the pinned `wrangler` version in `package.json`
+exist specifically so the deploy targets the existing `daily-ai-brew` Worker deterministically —
+without a committed config file, `wrangler deploy` falls back to its "autoconfig" flow (regenerate
+config from scratch every run), which cannot prove ownership of an already-existing Worker of the
+same name and aborts the deploy as a safety measure. Do not delete `wrangler.jsonc` or unpin
+`wrangler` in `package.json` without understanding this failure mode.
 
 If you are invoked as that workflow's agent (or asked to manually produce a day's issue), the
 full operational spec is `.github/ai-brew-task-prompt.md` — read it in full and follow every

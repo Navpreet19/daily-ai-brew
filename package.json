@@ -1,0 +1,7 @@
+{
+  "name": "daily-ai-brew",
+  "private": true,
+  "devDependencies": {
+    "wrangler": "4.108.0"
+  }
+}

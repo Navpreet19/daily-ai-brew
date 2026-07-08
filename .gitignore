@@ -1,2 +1,7 @@
 # Local deploy helper — keep the push script out of the public site repo
 push_to_github.bat
+
+# Wrangler / Cloudflare Workers build artifacts
+.wrangler/
+node_modules/
+.dev.vars
