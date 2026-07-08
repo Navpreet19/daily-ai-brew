@@ -5,9 +5,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## What this repo is
 
 Not a software project — it's the content store and publishing pipeline for "The AI Brew," a
-daily AI-news newsletter. There is no build system, no tests, no package.json. The entire
-"application" is a GitHub Actions workflow that invokes Claude Code itself to research, write,
-and publish each day's issue.
+daily AI-news newsletter. There is no build system and no tests. The `package.json` that exists
+only pins the `wrangler` CLI version for deploy (see Stage 2 below) — it is not an application.
+The entire "application" is a GitHub Actions workflow that invokes Claude Code itself to
+research, write, and publish each day's issue.
 
 ## How publishing works (two stages)
 
@@ -29,6 +30,15 @@ without a committed config file, `wrangler deploy` falls back to its "autoconfig
 config from scratch every run), which cannot prove ownership of an already-existing Worker of the
 same name and aborts the deploy as a safety measure. Do not delete `wrangler.jsonc` or unpin
 `wrangler` in `package.json` without understanding this failure mode.
+
+Because `package.json` exists, Cloudflare's build system auto-runs a package install (`bun
+install`), which creates `node_modules` inside the repo root before the deploy command runs.
+Since `assets.directory` is `"."`, Wrangler would otherwise try to upload `node_modules`
+(including its own ~120 MB `workerd` binary) as public site assets and fail with "Asset too
+large" (Workers caps individual asset files at 25 MiB). `.assetsignore` (same syntax as
+`.gitignore`) excludes `node_modules/`, `package.json`, lockfiles, `wrangler.jsonc`, and repo
+tooling files from the asset upload — keep it in sync if new non-content tooling files are added
+to the repo root.
 
 If you are invoked as that workflow's agent (or asked to manually produce a day's issue), the
 full operational spec is `.github/ai-brew-task-prompt.md` — read it in full and follow every
