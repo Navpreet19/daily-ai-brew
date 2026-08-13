@@ -1,6 +1,6 @@
 # AI Brew — Daily Newsletter Generation Prompt
 
-**How to use:** Paste everything in the box below into Claude/GPT each day. Fill the three placeholders at the top (`{{DATE}}`, `{{NEWSLETTER_NAME}}`, `{{SOURCES}}`). If your model has live web access, leave `{{SOURCES}}` blank and it will pull the news itself; otherwise paste in headlines/links and it will write from those.
+**How to use:** Paste everything in the box below into Claude/GPT each day. Fill the four placeholders at the top (`{{DATE}}`, `{{NEWSLETTER_NAME}}`, `{{SOURCES}}`, `{{RECENT_ISSUES}}`). If your model has live web access, leave `{{SOURCES}}` blank and it will pull the news itself; otherwise paste in headlines/links and it will write from those. Leave `{{RECENT_ISSUES}}` blank if this is the first issue or you have none handy — otherwise paste in the last 2-3 days' issues (or their text) for storyline continuity.
 
 ---
 
@@ -62,6 +62,22 @@ follow with a new coding model (builders + professionals), and close with an
 education-AI study (students) — woven as one natural newsletter.
 Prioritize: genuine impact > novelty > hype. Skip incremental noise and
 recycled announcements. 3–4 stories that matter beat 10 that don't.
+
+═══════════════════════════════════════════════════════════════════
+3b) STORYLINE CONTINUITY — use {{RECENT_ISSUES}} if provided
+═══════════════════════════════════════════════════════════════════
+If recent issues are provided below, read them before you pick today's slate:
+• DON'T re-report a story that's already fully covered and resolved as if
+  it's new.
+• DO follow developing storylines (an unresolved funding round, an ongoing
+  policy fight, a "part 2" product rollout) when today's news continues one.
+• Weave continuity in naturally, the way a beat reporter would ("after
+  Tuesday's leak...", "the chip curbs floated last week just got teeth") —
+  NEVER an explicit label like "Day 3 of..." or "Following up:". This matches
+  the no-audience-tags rule in section 3: relevance and continuity should
+  read as self-evident, not flagged.
+If `{{RECENT_ISSUES}}` is blank, just write today's issue on its own — no
+continuity to draw on yet.
 
 ═══════════════════════════════════════════════════════════════════
 4) ACCURACY & SOURCING — non-negotiable (AI news is hype-soaked)
@@ -131,6 +147,9 @@ DATE: {{DATE}}
 NEWSLETTER NAME: {{NEWSLETTER_NAME}}
 SOURCES (optional — paste headlines/links; leave blank to fetch live):
 {{SOURCES}}
+RECENT ISSUES (optional — paste the last 2-3 days' issues for storyline
+continuity; leave blank if this is the first issue or none are available):
+{{RECENT_ISSUES}}
 
 Now write today's complete issue. Match the feeling in section 1 above all else.
 ```
@@ -144,6 +163,7 @@ The prompt is built so the *output feeling* matches Brew Markets. In short, the 
 - **Emotional outcome first** — caught up, smarter-with-a-take, entertained, respected, calm, a little inside. Everything else serves these.
 - **Voice** — smart-friend-texting, witty-but-substantive, second person, short sentences, jargon explained in passing, numbers always contextualized, punny subheads, sparing emoji, ruthless tightness.
 - **Curation** — impact over hype; a balanced slate covering students/pros/investors/startups/nations *without* tagging any of them.
+- **Continuity** — optional `{{RECENT_ISSUES}}` input lets the writer skip already-resolved stories and follow developing ones, woven in naturally with no "previously on" labels.
 - **Trust** — strict recency (24h), no fabrication, fact-vs-spin separation, inline + listed sourcing.
 - **Structure (Brew rhythm)** — witty header → Snapshot data box → editor's open → 3–4 lead stories each with a "Bottom line" → emoji Quick Hits → Big Picture zoom-out → light "One More Thing" → Sources.
 

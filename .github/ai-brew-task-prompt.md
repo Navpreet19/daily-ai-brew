@@ -21,7 +21,23 @@ Run `date -u +%Y-%m-%d` (or equivalent) to get today's date. The workflow is
 scheduled for 07:00 IST, which is 01:30 UTC the same calendar day, so the UTC
 date matches the intended issue date.
 
-## STEP 3 — Pull the news
+## STEP 3 — Read recent context
+
+For each of the 3 calendar days before today, check whether `ai-brew-YYYY-MM-DD.md`
+exists at the repo root and `Read` it if it does. Skip any missing date silently
+(e.g. early in the archive's life, or a day the workflow didn't run) — do not treat
+a missing file as an error. From whatever you read, note:
+
+- Storylines still in motion (an unresolved funding round, an ongoing policy
+  fight, a "part 2" product rollout, a running bit) that today's news might
+  continue.
+- Stories that are already fully covered and resolved, so you don't report them
+  again as if new.
+
+Carry this forward into STEP 5 per the continuity guidance in
+`ai-brew-newsletter-prompt.md`.
+
+## STEP 4 — Pull the news
 
 Use the `WebSearch` tool to find REAL artificial-intelligence news from the
 last 24 hours, spanning: new models/products, funding & valuations,
@@ -33,7 +49,7 @@ separate fact from spin (say "claims"/"reportedly" when unconfirmed). If
 you're unsure a story is real and from the last ~24 hours, leave it out.
 Attribute each story to its source.
 
-## STEP 4 — Write the complete issue
+## STEP 5 — Write the complete issue
 
 Follow the spec's structure: a witty header line → "The Snapshot" (a compact
 data box of 4–6 signals, each a number + a quip, then a one-line mood) → a
@@ -41,15 +57,18 @@ short witty editor's open → 3–4 lead stories, each with a punny subhead and
 ending in a bold "Bottom line:" → emoji "Quick Hits" (5–7 one-liners) →
 "The Big Picture" zoom-out → a light "One More Thing" closer → a "Sources"
 list with links. Keep it to roughly a 5-minute read. Match the FEELING above
-all else.
+all else. Use the context gathered in STEP 3 per the STORYLINE CONTINUITY
+guidance in `ai-brew-newsletter-prompt.md`: don't re-report a resolved story
+as new, and weave any developing storyline in naturally, the way a beat
+reporter would — no "Day 3 of..." or "Following up:" labels.
 
-## STEP 5 — Save the markdown issue
+## STEP 6 — Save the markdown issue
 
 Write the completed issue to `ai-brew-YYYY-MM-DD.md` at the repo root
 (substitute today's actual date). This is now the only markdown copy — there
 is no separate stockfilter folder to duplicate it into.
 
-## STEP 6 — Write the HTML version
+## STEP 7 — Write the HTML version
 
 Write a polished HTML version to `index.html` at the repo root. This is the
 public-facing website for stockfilter.app; overwrite it with today's content
@@ -107,7 +126,7 @@ hardcode specific past dates. It's fine if some of those dates' `.md` files
 don't exist yet (early in the archive's life) — link to them anyway per the
 naming convention.
 
-## STEP 7 — Commit and push
+## STEP 8 — Commit and push
 
 From the repo root, run:
 
@@ -128,7 +147,7 @@ without further authentication setup. If the push fails, print the exact
 git error to the job log and exit non-zero so the run shows as failed in the
 Actions tab — there's no one to relay a chat message to today.
 
-## STEP 8 — Summarize
+## STEP 9 — Summarize
 
 Print a short final summary to the job log: today's date, the top story
 headline, and confirmation that the commit was pushed (with the commit SHA).
