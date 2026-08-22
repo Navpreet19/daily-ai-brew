@@ -71,9 +71,12 @@ separate stockfilter folder to duplicate it into.
 
 ## STEP 7 — Write the HTML version
 
-Write a polished HTML version to `index.html` at the repo root. This is the
-public-facing website for stockfilter.app; overwrite it with today's content
-every run.
+Write a polished HTML version, then save the exact same content to two
+places: `index.html` at the repo root (this is the public-facing website for
+stockfilter.app; overwrite it with today's content every run) and
+`archive/ai-brew-YYYY-MM-DD.html` (today's permanent snapshot — like the
+`.md` file, this one is never overwritten once written). Build the HTML once
+and write it to both paths unchanged — do not vary the content between them.
 
 DESIGN: Single self-contained HTML file, no external CSS or JS, no fonts from
 Google Fonts (use system stacks). Mobile-responsive, max-width 680px
@@ -121,15 +124,24 @@ style).
 ARCHIVE FOOTER: Centered pill links for the current date (bold, dark navy
 background, white text) plus the 5 preceding calendar dates (light gray
 background, dark text). Each pill is an `<a>` tag linking to
-`archive/ai-brew-YYYY-MM-DD.md` (relative path). Pills:
-display:inline-block, border-radius 20px, padding 4px 14px, 12px font,
-margin 4px, text-decoration:none. Footer also shows small centered text:
-"© 2026 The AI Brew · stockfilter.app" in #9CA3AF.
+`/archive/ai-brew-YYYY-MM-DD.html` — an absolute, root-relative path (leading
+slash), not a relative one. This matters because the exact same HTML is
+saved to two different directories in STEP 7 (repo root and `archive/`); an
+absolute path resolves identically from either location, whereas a relative
+path would only work from one of them. Pills: display:inline-block,
+border-radius 20px, padding 4px 14px, 12px font, margin 4px,
+text-decoration:none. Footer also shows small centered text: "© 2026 The AI
+Brew · stockfilter.app" in #9CA3AF.
 
 Generate all six archive dates dynamically from today's actual date. Do not
-hardcode specific past dates. It's fine if some of those dates' `.md` files
-don't exist yet (early in the archive's life) — link to them anyway per the
-naming convention.
+hardcode specific past dates. For each of the 5 preceding dates, check
+whether `archive/ai-brew-YYYY-MM-DD.html` exists (e.g. `ls archive/`) — if it
+does, link to it; if only the `.md` file exists (pre-2026-08-22 dates that
+predate the HTML-archive convention), link to
+`/archive/ai-brew-YYYY-MM-DD.md` instead. It's fine if neither file exists
+yet for a date (early in the archive's life) — link to the `.html` path
+anyway per the naming convention, since today's run onward always produces
+one.
 
 ## STEP 8 — Commit and push
 
@@ -138,7 +150,7 @@ From the repo root, run:
 ```
 git config user.name "AI Brew Bot"
 git config user.email "actions@users.noreply.github.com"
-git add archive/ai-brew-*.md index.html
+git add archive/ai-brew-*.md archive/ai-brew-*.html index.html
 git commit -m "Daily AI Brew <today's date>"
 git push origin main
 ```
