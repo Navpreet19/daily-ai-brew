@@ -90,29 +90,6 @@ time the run executes STEP 7 (i.e. run `date -u +"%H:%M"` alongside the date
 lookup in STEP 2; do not hardcode 01:30, since manual `workflow_dispatch`
 runs can happen at other times). Below that, a subtle horizontal rule.
 
-SUBSCRIBE: Below the header block's horizontal rule, before the Snapshot card, a
-light card (background #F8FAFC, border 1px solid #E2E8F0, border-radius 8px,
-padding 16px 20px, margin 24px 0, flex layout wrapping on mobile) containing a
-short line of text ("Get this in your inbox every morning.") next to a
-subscribe form that POSTs to this site's own `/subscribe` route (handled by
-the Worker script at `src/worker.js`, which forwards the email to Brevo's
-Contacts API — see STEP 9). This block is fixed — reproduce it byte-for-byte
-every run, do not regenerate or rephrase it:
-
-```html
-<div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:8px; padding:16px 20px; margin:24px 0; display:flex; flex-wrap:wrap; align-items:center; gap:12px; justify-content:space-between;">
-  <div style="font-size:14px; color:#334155;">Get this in your inbox every morning.</div>
-  <form action="/subscribe" method="post" style="display:flex; gap:8px; flex-wrap:wrap;">
-    <input type="email" name="email" placeholder="you@example.com" required style="font-family:Georgia, serif; font-size:14px; padding:8px 12px; border:1px solid #E2E8F0; border-radius:6px; min-width:200px;">
-    <input type="submit" value="Subscribe" style="font-family:Georgia, serif; font-size:14px; font-weight:bold; padding:8px 16px; background:#0F172A; color:#FFFFFF; border:none; border-radius:6px; cursor:pointer;">
-  </form>
-</div>
-```
-
-The `action` URL is fixed and must not be altered — it must stay a relative
-`/subscribe` path (not an external ESP URL), since the subscribe endpoint is
-now this repo's own Worker route, not a third-party form.
-
 SNAPSHOT CARD: Dark navy (#0F172A) background card with 20px padding,
 border-radius 8px, margin-bottom 24px. White heading "The Snapshot" in 13px
 uppercase. Each signal on its own line: bold white metric, then colored quip
@@ -174,57 +151,7 @@ without further authentication setup. If the push fails, print the exact
 git error to the job log and exit non-zero so the run shows as failed in the
 Actions tab — there's no one to relay a chat message to today.
 
-## STEP 9 — Send today's issue via Brevo
-
-Send today's issue to subscribers by creating and sending a Brevo email
-campaign. This is a two-call shape — creating a campaign does **not** send
-it; a separate "send now" call is required:
-
-1) Create the campaign:
-
-```
-curl -s -X POST https://api.brevo.com/v3/emailCampaigns \
-  -H "api-key: $BREVO_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "AI Brew <today'"'"'s date>",
-    "subject": "<today'"'"'s headline>",
-    "sender": {"name": "The AI Brew", "email": "newsletter@stockfilter.app"},
-    "htmlContent": "<today'"'"'s HTML content>",
-    "recipients": {"listIds": [BREVO_LIST_ID_PLACEHOLDER]}
-  }'
-```
-
-Capture the `id` from the JSON response.
-
-2) Send it immediately:
-
-```
-curl -s -X POST https://api.brevo.com/v3/emailCampaigns/<id>/sendNow \
-  -H "api-key: $BREVO_API_KEY"
-```
-
-(No request body. A 204 response means it sent.)
-
-Notes:
-- `$BREVO_API_KEY` is available in the environment. `BREVO_LIST_ID_PLACEHOLDER`
-  is a fixed literal integer (this repo's Brevo List ID) — do not regenerate
-  or guess it; if it's missing or invalid the create call will fail, which is
-  fine (see below).
-- `htmlContent` must be more than 10 characters and under 1MB — reuse the
-  HTML already built for `index.html` in STEP 7 (JSON-escaped), rather than
-  re-deriving it from the Markdown file.
-- The `sender.email` must be a verified sender in Brevo, or the create call
-  will fail.
-- If either call fails, print the exact error to the job log and continue to
-  STEP 10 rather than exiting non-zero.
-
-This step should not block or fail the run: the site (STEP 8) has already
-published successfully by this point, and a missed email is recoverable
-(resend manually) while a missed site publish is not.
-
-## STEP 10 — Summarize
+## STEP 9 — Summarize
 
 Print a short final summary to the job log: today's date, the top story
-headline, confirmation that the commit was pushed (with the commit SHA), and
-whether the Buttondown send succeeded.
+headline, and confirmation that the commit was pushed (with the commit SHA).

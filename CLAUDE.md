@@ -23,19 +23,13 @@ to `main`. Auth is via `CLAUDE_CODE_OAUTH_TOKEN` (a Pro/Max subscription token f
 **Stage 2 — site deploy (Cloudflare Workers Build).** The `main` branch is Git-connected to a
 Cloudflare Workers project named `daily-ai-brew`. Every push (including the automated commit from
 Stage 1) triggers a Cloudflare build that runs `npx wrangler deploy`, which publishes the repo
-root as static assets (per `wrangler.jsonc`'s `assets.directory: "."`) to stockfilter.app, fronted
-by a small Worker script (`src/worker.js`, wired via `wrangler.jsonc`'s `main` field) that handles
-one dynamic route — `POST /subscribe`, which forwards the submitted email to Brevo's Contacts API
-— and falls back to serving static assets for everything else. This deploy is config-driven:
-`wrangler.jsonc` and the pinned `wrangler` version in `package.json` exist specifically so the
-deploy targets the existing `daily-ai-brew` Worker deterministically — without a committed config
-file, `wrangler deploy` falls back to its "autoconfig" flow (regenerate config from scratch every
-run), which cannot prove ownership of an already-existing Worker of the same name and aborts the
-deploy as a safety measure. Do not delete `wrangler.jsonc` or unpin `wrangler` in `package.json`
-without understanding this failure mode. The Worker needs a `BREVO_API_KEY` secret configured in
-the Cloudflare dashboard (Workers & Pages → daily-ai-brew → Settings → Variables) — separate from
-the `BREVO_API_KEY` GitHub Actions secret used by Stage 1's daily send (STEP 9 below); same key
-value, two different places it needs to be configured.
+root as static assets (per `wrangler.jsonc`'s `assets.directory: "."`) to stockfilter.app. This
+deploy is config-driven: `wrangler.jsonc` and the pinned `wrangler` version in `package.json`
+exist specifically so the deploy targets the existing `daily-ai-brew` Worker deterministically —
+without a committed config file, `wrangler deploy` falls back to its "autoconfig" flow (regenerate
+config from scratch every run), which cannot prove ownership of an already-existing Worker of the
+same name and aborts the deploy as a safety measure. Do not delete `wrangler.jsonc` or unpin
+`wrangler` in `package.json` without understanding this failure mode.
 
 Because `package.json` exists, Cloudflare's build system auto-runs a package install (`bun
 install`), which creates `node_modules` inside the repo root before the deploy command runs.
@@ -66,15 +60,11 @@ step in order:
    CSS/JS/fonts) that is the live public page for stockfilter.app, styled per the detailed spec
    in `ai-brew-task-prompt.md` (colors, spacing, section markup all specified exactly there).
    The archive footer must link to the current date + 5 preceding calendar dates, generated
-   dynamically — never hardcode past dates. The page also includes a fixed email subscribe form
-   that posts to this site's own `/subscribe` route (see `ai-brew-task-prompt.md`'s SUBSCRIBE
-   spec) — reproduce it unchanged.
+   dynamically — never hardcode past dates.
 8. Commit (`git add ai-brew-*.md index.html`) and push directly to `main`. Skip the commit only
    if nothing is staged. If the push fails, surface the exact git error and exit non-zero —
    there's no human present to fix it mid-run.
-9. Send today's issue to subscribers via the Brevo Campaigns API (`BREVO_API_KEY` from workflow
-   secrets). A failed send is logged but does not fail the run — the site has already published.
-10. Print a short summary (date, top headline, commit SHA, Brevo send status) to the job log.
+9. Print a short summary (date, top headline, commit SHA) to the job log.
 
 ## The two prompt files — different jobs, keep them separate
 
@@ -99,9 +89,7 @@ Header line → **The Snapshot** (4-6 number+quip signals plus one mood line) �
 3-4 **Lead Stories** (punny subhead, 90-160 words, bolded "Bottom line:") → **Quick Hits**
 (5-7 one-line emoji items) → **The Big Picture** (zoom-out take) → **One More Thing** (light
 closer) → **Sources** (numbered links). The `.md` and `.html` versions carry identical content;
-`.html` additionally has fixed inline styling, an email subscribe form (POSTs to this site's own
-`/subscribe` Worker route, which adds the contact to Brevo; sending is a Brevo Campaign triggered
-from STEP 9 of the daily workflow), and an archive-pill footer.
+`.html` additionally has fixed inline styling and an archive-pill footer.
 
 ## File conventions
 
