@@ -13,6 +13,9 @@ export default {
         return page("That doesn't look like a valid email address.", true, 400);
       }
 
+      const keyLen = env.BREVO_API_KEY ? env.BREVO_API_KEY.length : -1;
+      const keyPrefix = env.BREVO_API_KEY ? env.BREVO_API_KEY.slice(0, 6) : "(none)";
+
       const brevoResponse = await fetch("https://api.brevo.com/v3/contacts", {
         method: "POST",
         headers: {
@@ -28,7 +31,7 @@ export default {
         try { body = JSON.parse(bodyText); } catch {}
         const alreadySubscribed = brevoResponse.status === 400 && body?.code === "duplicate_parameter";
         if (!alreadySubscribed) {
-          return page(`DEBUG ${brevoResponse.status}: ${bodyText}`, true, 502);
+          return page(`DEBUG ${brevoResponse.status}: ${bodyText} | keyLen=${keyLen} keyPrefix=${keyPrefix}`, true, 502);
         }
       }
 
