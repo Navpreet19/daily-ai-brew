@@ -23,8 +23,8 @@ date matches the intended issue date.
 
 ## STEP 3 — Read recent context
 
-For each of the 3 calendar days before today, check whether `ai-brew-YYYY-MM-DD.md`
-exists at the repo root and `Read` it if it does. Skip any missing date silently
+For each of the 3 calendar days before today, check whether `archive/ai-brew-YYYY-MM-DD.md`
+exists and `Read` it if it does. Skip any missing date silently
 (e.g. early in the archive's life, or a day the workflow didn't run) — do not treat
 a missing file as an error. From whatever you read, note:
 
@@ -64,9 +64,10 @@ reporter would — no "Day 3 of..." or "Following up:" labels.
 
 ## STEP 6 — Save the markdown issue
 
-Write the completed issue to `ai-brew-YYYY-MM-DD.md` at the repo root
-(substitute today's actual date). This is now the only markdown copy — there
-is no separate stockfilter folder to duplicate it into.
+Write the completed issue to `archive/ai-brew-YYYY-MM-DD.md` (substitute
+today's actual date; create the `archive/` directory if it doesn't already
+exist, though it should). This is now the only markdown copy — there is no
+separate stockfilter folder to duplicate it into.
 
 ## STEP 7 — Write the HTML version
 
@@ -120,7 +121,7 @@ style).
 ARCHIVE FOOTER: Centered pill links for the current date (bold, dark navy
 background, white text) plus the 5 preceding calendar dates (light gray
 background, dark text). Each pill is an `<a>` tag linking to
-`ai-brew-YYYY-MM-DD.md` (relative path, same directory). Pills:
+`archive/ai-brew-YYYY-MM-DD.md` (relative path). Pills:
 display:inline-block, border-radius 20px, padding 4px 14px, 12px font,
 margin 4px, text-decoration:none. Footer also shows small centered text:
 "© 2026 The AI Brew · stockfilter.app" in #9CA3AF.
@@ -137,7 +138,7 @@ From the repo root, run:
 ```
 git config user.name "AI Brew Bot"
 git config user.email "actions@users.noreply.github.com"
-git add ai-brew-*.md index.html
+git add archive/ai-brew-*.md index.html
 git commit -m "Daily AI Brew <today's date>"
 git push origin main
 ```

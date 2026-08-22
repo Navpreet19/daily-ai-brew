@@ -47,21 +47,21 @@ step in order:
 1. Read the style/voice spec at `ai-brew-newsletter-prompt.md` (this is the "constitution" —
    see below).
 2. Get today's UTC date (`date -u +%Y-%m-%d`).
-3. Read recent context: `Read` each of the last 3 days' `ai-brew-YYYY-MM-DD.md` files that
-   exist (skip missing dates silently) to catch developing storylines and avoid re-reporting
+3. Read recent context: `Read` each of the last 3 days' `archive/ai-brew-YYYY-MM-DD.md` files
+   that exist (skip missing dates silently) to catch developing storylines and avoid re-reporting
    already-resolved stories. See STORYLINE CONTINUITY in `ai-brew-newsletter-prompt.md`.
 4. Use `WebSearch` to find real AI news from the last 24 hours only, spanning models/products,
    funding, chips/hardware, and policy/geopolitics. Never fabricate figures, quotes, or events;
    hedge unconfirmed claims ("reportedly", "claims"). Attribute every story to its source.
 5. Write the issue following the fixed structure (see below), weaving in any storyline
    continuity from step 3 naturally — no explicit "Day 3 of..." labels.
-6. Save markdown to `ai-brew-YYYY-MM-DD.md` at repo root.
+6. Save markdown to `archive/ai-brew-YYYY-MM-DD.md`.
 7. Write/overwrite `index.html` at repo root — a single self-contained HTML file (no external
    CSS/JS/fonts) that is the live public page for stockfilter.app, styled per the detailed spec
    in `ai-brew-task-prompt.md` (colors, spacing, section markup all specified exactly there).
    The archive footer must link to the current date + 5 preceding calendar dates, generated
    dynamically — never hardcode past dates.
-8. Commit (`git add ai-brew-*.md index.html`) and push directly to `main`. Skip the commit only
+8. Commit (`git add archive/ai-brew-*.md index.html`) and push directly to `main`. Skip the commit only
    if nothing is staged. If the push fails, surface the exact git error and exit non-zero —
    there's no human present to fix it mid-run.
 9. Print a short summary (date, top headline, commit SHA) to the job log.
@@ -93,7 +93,6 @@ closer) → **Sources** (numbered links). The `.md` and `.html` versions carry i
 
 ## File conventions
 
-- Daily issues: `ai-brew-YYYY-MM-DD.md` at repo root — one per day, never overwritten, never
-  deleted. `index.html` is the only file that gets overwritten each run (always reflects
-  *today's* issue).
+- Daily issues: `archive/ai-brew-YYYY-MM-DD.md` — one per day, never overwritten, never deleted.
+  `index.html` is the only file that gets overwritten each run (always reflects *today's* issue).
 - Commit messages for daily runs follow the pattern `Daily AI Brew YYYY-MM-DD`.
