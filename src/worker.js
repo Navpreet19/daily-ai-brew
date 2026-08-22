@@ -23,10 +23,12 @@ export default {
       });
 
       if (!brevoResponse.ok) {
-        const body = await brevoResponse.json().catch(() => null);
+        const bodyText = await brevoResponse.text();
+        let body = null;
+        try { body = JSON.parse(bodyText); } catch {}
         const alreadySubscribed = brevoResponse.status === 400 && body?.code === "duplicate_parameter";
         if (!alreadySubscribed) {
-          return page("Something went wrong — please try again in a moment.", true, 502);
+          return page(`DEBUG ${brevoResponse.status}: ${bodyText}`, true, 502);
         }
       }
 
