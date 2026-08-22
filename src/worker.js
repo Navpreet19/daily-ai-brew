@@ -22,7 +22,8 @@ export default {
       });
 
       if (!resendResponse.ok) {
-        return page("Something went wrong — please try again in a moment.", true, 502);
+        const detail = await resendResponse.text();
+        return page(`DEBUG ${resendResponse.status}: ${detail}`, true, 502);
       }
 
       return page("You're subscribed. See you in your inbox tomorrow morning.", false, 200);
