@@ -60,11 +60,14 @@ step in order:
    CSS/JS/fonts) that is the live public page for stockfilter.app, styled per the detailed spec
    in `ai-brew-task-prompt.md` (colors, spacing, section markup all specified exactly there).
    The archive footer must link to the current date + 5 preceding calendar dates, generated
-   dynamically — never hardcode past dates.
+   dynamically — never hardcode past dates. The page also includes a fixed Buttondown email
+   subscribe form (see `ai-brew-task-prompt.md`'s SUBSCRIBE spec) — reproduce it unchanged.
 8. Commit (`git add ai-brew-*.md index.html`) and push directly to `main`. Skip the commit only
    if nothing is staged. If the push fails, surface the exact git error and exit non-zero —
    there's no human present to fix it mid-run.
-9. Print a short summary (date, top headline, commit SHA) to the job log.
+9. Send today's issue to subscribers via the Buttondown API (`BUTTONDOWN_API_KEY` from workflow
+   secrets). A failed send is logged but does not fail the run — the site has already published.
+10. Print a short summary (date, top headline, commit SHA, Buttondown send status) to the job log.
 
 ## The two prompt files — different jobs, keep them separate
 
@@ -89,7 +92,9 @@ Header line → **The Snapshot** (4-6 number+quip signals plus one mood line) �
 3-4 **Lead Stories** (punny subhead, 90-160 words, bolded "Bottom line:") → **Quick Hits**
 (5-7 one-line emoji items) → **The Big Picture** (zoom-out take) → **One More Thing** (light
 closer) → **Sources** (numbered links). The `.md` and `.html` versions carry identical content;
-`.html` additionally has fixed inline styling and an archive-pill footer.
+`.html` additionally has fixed inline styling, an email subscribe form (Buttondown-hosted;
+subscribing and sending are handled entirely by Buttondown, not this repo), and an archive-pill
+footer.
 
 ## File conventions
 
