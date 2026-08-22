@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Brew · stockfilter.app — Monday, June 29, 2026</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #FAFAF8;
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+  .topbar {
+    width: 100%;
+    background: #0F172A;
+    color: #94A3B8;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px 16px;
+    letter-spacing: 0.2px;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; }
+  .header { background: #ffffff; padding: 32px 24px 24px; }
+  .eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #6B7280;
+    margin: 0 0 12px;
+  }
+  h1.tagline {
+    font-size: 28px;
+    font-weight: bold;
+    color: #0F172A;
+    line-height: 1.25;
+    margin: 0 0 20px;
+  }
+  .rule { border: none; border-top: 1px solid #E5E7EB; margin: 0; }
+  .body { padding: 24px; }
+
+  /* Snapshot */
+  .snapshot {
+    background: #0F172A;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+  .snapshot h2 {
+    color: #ffffff;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin: 0 0 14px;
+  }
+  .signal { font-size: 15px; line-height: 1.7; margin: 0 0 6px; }
+  .signal .metric { color: #ffffff; font-weight: bold; }
+  .signal .quip { color: #94A3B8; }
+  .mood {
+    color: #64748B;
+    font-style: italic;
+    font-size: 14px;
+    margin: 14px 0 0;
+    padding-top: 12px;
+    border-top: 1px solid #1E293B;
+  }
+
+  /* Editor open */
+  .open { font-size: 16px; line-height: 1.7; margin: 0 0 28px; }
+
+  /* Lead stories */
+  .lead { margin: 0 0 28px; }
+  .lead h2 { font-size: 20px; color: #0F172A; margin: 0 0 10px; line-height: 1.3; }
+  .lead p { font-size: 16px; line-height: 1.7; margin: 0 0 14px; }
+  .bottomline {
+    border-left: 3px solid #0F172A;
+    background: #F1F5F9;
+    padding: 12px 16px;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Quick Hits */
+  .section-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #6B7280;
+    margin: 0 0 12px;
+  }
+  ul.quickhits { list-style: none; margin: 0 0 28px; padding: 0; }
+  ul.quickhits li { font-size: 14px; line-height: 1.8; margin: 0 0 6px; }
+
+  /* Big Picture */
+  .bigpicture {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 0 0 28px;
+  }
+  .bigpicture h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #6B7280;
+    margin: 0 0 12px;
+  }
+  .bigpicture p { font-size: 15px; font-style: italic; line-height: 1.7; margin: 0; }
+
+  /* One More Thing */
+  .onemore { border-top: 1px solid #E5E7EB; padding-top: 22px; margin: 0 0 28px; }
+  .onemore h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #6B7280;
+    margin: 0 0 12px;
+  }
+  .onemore p { font-size: 15px; line-height: 1.7; margin: 0; }
+
+  /* Sources */
+  .sources h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #6B7280;
+    margin: 0 0 12px;
+  }
+  ol.sourcelist { font-size: 13px; color: #4B5563; line-height: 1.7; margin: 0 0 8px; padding-left: 20px; }
+  ol.sourcelist li { margin: 0 0 4px; }
+  a.src-link { color: #0F172A; text-decoration: none; }
+  a.src-link:hover { text-decoration: underline; }
+
+  /* Archive footer */
+  .archive { text-align: center; padding: 28px 24px 8px; border-top: 1px solid #E5E7EB; margin-top: 8px; }
+  .archive a {
+    display: inline-block;
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    margin: 4px;
+    text-decoration: none;
+  }
+  .pill-current { background: #0F172A; color: #ffffff; font-weight: bold; }
+  .pill-past { background: #E5E7EB; color: #1a1a1a; }
+  .copyright { text-align: center; font-size: 12px; color: #9CA3AF; padding: 8px 24px 32px; }
+</style>
+</head>
+<body>
+  <div class="topbar">☕ The AI Brew · stockfilter.app</div>
+
+  <div class="wrap">
+    <div class="header">
+      <p class="eyebrow">MONDAY, JUNE 29, 2026</p>
+      <h1 class="tagline">OpenAI built the model, the chip, and the bouncer to go with them.</h1>
+    </div>
+    <hr class="rule">
+
+    <div class="body">
+
+      <div class="snapshot">
+        <h2>The Snapshot</h2>
+        <p class="signal"><span class="metric">$5 / $30</span> <span class="quip">— Sol's price per million tokens (in / out). A premium pour; cheaper Terra serves a similar vintage at half off.</span></p>
+        <p class="signal"><span class="metric">~20 orgs</span> <span class="quip">— cleared to touch GPT-5.6 so far, after OpenAI showed it to Washington first. Frontier AI now ships with a guest list.</span></p>
+        <p class="signal"><span class="metric">28.8M</span> <span class="quip">— Claude queries via ~25,000 fake accounts in Anthropic's Alibaba complaint. About 1,150 questions per sock puppet.</span></p>
+        <p class="signal"><span class="metric">$2.3B</span> <span class="quip">— General Intuition's new valuation for AI trained on gamer clips. Your rage-quits are R&amp;D now.</span></p>
+        <p class="signal"><span class="metric">$192.53</span> <span class="quip">— Nvidia's Friday close, ~18% lower on the year. Even so, 36 of 37 analysts still say Buy.</span></p>
+        <p class="mood">Mood: vertically integrated and lightly paranoid.</p>
+      </div>
+
+      <p class="open">Good morning. The long June weekend is over, and while you were at the grill, the AI labs were too — searing chips, plating new models, and quietly stacking one very large legal headache. The week's throughline: the companies sprinting toward artificial general intelligence increasingly want to own every layer of the stack — and decide who's allowed to stand on it. Let's dig in.</p>
+
+      <div class="lead">
+        <h2>Sol food</h2>
+        <p>OpenAI on Friday previewed GPT-5.6, a three-model family named Sol, Terra, and Luna (yes, like a yoga studio). Sol is the frontier brain, tuned for long coding sessions, deep reasoning, and agent work; Terra matches last generation's GPT-5.5 at roughly half the price; Luna is the fast, cheap runt of the litter. But the real news isn't the model — it's the door policy. Per Axios and VentureBeat, OpenAI shared GPT-5.6 with the U.S. government ahead of release and is handing it to only about 20 trusted organizations at first, citing safety and "higher-risk" misuse. General availability is "coming weeks" away. Which means the marquee figures — Sol at $5 in / $30 out per million tokens — matter less right now than the velvet rope in front of them.</p>
+        <p class="bottomline"><strong>Bottom line:</strong> When a frontier model launches on a government-vetted guest list, the product isn't just intelligence — it's the question of who's trusted to hold it.</p>
+      </div>
+
+      <div class="lead">
+        <h2>Pass the Jalapeño</h2>
+        <p>Days earlier, OpenAI and Broadcom unveiled Jalapeño, OpenAI's first custom chip — an inference processor (the part that actually answers you, as opposed to training the model) built from scratch in about nine months. OpenAI claims meaningfully better performance-per-watt than today's best silicon and says early samples are already running its GPT-5.3-Codex-Spark model in testing, per TechCrunch, with a data-center rollout slated for late 2026. Translation: the company that buys mountains of Nvidia GPUs would very much like to stop. Designing your own application-specific chip is how you escape both the price tag and the waitlist.</p>
+        <p class="bottomline"><strong>Bottom line:</strong> Owning the model <em>and</em> the chip it runs on is OpenAI's bid to control its own costs — and a sign that Nvidia's biggest customers are quietly turning into its competitors.</p>
+      </div>
+
+      <div class="lead">
+        <h2>Distill, my beating heart</h2>
+        <p>Anthropic went public last week with a pointed accusation: that operators tied to Alibaba's Qwen lab ran roughly 25,000 fraudulent accounts to query Claude 28.8 million times between late April and early June, harvesting its answers to train a rival. That's a distillation attack — copying a smarter model's homework, not stealing its source code or weights. Anthropic laid it out in a letter to U.S. senators and flagged the White House, per CNBC, calling it the largest such campaign it has seen. Alibaba hasn't publicly responded, and "alleged" is doing real work here: this is Anthropic's telling, not a court's finding.</p>
+        <p class="bottomline"><strong>Bottom line:</strong> Model outputs are the new trade secret, and the U.S.–China AI fight is migrating from chip-export rules to the answers chatbots give away for free.</p>
+      </div>
+
+      <div class="lead">
+        <h2>Press start to continue</h2>
+        <p>On the lighter end of the ledger, General Intuition unveiled a $320M Series A at a $2.3B valuation — led by Khosla Ventures, with Jeff Bezos and Eric Schmidt along for the ride — to teach AI by feeding it millions of hours of video-game clips. The bet, per TechCrunch: today's models have learned to <em>see</em> the world; the harder, more valuable trick is predicting what happens when you <em>act</em> in it — physics, consequences, intuition — and gamers generate exactly that data, by the petabyte, via the clip-sharing app Medal. The prize they're chasing is robots and agents that move through reality like a speedrunner threads a level.</p>
+        <p class="bottomline"><strong>Bottom line:</strong> The next great training set may not be the internet's text — it might be your gaming highlight reel.</p>
+      </div>
+
+      <p class="section-label">Quick Hits</p>
+      <ul class="quickhits">
+        <li>🌶️ ByteDance dropped two new models, Seed 2.1 Pro and Turbo — China's labs are not waiting around (per LLM Stats).</li>
+        <li>🎧 Google's Live Translate earbud feature is reportedly rolling out to iOS and to France, Germany, and the UK — the Babel fish, shipping in beta.</li>
+        <li>⚡ GPU-rental startup RunPod reportedly raised a $100M Series A led by Summit Partners, betting the compute-shortage boom has years left to run.</li>
+        <li>🕵️ Anthropic's distillation dossier isn't new: back in February it named DeepSeek, Moonshot, and MiniMax in similar episodes.</li>
+        <li>🏗️ Meta is reportedly bulking up its El Paso AI data center past $10B, chasing a full gigawatt of capacity by 2028.</li>
+        <li>📈 Nvidia is 2026's Magnificent Seven chip laggard, yet the analyst consensus target (~$309) still implies ~58% upside from Friday. Someone in that room is wrong.</li>
+      </ul>
+
+      <div class="bigpicture">
+        <h2>The Big Picture</h2>
+        <p>Zoom out and the week tells a single story: AI is finishing its transition from software to infrastructure — and from infrastructure to statecraft. The labs now want the whole stack — the model, the chip it runs on, the data center it lives in, and increasingly a say in which governments and companies get access at all. That's why OpenAI is fabbing its own silicon, why a model launch suddenly routes through Washington, and why a scraping campaign gets escalated to the Senate instead of a legal department. Compute is capital, model outputs are secrets, and access is policy. The hype cycle made AI feel like apps; 2026 is making it feel like oil, fabs, and treaties.</p>
+      </div>
+
+      <div class="onemore">
+        <h2>One More Thing</h2>
+        <p>Spare a thought for the gamers. Somewhere out there, a teenager's 3 a.m. clutch in a shooter is being vacuumed up to teach a warehouse robot how to pivot around a corner. They never signed up to train our future mechanical coworkers — but they did post the clip. Consider it the first rule of the AI era: if it's online and it's interesting, it's a dataset. Touch grass while you still can.</p>
+      </div>
+
+      <div class="sources">
+        <h2>Sources</h2>
+        <ol class="sourcelist">
+          <li><a class="src-link" href="https://openai.com/index/previewing-gpt-5-6-sol/">Previewing GPT-5.6 Sol — OpenAI</a></li>
+          <li><a class="src-link" href="https://www.axios.com/2026/06/26/openai-gpt-sol-terra-luna-trump">OpenAI releases powerful new GPT-5.6 model under restrictions — Axios</a></li>
+          <li><a class="src-link" href="https://venturebeat.com/technology/openai-unveils-gpt-5-6-sol-terra-and-luna-models-but-only-accessible-to-limited-preview-partners-for-now-per-us-gov">OpenAI unveils GPT-5.6 Sol, Terra and Luna, limited to preview partners — VentureBeat</a></li>
+          <li><a class="src-link" href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/">OpenAI unveils its first custom chip, built by Broadcom — TechCrunch</a></li>
+          <li><a class="src-link" href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/">OpenAI and Broadcom unveil LLM-optimized inference chip — OpenAI</a></li>
+          <li><a class="src-link" href="https://www.cnbc.com/2026/06/24/anthropic-alibaba-distillation-campaign.html">Anthropic accuses Alibaba of campaign to 'brazenly' and 'illicitly' extract AI capabilities — CNBC</a></li>
+          <li><a class="src-link" href="https://techcrunch.com/2026/06/25/general-intuitions-2-3b-bet-that-video-games-can-train-ai-agents-for-the-real-world/">General Intuition's $2.3B bet that video games can train AI agents — TechCrunch</a></li>
+          <li><a class="src-link" href="https://llm-stats.com/llm-updates">AI Updates Today: latest model releases — LLM Stats</a></li>
+          <li><a class="src-link" href="https://www.tikr.com/blog/nvidia-stock-is-down-18-in-2026-is-the-ai-leader-finally-cheap">NVIDIA Stock Is Down 18% in 2026 — TIKR</a></li>
+          <li><a class="src-link" href="https://news.crunchbase.com/venture/biggest-funding-rounds-june-5-2026/">The Week's 10 Biggest Funding Rounds — Crunchbase News</a></li>
+        </ol>
+      </div>
+
+    </div><!-- /body -->
+
+    <div class="archive">
+      <a class="pill-current" href="ai-brew-2026-06-29.md">Jun 29</a>
+      <a class="pill-past" href="ai-brew-2026-06-28.md">Jun 28</a>
+      <a class="pill-past" href="ai-brew-2026-06-27.md">Jun 27</a>
+      <a class="pill-past" href="ai-brew-2026-06-26.md">Jun 26</a>
+      <a class="pill-past" href="ai-brew-2026-06-25.md">Jun 25</a>
+      <a class="pill-past" href="ai-brew-2026-06-24.md">Jun 24</a>
+    </div>
+    <div class="copyright">© 2026 The AI Brew · stockfilter.app</div>
+
+  </div><!-- /wrap -->
+</body>
+</html>

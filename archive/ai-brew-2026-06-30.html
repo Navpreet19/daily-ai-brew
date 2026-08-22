@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Brew · stockfilter.app — Tuesday, June 30, 2026</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #FAFAF8;
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+  .topbar {
+    width: 100%;
+    background: #0F172A;
+    color: #94A3B8;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px 16px;
+    letter-spacing: 0.2px;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; }
+  .header { background: #ffffff; padding: 32px 24px 24px; }
+  .eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #6B7280;
+    margin: 0 0 12px;
+  }
+  h1.tagline {
+    font-size: 28px;
+    font-weight: bold;
+    color: #0F172A;
+    line-height: 1.25;
+    margin: 0 0 20px;
+  }
+  .rule { border: none; border-top: 1px solid #E5E7EB; margin: 0; }
+  .body { padding: 24px; }
+
+  /* Snapshot */
+  .snapshot {
+    background: #0F172A;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+  .snapshot h2 {
+    color: #ffffff;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin: 0 0 14px;
+  }
+  .signal { font-size: 15px; line-height: 1.7; margin: 0 0 6px; }
+  .signal .metric { color: #ffffff; font-weight: bold; }
+  .signal .quip { color: #94A3B8; }
+  .mood {
+    color: #64748B;
+    font-style: italic;
+    font-size: 14px;
+    margin: 14px 0 0;
+    padding-top: 12px;
+    border-top: 1px solid #1E293B;
+  }
+
+  /* Editor open */
+  .open { font-size: 16px; line-height: 1.7; margin: 0 0 28px; }
+
+  /* Lead stories */
+  .lead { margin: 0 0 28px; }
+  .lead h2 { font-size: 20px; color: #0F172A; margin: 0 0 10px; line-height: 1.3; }
+  .lead p { font-size: 16px; line-height: 1.7; margin: 0 0 14px; }
+  .bottomline {
+    border-left: 3px solid #0F172A;
+    background: #F1F5F9;
+    padding: 12px 16px;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* Quick Hits */
+  .section-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #6B7280;
+    margin: 0 0 12px;
+  }
+  ul.quickhits { list-style: none; margin: 0 0 28px; padding: 0; }
+  ul.quickhits li { font-size: 14px; line-height: 1.8; margin: 0 0 6px; }
+
+  /* Big Picture */
+  .bigpicture {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 0 0 28px;
+  }
+  .bigpicture h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #6B7280;
+    margin: 0 0 12px;
+  }
+  .bigpicture p { font-size: 15px; font-style: italic; line-height: 1.7; margin: 0; }
+
+  /* One More Thing */
+  .onemore { border-top: 1px solid #E5E7EB; padding-top: 22px; margin: 0 0 28px; }
+  .onemore h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #6B7280;
+    margin: 0 0 12px;
+  }
+  .onemore p { font-size: 15px; line-height: 1.7; margin: 0; }
+
+  /* Sources */
+  .sources h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #6B7280;
+    margin: 0 0 12px;
+  }
+  ol.sourcelist { font-size: 13px; color: #4B5563; line-height: 1.7; margin: 0 0 8px; padding-left: 20px; }
+  ol.sourcelist li { margin: 0 0 4px; }
+  a.src-link { color: #0F172A; text-decoration: none; }
+  a.src-link:hover { text-decoration: underline; }
+
+  /* Archive footer */
+  .archive { text-align: center; padding: 28px 24px 8px; border-top: 1px solid #E5E7EB; margin-top: 8px; }
+  .archive a {
+    display: inline-block;
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    margin: 4px;
+    text-decoration: none;
+  }
+  .pill-current { background: #0F172A; color: #ffffff; font-weight: bold; }
+  .pill-past { background: #E5E7EB; color: #1a1a1a; }
+  .copyright { text-align: center; font-size: 12px; color: #9CA3AF; padding: 8px 24px 32px; }
+</style>
+</head>
+<body>
+  <div class="topbar">☕ The AI Brew · stockfilter.app</div>
+
+  <div class="wrap">
+    <div class="header">
+      <p class="eyebrow">TUESDAY, JUNE 30, 2026</p>
+      <h1 class="tagline">AI's hidden invoice lands — on your RAM, in a courtroom, and at the statehouse.</h1>
+    </div>
+    <hr class="rule">
+
+    <div class="body">
+
+      <div class="snapshot">
+        <h2>The Snapshot</h2>
+        <p class="signal"><span class="metric">~700%</span> <span class="quip">— the jump in consumer RAM prices over four years, per a new class-action complaint against the big three memory makers. The AI boom, now itemized on your build.</span></p>
+        <p class="signal"><span class="metric">80–90%</span> <span class="quip">— how much DRAM contract prices rose this quarter alone, per Counterpoint Research. Your next laptop is subsidizing a data center.</span></p>
+        <p class="signal"><span class="metric">~90%</span> <span class="quip">— share of the global DRAM market held by the three companies just sued for price-fixing. A cozy little oligopoly, allegedly.</span></p>
+        <p class="signal"><span class="metric">Jan 1, 2027</span> <span class="quip">— the Colorado AI Act's new start date, after today's deadline quietly evaporated. The landmark law that wasn't.</span></p>
+        <p class="signal"><span class="metric">100+</span> <span class="quip">— U.S. institutions now cleared to run Anthropic's most powerful model. Frontier AI, members only.</span></p>
+        <p class="signal"><span class="metric">$84.75B</span> <span class="quip">— Alphabet's equity raise this month to fund compute, the largest in U.S. corporate history. Yes, that's just for GPUs.</span></p>
+        <p class="mood">Mood: the AI boom stopped being abstract and started showing up on the invoice.</p>
+      </div>
+
+      <p class="open">Happy last day of June — and the last day of a quarter that turned AI from a software story into a heavy-industry one. While the labs ship models, the real action moved to the boring stuff that decides prices and rights: memory chips, antitrust courts, and state legislatures. The throughline today is the bill. Someone's paying for this buildout, and increasingly it's you. Let's get into it.</p>
+
+      <div class="lead">
+        <h2>RAMpocalypse now</h2>
+        <p>Samsung, SK Hynix, and Micron — which together control roughly 90% of the world's DRAM — were hit on June 25 with a federal class-action suit in California accusing them of conspiring to keep memory scarce and prices sky-high, per Tom's Hardware. The clever part of the complaint: it alleges the trio used a coordinated pivot toward high-bandwidth memory — the pricey stacked chips that feed AI accelerators — as cover to throttle production of ordinary DDR4 and DDR5, the stuff in your laptop. Prices, the plaintiffs say, have climbed about 700% in four years, with Apple's recent iPad and Mac hikes cited as collateral damage. The companies haven't responded in court, and the allegations are unproven.</p>
+        <p class="bottomline"><strong>Bottom line:</strong> The AI data-center gold rush has a side effect nobody put on the slide: it's draining the world's memory supply, and consumers are footing the bill. Whether that's a market or a cartel is now a question for a judge.</p>
+      </div>
+
+      <div class="lead">
+        <h2>Mythos, but make it members-only</h2>
+        <p>Earlier this month, Washington forced Anthropic to cut off access to its two most powerful models after researchers warned they could find and exploit software vulnerabilities faster than humans can patch. On June 26, Commerce relented — partway. Anthropic can now release Mythos 5 to more than 100 vetted U.S. institutions, including infrastructure defenders, large companies, and federal agencies, per CNN and CNBC, while the weaker Fable stays benched. Commerce Secretary Howard Lutnick said "appropriate safeguards are in place" for "trusted partners." Translate that: the most capable AI in the country is now a permissioned asset, handed out on a government guest list.</p>
+        <p class="bottomline"><strong>Bottom line:</strong> When a model gets regulated like a munition, "frontier" and "open" formally split up — and access becomes the whole game.</p>
+      </div>
+
+      <div class="lead">
+        <h2>Colorado's law hits snooze</h2>
+        <p>Today was supposed to be a milestone: June 30 was the date the Colorado AI Act — the first comprehensive U.S. state law governing high-risk AI in hiring, lending, housing, and health care — finally took effect. Instead, it's a non-event. In May, Governor Polis signed SB 189, pushing the start date to January 1, 2027 and gutting the core of the law, per Hunton and Brownstein. Gone: the duty of care against algorithmic discrimination, the mandatory risk assessments, the impact reports. What's left is a slimmer disclosure-and-transparency regime. Industry lobbying and "we're not ready" anxiety did the rest.</p>
+        <p class="bottomline"><strong>Bottom line:</strong> America's boldest state experiment in AI accountability blinked at the finish line. The pattern is hard to miss — the buildout sprints, and the rulebook keeps moving back its own deadline.</p>
+      </div>
+
+      <p class="section-label">Quick Hits</p>
+      <ul class="quickhits">
+        <li>🇪🇺 The EU Parliament delayed the AI Act's high-risk rules roughly 16 months to December 2027, while moving to ban "nudifier" apps from December 2026 (Morgan Lewis).</li>
+        <li>🍎 The RAM suit names Apple's recent iPad and Mac price increases as Exhibit A for the memory squeeze (AppleInsider).</li>
+        <li>💸 Qualcomm is reportedly in talks to buy RISC-V chip startup Tenstorrent for $8–10 billion, hunting for an answer to Nvidia (Reuters).</li>
+        <li>🛰️ Anthropic rented nearly all of xAI's underused Colossus 1 supercomputer — about 220,000 GPUs — for a reported $1.25 billion a month (TechCrunch).</li>
+        <li>🇨🇳 The U.S. clarified that its advanced-AI-chip ban now reaches Chinese firms' overseas subsidiaries, closing a loophole (Al Jazeera).</li>
+        <li>🧠 Google's Gemini 3.5 Pro reportedly slipped past its June target and is now expected in July (model trackers).</li>
+      </ul>
+
+      <div class="bigpicture">
+        <h2>The Big Picture</h2>
+        <p>Zoom out and June's real story isn't a chatbot — it's the externalities. The hunger for HBM to feed AI accelerators is so voracious it's diverting memory away from phones and PCs and (allegedly) inflating the chips in everything you own. The capital is so enormous — Alphabet's record $84.75 billion raise, hyperscalers on track for roughly $660–725 billion in 2026 — that it's bending supply chains and dragging in courts and statehouses. And yet the rules are arriving slower and softer than the concrete: Colorado punted, Brussels delayed, Washington is busy deciding who's allowed to hold a model rather than how the boom reshapes everyone else. The smart take for the back half of 2026: AI has graduated from product to infrastructure, and infrastructure is governed by antitrust, utilities, and zoning — not demo day.</p>
+      </div>
+
+      <div class="onemore">
+        <h2>One More Thing</h2>
+        <p>If the "RAMpocalypse" suit feels like a rerun, that's because it is. Samsung and Hynix already pleaded guilty to fixing DRAM prices back in the 2000s, paying $300 million and $185 million in criminal fines. Two decades and one AI boom later, the same names are back in the same kind of courtroom — except now the defense practically writes itself: <em>the data centers made us do it.</em> Whether that holds up is for a judge to decide. Bring snacks. ☕</p>
+      </div>
+
+      <div class="sources">
+        <h2>Sources</h2>
+        <ol class="sourcelist">
+          <li><a class="src-link" href="https://www.tomshardware.com/tech-industry/samsung-sk-hynix-and-micron-sued-over-alleged-dram-price-fixing-amid-record-memory-costs">Samsung, SK hynix, Micron sued over alleged DRAM price fixing — Tom's Hardware</a></li>
+          <li><a class="src-link" href="https://www.tomsguide.com/computing/samsung-sk-hynix-micron-anti-trust-lawsuit-ram-prices">Samsung, SK Hynix, Micron sued over RAM prices — Tom's Guide</a></li>
+          <li><a class="src-link" href="https://appleinsider.com/articles/26/06/29/apple-suppliers-samsung-sk-hynix-micron-hit-by-ram-price-fixing-suit">Apple suppliers hit by RAM price-fixing suit — AppleInsider</a></li>
+          <li><a class="src-link" href="https://spectrum.ieee.org/dram-shortage">AI boom fuels DRAM shortage and price surge — IEEE Spectrum</a></li>
+          <li><a class="src-link" href="https://edition.cnn.com/2026/06/26/tech/anthropic-mythos-release">US allows Anthropic limited release of Mythos — CNN</a></li>
+          <li><a class="src-link" href="https://www.cnbc.com/2026/06/26/us-government-anthropic-claude-mythos5-ai.html">Trump admin allows Anthropic to release Mythos to some companies, agencies — CNBC</a></li>
+          <li><a class="src-link" href="https://www.axios.com/2026/06/27/commerce-anthropic-mythos-restrictions-lift">Anthropic's Mythos returns for a government-approved group — Axios</a></li>
+          <li><a class="src-link" href="https://www.hunton.com/privacy-and-cybersecurity-law-blog/colorado-ai-act-amended-and-effective-date-delayed">Colorado AI Act amended and effective date delayed — Hunton</a></li>
+          <li><a class="src-link" href="https://www.bhfs.com/insight/colorados-landmark-ai-law-coming-online-what-developers-and-deployers-should-know/">Colorado's landmark AI law: what developers and deployers should know — Brownstein</a></li>
+          <li><a class="src-link" href="https://www.morganlewis.com/pubs/2026/06/eu-approves-delays-and-other-amendments-to-certain-eu-ai-act-obligations-what-businesses-should-know">EU approves delays to certain AI Act obligations — Morgan Lewis</a></li>
+          <li><a class="src-link" href="https://finance.yahoo.com/technology/ai/articles/qualcomm-talks-acquire-ai-chip-230401789.html">Qualcomm in talks to acquire Tenstorrent for up to $10B — Reuters via Yahoo Finance</a></li>
+          <li><a class="src-link" href="https://techcrunch.com/2026/05/20/anthropic-will-pay-xai-1-25-billion-per-month-for-compute/">Anthropic will pay xAI $1.25B per month for compute — TechCrunch</a></li>
+          <li><a class="src-link" href="https://www.aljazeera.com/economy/2026/6/1/us-says-ban-on-ai-chip-shipments-applies-to-chinese-firms-outside-china">US says AI chip ban applies to Chinese firms outside China — Al Jazeera</a></li>
+          <li><a class="src-link" href="https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Upsize-and-Pricing-of-84-75-Billion-Equity-Capital-Raise-to-Expand-AI-Infrastructure--and-Compute-2026-QzN3D9yMAj/default.aspx">Alphabet announces $84.75B equity capital raise — Alphabet IR</a></li>
+          <li><a class="src-link" href="https://futurumgroup.com/insights/ai-capex-2026-the-690b-infrastructure-sprint/">AI capex 2026: the infrastructure sprint — Futurum</a></li>
+        </ol>
+      </div>
+
+    </div><!-- /body -->
+
+    <div class="archive">
+      <a class="pill-current" href="ai-brew-2026-06-30.md">Jun 30</a>
+      <a class="pill-past" href="ai-brew-2026-06-29.md">Jun 29</a>
+      <a class="pill-past" href="ai-brew-2026-06-28.md">Jun 28</a>
+      <a class="pill-past" href="ai-brew-2026-06-27.md">Jun 27</a>
+      <a class="pill-past" href="ai-brew-2026-06-26.md">Jun 26</a>
+      <a class="pill-past" href="ai-brew-2026-06-25.md">Jun 25</a>
+    </div>
+    <div class="copyright">© 2026 The AI Brew · stockfilter.app</div>
+
+  </div><!-- /wrap -->
+</body>
+</html>

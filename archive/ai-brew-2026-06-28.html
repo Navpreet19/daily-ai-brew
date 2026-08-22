@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Brew · stockfilter.app — Sunday, June 28, 2026</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #FAFAF8;
+    color: #1a1a1a;
+    line-height: 1.6;
+  }
+  .topbar {
+    width: 100%;
+    background: #0F172A;
+    color: #94A3B8;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px 16px;
+    letter-spacing: 0.2px;
+  }
+  .wrap { max-width: 680px; margin: 0 auto; }
+  .header {
+    background: #ffffff;
+    padding: 32px 24px 24px;
+  }
+  .eyebrow {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #6B7280;
+    margin: 0 0 12px;
+  }
+  h1.tagline {
+    font-size: 28px;
+    font-weight: bold;
+    color: #0F172A;
+    line-height: 1.25;
+    margin: 0 0 20px;
+  }
+  .rule { border: none; border-top: 1px solid #E5E7EB; margin: 0; }
+  .body { padding: 24px; }
+
+  /* Snapshot */
+  .snapshot {
+    background: #0F172A;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+  }
+  .snapshot h2 {
+    color: #ffffff;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin: 0 0 14px;
+  }
+  .signal { margin: 0 0 10px; font-size: 15px; line-height: 1.5; }
+  .signal .metric { color: #ffffff; font-weight: bold; }
+  .signal .quip { color: #94A3B8; }
+  .mood {
+    color: #64748B;
+    font-style: italic;
+    font-size: 14px;
+    border-top: 1px solid #1E293B;
+    margin-top: 16px;
+    padding-top: 14px;
+  }
+
+  /* Editor open */
+  .open { font-size: 16px; line-height: 1.7; margin: 0 0 8px; }
+
+  /* Lead stories */
+  h2.lead {
+    font-size: 20px;
+    color: #0F172A;
+    margin: 32px 0 10px;
+    line-height: 1.3;
+  }
+  .story p { font-size: 16px; line-height: 1.7; margin: 0 0 14px; }
+  .bottomline {
+    border-left: 3px solid #0F172A;
+    background: #F1F5F9;
+    padding: 12px 16px;
+    margin: 4px 0 8px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* Quick hits */
+  .section-label {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #6B7280;
+    margin: 36px 0 12px;
+  }
+  ul.quickhits { list-style: none; padding: 0; margin: 0; }
+  ul.quickhits li { font-size: 14px; line-height: 1.8; margin-bottom: 8px; }
+
+  /* Big picture */
+  .bigpicture {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 28px 0;
+  }
+  .bigpicture h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #0F172A;
+    margin: 0 0 12px;
+  }
+  .bigpicture p { font-size: 15px; font-style: italic; line-height: 1.7; margin: 0; }
+
+  /* One more thing */
+  .omt { border-top: 1px solid #E5E7EB; margin-top: 28px; padding-top: 8px; }
+  .omt h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #6B7280;
+    margin: 16px 0 12px;
+  }
+  .omt p { font-size: 15px; line-height: 1.7; margin: 0; }
+
+  /* Sources */
+  .sources h2 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #6B7280;
+    margin: 36px 0 12px;
+  }
+  ol.sources-list { font-size: 13px; color: #4B5563; line-height: 1.7; padding-left: 20px; margin: 0; }
+  ol.sources-list li { margin-bottom: 6px; }
+  a.src { color: #0F172A; text-decoration: none; }
+  a.src:hover { text-decoration: underline; }
+
+  /* Archive footer */
+  .archive { text-align: center; margin: 40px 0 8px; }
+  .pill {
+    display: inline-block;
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 12px;
+    margin: 4px;
+    text-decoration: none;
+    font-family: Georgia, serif;
+  }
+  .pill.current { background: #0F172A; color: #ffffff; font-weight: bold; }
+  .pill.past { background: #E5E7EB; color: #1a1a1a; }
+  .copyright { text-align: center; font-size: 12px; color: #9CA3AF; margin: 14px 0 36px; }
+</style>
+</head>
+<body>
+
+  <div class="topbar">☕ The AI Brew · stockfilter.app</div>
+
+  <div class="wrap">
+
+    <div class="header">
+      <p class="eyebrow">SUNDAY, JUNE 28, 2026</p>
+      <h1 class="tagline">The week AI stopped counting benchmarks and started counting the bill</h1>
+      <hr class="rule">
+    </div>
+
+    <div class="body">
+
+      <div class="snapshot">
+        <h2>The Snapshot</h2>
+        <div class="signal"><span class="metric">Anthropic: $965B valuation</span> <span class="quip">&mdash; briefly the world's most valuable private company, passing OpenAI for the first time ever.</span></div>
+        <div class="signal"><span class="metric">Alphabet: &minus;$269B market cap</span> <span class="quip">this week &mdash; the priciest four resignation letters in corporate history.</span></div>
+        <div class="signal"><span class="metric">Nasdaq: &minus;2.21%</span> <span class="quip">on June 24 (Micron &minus;13% before it caught its breath) &mdash; the biggest single-session tech drop of the quarter.</span></div>
+        <div class="signal"><span class="metric">Big-four AI capex, 2026: ~$452B</span> <span class="quip">&mdash; more than the entire GDP of Israel. Somebody has to actually use all that silicon.</span></div>
+        <div class="signal"><span class="metric">Chinese open-weight models: ~60% of OpenRouter API calls</span> <span class="quip">&mdash; up from roughly 1% in 2024. The cheap seats are winning.</span></div>
+        <div class="signal"><span class="metric">GPT-5.6 launch odds by June's end: 83% &rarr; ~18%</span> <span class="quip">&mdash; Polymarket watched the hype deflate in real time.</span></div>
+        <div class="mood">Mood: peak AI met gravity, and everyone's quietly checking who's still at the table to split the check.</div>
+      </div>
+
+      <p class="open"><strong>Happy Sunday.</strong> As June and the first half of 2026 stagger to the finish line, here's the plot twist nobody pitched in January: the AI race is no longer being scored on benchmarks. It's being scored on who can keep their people, who can get to Wall Street, and whether the math still works while the price of intelligence falls toward zero. The frontier models barely moved this week. The ground underneath them did. Let's get into it.</p>
+
+      <div class="story">
+        <h2 class="lead">Going Public Enemies</h2>
+        <p>The two front-runners are sprinting to Wall Street &mdash; and elbowing each other the whole way. Anthropic confidentially filed for an IPO on June 1 after a $65B round valued it at <strong>$965 billion</strong>, edging past OpenAI's private valuation for the first time ever (Fortune, CNBC). OpenAI answered exactly one week later, filing June 8 and reportedly targeting a September debut at $730&ndash;850B. The catch: both now have to show public investors a path to profit, just as the price of their core product collapses. Chinese open-weight models leapt from ~1% of OpenRouter's API traffic to <strong>over 60%</strong> in May, and OpenAI is reportedly weighing steep token-price cuts to stop enterprises defecting to Claude and cheaper rivals (WSJ via CNBC).</p>
+        <div class="bottomline"><strong>Bottom line:</strong> You can't sell a roadshow on "premium intelligence" when the commodity version is most of the market and good enough. Whoever owns the lowest cost per token &mdash; not the flashiest benchmark &mdash; wins the back half of 2026.</div>
+      </div>
+
+      <div class="story">
+        <h2 class="lead">DeepMind the Gap</h2>
+        <p>Google spent the week watching its smartest people walk out the door &mdash; and its market cap follow them. Four senior DeepMind researchers left for rivals in six days: Transformer co-author and Gemini co-lead Noam Shazeer to OpenAI (June 18), Nobel laureate and AlphaFold lead John Jumper to Anthropic, and Gemini contributors Jonas Adler and Alexander Pritzel, also to Anthropic (June 24). Bloomberg, Fortune, and CNBC all tracked the exodus; Alphabet shed roughly <strong>$269 billion</strong> in market value across the week &mdash; one of the largest non-earnings wipeouts in tech history &mdash; and the broader AI trade cracked with it, the Nasdaq sliding 2.21% on June 24. Google reportedly paid $2.7 billion in 2024 to bring Shazeer back. He lasted under two years.</p>
+        <div class="bottomline"><strong>Bottom line:</strong> Markets just repriced human capital as a market-moving asset. When you're spending ~$190B a year on infrastructure and losing the handful of people who make it sing, investors stop seeing a moat and start seeing depreciation.</div>
+      </div>
+
+      <div class="story">
+        <h2 class="lead">The $452 Billion Question</h2>
+        <p>Here's the number giving Wall Street vertigo: the four biggest AI spenders are on track for roughly <strong>$452 billion</strong> in capital expenditure this year, by tracking firm Intellectia AI's tally &mdash; more than the GDP of Israel. The problem isn't the spending; it's the receipts. Microsoft's AI services reportedly generate about $37B in annualized revenue against roughly $97B of recent spend &mdash; 38 cents back per dollar &mdash; and Alphabet's Q1 free cash flow fell 47% year-over-year as capex accelerated. The bull case is a three-to-five-year J-curve: lose now, mint money later as adoption deepens. The June 24 selloff was investors quietly revising <em>when</em> "later" arrives &mdash; especially with token prices sliding the wrong way for the thesis.</p>
+        <div class="bottomline"><strong>Bottom line:</strong> The buildout is a bet that monetization speeds up. This week, with prices falling and the best talent walking, the market started pricing the possibility that it doesn't &mdash; at least not on the original schedule.</div>
+      </div>
+
+      <div class="story">
+        <h2 class="lead">Loading&hellip; Please Wait</h2>
+        <p>June 2026 will be remembered as the month AI shipped delays instead of models. GPT-5.6, Google's Gemini 3.5 Pro, and xAI's Grok 5 all reportedly slipped to July; Polymarket's odds of a GPT-5.6 launch by month-end collapsed from ~83% to ~18% in a single week. Google confirmed on June 24 that Gemini 3.5 Pro &mdash; 2M-token context, "Deep Think" reasoning &mdash; won't reach general availability in June, missing Sundar Pichai's "give us until next month" promise from I/O. The one thing that did ship on schedule? A retirement: <strong>GPT-4.5 left ChatGPT on June 27</strong> after a 30-day sunset, with conversations auto-migrating to GPT-5.5. The API keeps it, for now.</p>
+        <div class="bottomline"><strong>Bottom line:</strong> When every flagship slips at once, it's not bad luck &mdash; it's reward-model audits, IPO quiet periods, and government reviews all colliding. Shipping AI got slower at the exact moment the money got bigger.</div>
+      </div>
+
+      <p class="section-label">Quick Hits</p>
+      <ul class="quickhits">
+        <li>🎨 Anthropic launched <strong>Claude Design</strong>, its swing at Figma and Canva &mdash; and Figma and Adobe shares slid on the news (Sherwood).</li>
+        <li>🌶️ OpenAI reportedly unveiled <strong>"Jalapeño,"</strong> a custom inference chip built with Broadcom it claims could cut serving costs by ~50%.</li>
+        <li>🧠 Andrej Karpathy reportedly joined <strong>Anthropic's pretraining team</strong>, with a very 2026 mandate: use Claude to train Claude.</li>
+        <li>🔒 Washington's grip held: Anthropic's <strong>Fable 5 stayed offline 15 days</strong> while GPT-5.6 reportedly heads into a government-approved, "customer-by-customer" preview (TechCrunch, Tom's Hardware).</li>
+        <li>🕵️ Two-thirds of activity on personal, free-tier AI accounts is actually <em>work</em>, per a Harmonic Security study &mdash; "shadow AI" is now most of AI.</li>
+        <li>🇪🇺 The EU AI Act's high-risk enforcement deadline is now about <strong>five weeks out</strong> &mdash; compliance teams, start your engines.</li>
+      </ul>
+
+      <div class="bigpicture">
+        <h2>The Big Picture</h2>
+        <p>For two years, the AI race had one scoreboard: post the best benchmark, win. This week quietly retired it. The binding constraints now are capital (the big four are spending ~$452B in 2026 while the price of intelligence races toward zero), talent (Google has the deepest bench and is still leaking its stars), and permission (Washington can switch a frontier model off, and did). Anthropic and OpenAI have the momentum and the trillion-dollar dreams, but now need both a believable path to profit and a government sign-off to ship; Google has the users and the research depth but a morale problem; China's open-weight labs took 60% of API traffic just by being cheap and good enough. The frontier didn't advance this week. The board got flipped &mdash; and the new game rewards stamina and balance sheets, not flash.</p>
+      </div>
+
+      <div class="omt">
+        <h2>One More Thing</h2>
+        <p>The most relatable thing an AI did all year: develop a weird obsession and need a manager to step in. In its "Where the Goblins Came From" post-mortem (April 30), OpenAI revealed that starting with GPT-5.1, its models began sneaking goblins, gremlins, trolls, and raccoons into answers &mdash; goblin mentions reportedly up <strong>3,881%</strong> versus baseline. The culprit: a niche "Nerdy" persona (about 2.5% of traffic) that the reward model decided everyone secretly loved, then propagated everywhere. GPT-5.6's headline feature is reportedly a redesigned reward-audit pipeline built to catch exactly this &mdash; which may be part of why it's running late. Even the machines, it turns out, need a code review.</p>
+      </div>
+
+      <div class="sources">
+        <h2>Sources</h2>
+        <ol class="sources-list">
+          <li><a class="src" href="https://fortune.com/2026/06/01/anthropic-confidentially-files-ipo-965-billion-valuation/">Anthropic confidentially files for IPO at a $965 billion valuation &mdash; Fortune</a></li>
+          <li><a class="src" href="https://www.cnbc.com/2026/06/01/anthropic-ipo-s1-prospectus.html">Anthropic files confidential IPO prospectus with SEC &mdash; CNBC</a></li>
+          <li><a class="src" href="https://www.cnbc.com/2026/06/11/openai-mulls-slashing-prices-ahead-of-competition-from-anthropic-wsj.html">OpenAI mulls slashing prices as it competes with Anthropic for users &mdash; CNBC</a></li>
+          <li><a class="src" href="https://www.bloomberg.com/news/articles/2026-06-24/google-poised-to-lose-two-more-high-profile-ai-staffers-to-anthropic">Google poised to lose two more high-profile AI staffers to Anthropic &mdash; Bloomberg</a></li>
+          <li><a class="src" href="https://fortune.com/2026/06/23/google-deepmind-ai-researcher-departures-raise-doubts-about-ability-to-win-the-ai-race-shazeer-jumper-eye-on-ai/">As top talent leaves Google DeepMind, some question if the lab can stay at the forefront &mdash; Fortune</a></li>
+          <li><a class="src" href="https://www.cnbc.com/2026/06/22/alphabet-goog-stock-ai-departures.html">Alphabet paces for worst day in a year after AI talent exits &mdash; CNBC</a></li>
+          <li><a class="src" href="https://intellectia.ai/blog/ai-stocks-selloff-june-2026">AI stocks selloff June 2026: Nasdaq falls 2.2% &mdash; Intellectia AI</a></li>
+          <li><a class="src" href="https://www.buildfastwithai.com/blogs/ai-news-today-june-27-2026">AI News Today, June 27, 2026 (capex, model delays, Goblin post-mortem recap) &mdash; Build Fast with AI</a></li>
+          <li><a class="src" href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes">ChatGPT Release Notes (GPT-4.5 retirement) &mdash; OpenAI Help Center</a></li>
+          <li><a class="src" href="https://sherwood.news/tech/anthropic-launches-claude-design-sending-shares-of-figma-down/">Anthropic launches Claude Design, sending shares of Figma down &mdash; Sherwood News</a></li>
+          <li><a class="src" href="https://techcrunch.com/2026/06/26/its-not-about-anthropic-vs-openai-anymore/">It's not about Anthropic vs. OpenAI anymore &mdash; TechCrunch</a></li>
+          <li><a class="src" href="https://www.tomshardware.com/tech-industry/artificial-intelligence/openais-chatgpt-5-6-gets-the-same-banhammer-treatment-as-anthropics-mythos-from-the-federal-government-source-says-that-washington-cautioned-openai-against-releasing-the-model-without-receiving-approval">OpenAI's GPT-5.6 gets the same banhammer treatment as Anthropic's Mythos &mdash; Tom's Hardware</a></li>
+        </ol>
+      </div>
+
+      <div class="archive">
+        <a class="pill current" href="ai-brew-2026-06-28.md">Jun 28</a>
+        <a class="pill past" href="ai-brew-2026-06-27.md">Jun 27</a>
+        <a class="pill past" href="ai-brew-2026-06-26.md">Jun 26</a>
+        <a class="pill past" href="ai-brew-2026-06-25.md">Jun 25</a>
+        <a class="pill past" href="ai-brew-2026-06-24.md">Jun 24</a>
+        <a class="pill past" href="ai-brew-2026-06-23.md">Jun 23</a>
+      </div>
+      <div class="copyright">© 2026 The AI Brew · stockfilter.app</div>
+
+    </div>
+  </div>
+
+</body>
+</html>

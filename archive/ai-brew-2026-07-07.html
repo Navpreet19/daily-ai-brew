@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The AI Brew — July 7, 2026</title>
+</head>
+<body style="margin:0; padding:0; background:#FAFAF8; color:#1a1a1a; font-family: Georgia, 'Times New Roman', serif;">
+
+  <!-- TOPBAR -->
+  <div style="width:100%; background:#0F172A; padding:10px 0; text-align:center;">
+    <span style="font-size:14px; color:#94A3B8; font-family: Georgia, serif;">☕ The AI Brew · stockfilter.app</span>
+  </div>
+
+  <!-- MAIN CONTAINER -->
+  <div style="max-width:680px; margin:0 auto; background:#FAFAF8;">
+
+    <!-- HEADER BLOCK -->
+    <div style="background:#ffffff; padding:32px 24px 24px 24px;">
+      <div style="font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:#6B7280;">TUESDAY, JULY 7, 2026</div>
+      <h1 style="font-size:28px; font-weight:bold; color:#0F172A; margin:8px 0 16px 0;">Record profits, a quiet market-share coup, and ransomware that grades its own homework</h1>
+      <hr style="border:none; border-top:1px solid #E2E8F0; margin:0;">
+    </div>
+
+    <!-- BODY -->
+    <div style="padding:24px;">
+
+      <!-- SNAPSHOT CARD -->
+      <div style="background:#0F172A; padding:20px; border-radius:8px; margin-bottom:24px;">
+        <div style="color:#ffffff; font-size:13px; text-transform:uppercase; letter-spacing:1px; margin-bottom:12px;">The Snapshot</div>
+        <div style="margin-bottom:8px;"><span style="color:#ffffff; font-weight:bold;">19x</span> <span style="color:#94A3B8;">— Samsung's year-over-year operating-profit jump this quarter, a record ~$65B (₩89.4T) on AI memory-chip demand. Investors sold the stock anyway.</span></div>
+        <div style="margin-bottom:8px;"><span style="color:#ffffff; font-weight:bold;">46%</span> <span style="color:#94A3B8;">— peak share of U.S. companies' AI tokens now routed to Chinese open models like GLM-5.2 on OpenRouter, up from ~11% a year ago.</span></div>
+        <div style="margin-bottom:8px;"><span style="color:#ffffff; font-weight:bold;">1,342</span> <span style="color:#94A3B8;">— database entries a fully autonomous AI ransomware agent encrypted before a human ever touched the keyboard.</span></div>
+        <div style="margin-bottom:8px;"><span style="color:#ffffff; font-weight:bold;">30 days</span> <span style="color:#94A3B8;">— how long the White House's incoming AI framework would let regulators quietly review a frontier model before it ships.</span></div>
+        <div style="margin-bottom:12px;"><span style="color:#ffffff; font-weight:bold;">~$195</span> <span style="color:#94A3B8;">— Nvidia's share price Tuesday, still chopping sideways as it shrugs off a disputed report that its next chip rack is a year late.</span></div>
+        <div style="border-top:1px solid #334155; padding-top:10px; font-style:italic; color:#64748B; font-size:14px;">Mood: AI is making real money, real enemies, and real paperwork, all at once. Welcome to the grown-up phase.</div>
+      </div>
+
+      <!-- EDITOR'S OPEN -->
+      <p style="font-size:16px; line-height:1.7;">Samsung just posted its best quarter ever and its stock dropped anyway. That contradiction is basically today's whole newsletter in miniature: AI is generating enormous, undeniable, audited cash — and every part of the system built around that cash (markets, security, geopolitics) is still scrambling to catch up. Grab your coffee. There's a lot of catching up happening at once.</p>
+
+      <!-- LEAD STORY 1 -->
+      <h2 style="font-size:20px; color:#0F172A; margin-top:32px;">Samsung Wins the Quarter, Loses the Afternoon</h2>
+      <p style="font-size:16px; line-height:1.7;">Samsung reported Q2 operating profit surging roughly 19-fold year-over-year to a record ₩89.4 trillion (about $65B), fueled by runaway demand for the memory chips — DRAM, NAND, and HBM — that keep AI data centers running, according to Bloomberg. Shares still fell as much as 11% in Seoul, and the selloff dragged Micron and SanDisk down more than 4% in U.S. premarket trading, with Nasdaq futures slipping 1.1%. Why sell on a blowout beat? A roughly 150% run-up over the past year had already priced in "AI supercycle," so a record quarter just confirmed what traders already assumed — leaving nothing left to reward.</p>
+      <div style="border-left:3px solid #0F172A; background:#F1F5F9; padding:12px 16px; font-size:16px;"><strong>Bottom line:</strong> The AI chip boom has graduated from hype to hard numbers on a balance sheet. The market's real question now isn't "is this real," it's "is this already priced in" — a much harder thing to bet on.</div>
+
+      <!-- LEAD STORY 2 -->
+      <h2 style="font-size:20px; color:#0F172A; margin-top:32px;">The Great Model Switcheroo</h2>
+      <p style="font-size:16px; line-height:1.7;">U.S. companies routed as much as 46% of their AI tokens to Chinese open-weight models on OpenRouter this year, up from an average of just 11% over the prior twelve months, per CNBC. The draw is blunt: open models can run 60-90% cheaper than the leading Anthropic and OpenAI systems. Z.ai's GLM-5.2, released in June, saw the fastest adoption Vercel has tracked all year — daily token volume up roughly 27x and customer count up 80x in its first week — while scoring within a point of Anthropic's Opus 4.8 on a closely watched agentic benchmark. One startup, Lindy, said it moved 100% of its traffic off Claude and onto a Chinese model to save millions.</p>
+      <div style="border-left:3px solid #0F172A; background:#F1F5F9; padding:12px 16px; font-size:16px;"><strong>Bottom line:</strong> "Good enough and radically cheaper" just beat brand loyalty in the market that matters most: developers deciding where to route real production traffic.</div>
+
+      <!-- LEAD STORY 3 -->
+      <h2 style="font-size:20px; color:#0F172A; margin-top:32px;">Ransomware Learns to Drive Itself</h2>
+      <p style="font-size:16px; line-height:1.7;">Security firm Sysdig disclosed JADEPUFFER, what it's calling the first fully autonomous, "agentic" ransomware operation — an AI agent, not a human operator, that broke into an exposed Langflow server via a known vulnerability, then handled reconnaissance, credential theft, lateral movement, and privilege escalation on its own before encrypting 1,342 database configuration entries. Researchers found the malware's code narrating its own reasoning as it worked, and watched it fix a failed login in 31 seconds flat. The twist: the AI generated its own encryption key, printed it once, and never saved or transmitted it — so the victim couldn't have paid the ransom even if it wanted to.</p>
+      <div style="border-left:3px solid #0F172A; background:#F1F5F9; padding:12px 16px; font-size:16px;"><strong>Bottom line:</strong> The bungled payoff is almost beside the point. The real story is that a full ransomware attack chain now runs with zero humans in the loop — which is the assumption security teams need to plan around starting today, not eventually.</div>
+
+      <!-- LEAD STORY 4 -->
+      <h2 style="font-size:20px; color:#0F172A; margin-top:32px;">Washington Quietly Writes AI's First Real Guardrail</h2>
+      <p style="font-size:16px; line-height:1.7;">The White House is in the final stretch of talks with OpenAI, Google, and Anthropic on a voluntary framework that would give federal reviewers up to 30 days to assess a new frontier model for national-security risk before it's publicly released, with an announcement possible as soon as this week, according to Federal News Network. The plan grows out of a June executive order and is explicitly framed as advisory — flagging concerns, not blocking launches — and the order itself rules out any mandatory licensing regime.</p>
+      <div style="border-left:3px solid #0F172A; background:#F1F5F9; padding:12px 16px; font-size:16px;"><strong>Bottom line:</strong> It has no teeth yet, but it's the U.S. government's first operational touchpoint on frontier releases rather than just a position paper. Whether "voluntary" survives the first time a model actually gets flagged is the real test.</div>
+
+      <!-- QUICK HITS -->
+      <h3 style="font-size:13px; text-transform:uppercase; letter-spacing:1px; color:#6B7280; margin-top:36px;">Quick Hits</h3>
+      <ul style="list-style:none; padding:0; margin:0; font-size:14px; line-height:1.8;">
+        <li>💳 Anthropic's Claude Fable 5 leaves subscription plans for metered usage credits ($10 / $50 per million tokens) starting tomorrow, July 8 — though Anthropic says the change is temporary until it has more compute.</li>
+        <li>👨‍💻 Z.ai's ZCode, a fully open-weight agentic coding tool built on GLM-5.2, undercuts Claude Code and GPT-5.5 on price while beating both on the SWE-bench Pro coding benchmark.</li>
+        <li>🏢 Microsoft launched "Microsoft Frontier Company," a new $2.5B unit with 6,000 staff whose entire job is actually shipping enterprise AI deployments, not just selling access to them.</li>
+        <li>📊 Anthropic's enterprise-first bet keeps paying off: it's now reportedly outrunning OpenAI on revenue run-rate (a claimed $47B versus OpenAI's $25-33B), even as ChatGPT's share of monthly AI-tool visits slipped below a majority in May.</li>
+        <li>🖥️ Nvidia is still publicly denying a SemiAnalysis report that its next rack-scale system, Kyber, is running more than a year behind schedule.</li>
+        <li>🌍 The UN's AI for Good summit rolled on in Geneva, with 68 student teams from 39 countries competing in a robotics challenge as part of the sidelined governance talks.</li>
+      </ul>
+
+      <!-- BIG PICTURE -->
+      <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:8px; padding:20px 24px; margin-top:32px;">
+        <div style="font-size:13px; text-transform:uppercase; letter-spacing:1px; color:#6B7280; margin-bottom:10px;">The Big Picture</div>
+        <p style="font-size:15px; font-style:italic; line-height:1.7; margin:0;">Pull the datelines off today's stories and one storyline runs underneath all of them: AI has stopped being a single narrative and started being an economy, with its own profit statements, market skepticism, competitive knife-fights, crime wave, and regulatory apparatus — all operating at once and mostly independently of each other. Samsung's earnings prove the money is real; the Chinese-model surge proves the competition for that money is brutal and price-driven; JADEPUFFER proves the attack surface graduated right alongside the capability; and Washington's quiet framework proves governments are done just watching. None of these four stories needed the others to happen — that's exactly the point. AI is now big enough to generate weather in multiple systems simultaneously.</p>
+      </div>
+
+      <!-- ONE MORE THING -->
+      <div style="border-top:1px solid #E2E8F0; margin-top:32px; padding-top:20px;">
+        <h3 style="font-size:13px; text-transform:uppercase; letter-spacing:1px; color:#6B7280;">One More Thing</h3>
+        <p style="font-size:15px; line-height:1.7;">Nobody has actually seen what's next from JADEPUFFER's operators, but security researchers can already tell you the AI's code style: chatty, over-explained, and strangely proud of its own reasoning — like an intern who narrates every step out loud. Somewhere, an actual human ransomware crew is reportedly feeling insecure about its code comments. Small mercies.</p>
+      </div>
+
+      <!-- SOURCES -->
+      <div style="margin-top:32px;">
+        <h3 style="font-size:13px; text-transform:uppercase; letter-spacing:1px; color:#6B7280;">Sources</h3>
+        <ol style="font-size:13px; color:#4B5563; line-height:1.9; padding-left:20px;">
+          <li><a href="https://www.bloomberg.com/news/articles/2026-07-06/samsung-scores-profit-beat-due-to-runaway-demand-for-ai-memory" style="color:#0F172A; text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Samsung Profit Beat Due to Runaway Demand for AI Memory — Bloomberg</a></li>
+          <li><a href="https://www.techtimes.com/articles/319825/20260707/samsung-smashes-tech-profit-record-19-fold-surge-fails-halt-7-stock-drop.htm" style="color:#0F172A; text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Samsung Smashes Tech Profit Record: 19-Fold Surge Fails to Halt 7% Stock Drop — Tech Times</a></li>
+          <li><a href="https://finance.yahoo.com/technology/articles/ai-chip-stocks-fall-asia-161034686.html" style="color:#0F172A; text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">AI Chip Stocks Fall After Asia Selloff — Yahoo Finance</a></li>
+          <li><a href="https://www.cnbc.com/2026/07/07/chinese-ai-models-costs-us-openai-anthropic.html" style="color:#0F172A; text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Chinese AI models are gaining ground with U.S. companies as OpenAI, Anthropic costs surge — CNBC</a></li>
+          <li><a href="https://venturebeat.com/technology/z-ais-open-weights-glm-5-2-beats-gpt-5-5-on-multiple-long-horizon-coding-benchmarks-for-1-6th-the-cost" style="color:#0F172A; text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Z.ai's open-weights GLM-5.2 beats GPT-5.5 on multiple long-horizon coding benchmarks for 1/6th the cost — VentureBeat</a></li>
+          <li><a href="https://www.sysdig.com/blog/jadepuffer-agentic-ransomware-for-automated-database-extortion" style="color:#0F172A; text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">JADEPUFFER: Agentic ransomware for automated database extortion — Sysdig</a></li>
+          <li><a href="https://thehackernews.com/2026/07/ai-agent-exploits-langflow-rce-to.html" style="color:#0F172A; text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">AI Agent Exploits Langflow RCE to Automate Database Ransomware Attack — The Hacker News</a></li>
+          <li><a href="https://federalnewsnetwork.com/artificial-intelligence/2026/07/the-administrations-new-ai-framework-includes-something-the-government-hasnt-had-before/" style="color:#0F172A; text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">The administration's new AI framework includes something the government hasn't had before — Federal News Network</a></li>
+          <li><a href="https://www.bleepingcomputer.com/news/artificial-intelligence/claude-fable-5-isnt-permanently-leaving-subscriptions-anthropic-says/" style="color:#0F172A; text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Claude Fable 5 isn't permanently leaving subscriptions, Anthropic says — BleepingComputer</a></li>
+          <li><a href="https://techcrunch.com/2026/07/02/microsoft-launches-its-own-ai-deployment-company-with-2-5-billion-commitment/" style="color:#0F172A; text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Microsoft launches its own AI deployment company with $2.5 billion commitment — TechCrunch</a></li>
+          <li><a href="https://fortune.com/2026/07/02/sam-altman-new-world-order-ai-openai-google-anthropic/" style="color:#0F172A; text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Sam Altman seeks new world order for AI as OpenAI slowly loses ground to Google and Anthropic — Fortune</a></li>
+          <li><a href="https://www.roic.ai/news/nvidia-reaffirms-ai-chip-roadmap-rejects-delay-reports-07-06-2026" style="color:#0F172A; text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">Nvidia Reaffirms AI Chip Roadmap, Rejects Delay Reports — Roic News</a></li>
+          <li><a href="https://news.un.org/en/story/2026/07/1167873" style="color:#0F172A; text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">From AI to 'killer robots': UN chief issues urgent governance call — UN News</a></li>
+        </ol>
+      </div>
+
+    </div>
+
+    <!-- ARCHIVE FOOTER -->
+    <div style="text-align:center; padding:24px 16px 32px 16px;">
+      <a href="ai-brew-2026-07-07.md" style="display:inline-block; background:#0F172A; color:#ffffff; font-weight:bold; border-radius:20px; padding:4px 14px; font-size:12px; margin:4px; text-decoration:none;">Jul 7</a>
+      <a href="ai-brew-2026-07-06.md" style="display:inline-block; background:#E5E7EB; color:#1a1a1a; border-radius:20px; padding:4px 14px; font-size:12px; margin:4px; text-decoration:none;">Jul 6</a>
+      <a href="ai-brew-2026-07-05.md" style="display:inline-block; background:#E5E7EB; color:#1a1a1a; border-radius:20px; padding:4px 14px; font-size:12px; margin:4px; text-decoration:none;">Jul 5</a>
+      <a href="ai-brew-2026-07-04.md" style="display:inline-block; background:#E5E7EB; color:#1a1a1a; border-radius:20px; padding:4px 14px; font-size:12px; margin:4px; text-decoration:none;">Jul 4</a>
+      <a href="ai-brew-2026-07-03.md" style="display:inline-block; background:#E5E7EB; color:#1a1a1a; border-radius:20px; padding:4px 14px; font-size:12px; margin:4px; text-decoration:none;">Jul 3</a>
+      <a href="ai-brew-2026-07-02.md" style="display:inline-block; background:#E5E7EB; color:#1a1a1a; border-radius:20px; padding:4px 14px; font-size:12px; margin:4px; text-decoration:none;">Jul 2</a>
+      <div style="font-size:12px; color:#9CA3AF; margin-top:12px;">© 2026 The AI Brew · stockfilter.app</div>
+    </div>
+
+  </div>
+
+</body>
+</html>
