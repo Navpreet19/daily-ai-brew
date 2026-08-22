@@ -46,5 +46,5 @@ jobs:
             markdown issue and index.html must actually be committed and
             pushed to the main branch of this repository.
           claude_args: |
-            --max-turns 60
+            --max-turns 100
             --allowedTools "WebSearch,Bash,Read,Write,Edit,Glob,Grep"
