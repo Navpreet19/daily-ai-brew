@@ -94,22 +94,24 @@ SUBSCRIBE: Below the header block's horizontal rule, before the Snapshot card, a
 light card (background #F8FAFC, border 1px solid #E2E8F0, border-radius 8px,
 padding 16px 20px, margin 24px 0, flex layout wrapping on mobile) containing a
 short line of text ("Get this in your inbox every morning.") next to a
-Buttondown subscribe form. This block is fixed — reproduce it byte-for-byte
+subscribe form that POSTs to this site's own `/subscribe` route (handled by
+the Worker script at `src/worker.js`, which forwards the email to Resend's
+Contacts API — see STEP 9). This block is fixed — reproduce it byte-for-byte
 every run, do not regenerate or rephrase it:
 
 ```html
 <div style="background:#F8FAFC; border:1px solid #E2E8F0; border-radius:8px; padding:16px 20px; margin:24px 0; display:flex; flex-wrap:wrap; align-items:center; gap:12px; justify-content:space-between;">
   <div style="font-size:14px; color:#334155;">Get this in your inbox every morning.</div>
-  <form action="https://buttondown.com/api/emails/embed-subscribe/navpreet" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/navpreet', 'popupwindow')" style="display:flex; gap:8px; flex-wrap:wrap;">
+  <form action="/subscribe" method="post" style="display:flex; gap:8px; flex-wrap:wrap;">
     <input type="email" name="email" placeholder="you@example.com" required style="font-family:Georgia, serif; font-size:14px; padding:8px 12px; border:1px solid #E2E8F0; border-radius:6px; min-width:200px;">
-    <input type="hidden" value="1" name="embed">
     <input type="submit" value="Subscribe" style="font-family:Georgia, serif; font-size:14px; font-weight:bold; padding:8px 16px; background:#0F172A; color:#FFFFFF; border:none; border-radius:6px; cursor:pointer;">
   </form>
 </div>
 ```
 
-The `action`/`onsubmit` URLs (including the Buttondown username) are fixed and
-must not be altered.
+The `action` URL is fixed and must not be altered — it must stay a relative
+`/subscribe` path (not an external ESP URL), since the subscribe endpoint is
+now this repo's own Worker route, not a third-party form.
 
 SNAPSHOT CARD: Dark navy (#0F172A) background card with 20px padding,
 border-radius 8px, margin-bottom 24px. White heading "The Snapshot" in 13px
@@ -172,29 +174,39 @@ without further authentication setup. If the push fails, print the exact
 git error to the job log and exit non-zero so the run shows as failed in the
 Actions tab — there's no one to relay a chat message to today.
 
-## STEP 9 — Send today's issue via Buttondown
+## STEP 9 — Send today's issue via Resend
 
-Send today's issue to subscribers by creating an email through Buttondown's
-API. As of API version 2026-04-01 (the current default for new keys), POST
-requests to `/v1/emails` create a **draft** unless `status` is explicitly set
-— so the request must set `"status": "about_to_send"` to send immediately,
-and the first-ever send from a given API key must also include the
-`X-Buttondown-Live-Dangerously: true` header (a one-time "yes, I know what
-I'm doing" confirmation; harmless to include on every run).
+Send today's issue to subscribers by creating and sending a Resend
+broadcast. This is a two-part shape: `segment_id` targets the recipient
+list, and `send: true` is required or the broadcast is only saved as a
+draft and never actually goes out.
 
 ```
-curl -s -X POST https://api.buttondown.com/v1/emails \
-  -H "Authorization: Token $BUTTONDOWN_API_KEY" \
+curl -s -X POST https://api.resend.com/broadcasts \
+  -H "Authorization: Bearer $RESEND_API_KEY" \
   -H "Content-Type: application/json" \
-  -H "X-Buttondown-Live-Dangerously: true" \
-  -d '{"subject": "<today'"'"'s headline>", "body": "<today'"'"'s markdown content>", "status": "about_to_send"}'
+  -d '{
+    "segment_id": "c24c95ee-7012-4b11-bb9f-5b82c37a4978",
+    "from": "The AI Brew <newsletter@stockfilter.app>",
+    "subject": "<today'"'"'s headline>",
+    "html": "<today'"'"'s HTML content, with an unsubscribe footer appended: e.g. <p style=\"font-size:12px;color:#9CA3AF;\">Unsubscribe: {{{RESEND_UNSUBSCRIBE_URL}}}</p>>",
+    "send": true
+  }'
 ```
 
-`$BUTTONDOWN_API_KEY` is available in the environment. `body` accepts
-Markdown by default — pass the content of today's `ai-brew-YYYY-MM-DD.md`
-as-is (escaped for JSON). If the response body doesn't show the email
-transitioning out of `draft`/`about_to_send` as expected, check Buttondown's
-current API docs before assuming the send worked.
+Notes:
+- `$RESEND_API_KEY` is available in the environment. `segment_id` above is a
+  fixed literal value (this repo's Resend Segment ID) — do not regenerate or
+  guess it; if it's ever missing or invalid the API call will fail, which is
+  fine (see below).
+- `html` must include the `{{{RESEND_UNSUBSCRIBE_URL}}}` merge tag somewhere
+  (Resend requires an unsubscribe link in every broadcast) — append a small
+  footer line with it after today's content rather than working it into the
+  issue itself.
+- Reuse the HTML already built for `index.html` in STEP 7 as the `html`
+  value (JSON-escaped), rather than re-deriving it from the Markdown file.
+- If the response body doesn't confirm the broadcast was sent (not left as
+  a draft), check Resend's current API docs before assuming the send worked.
 
 This step should not block or fail the run: the site (STEP 8) has already
 published successfully by this point, and a missed email is recoverable
