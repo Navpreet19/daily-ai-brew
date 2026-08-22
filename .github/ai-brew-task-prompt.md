@@ -84,7 +84,11 @@ content: "☕ The AI Brew · stockfilter.app"
 HEADER BLOCK: Below topbar, white background, padding 32px 24px 24px. Small
 eyebrow label showing the date (e.g. "SATURDAY, JUNE 28, 2026") in 11px
 uppercase letter-spaced #6B7280. Then the issue tagline as an h1 in 28px bold
-#0F172A. Below that, a subtle horizontal rule.
+#0F172A. Below the h1, a small "Updated" timestamp line in 12px #9CA3AF (not
+uppercase) reading "Updated <today's date>, HH:MM UTC" — use the actual UTC
+time the run executes STEP 7 (i.e. run `date -u +"%H:%M"` alongside the date
+lookup in STEP 2; do not hardcode 01:30, since manual `workflow_dispatch`
+runs can happen at other times). Below that, a subtle horizontal rule.
 
 SNAPSHOT CARD: Dark navy (#0F172A) background card with 20px padding,
 border-radius 8px, margin-bottom 24px. White heading "The Snapshot" in 13px
