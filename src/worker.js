@@ -1,4 +1,5 @@
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const BREVO_LIST_ID = "BREVO_LIST_ID_PLACEHOLDER";
 
 export default {
   async fetch(request, env) {
@@ -12,18 +13,21 @@ export default {
         return page("That doesn't look like a valid email address.", true, 400);
       }
 
-      const resendResponse = await fetch("https://api.resend.com/contacts", {
+      const brevoResponse = await fetch("https://api.brevo.com/v3/contacts", {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${env.RESEND_API_KEY}`,
+          "api-key": env.BREVO_API_KEY,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, unsubscribed: false }),
+        body: JSON.stringify({ email, listIds: [BREVO_LIST_ID] }),
       });
 
-      if (!resendResponse.ok) {
-        const detail = await resendResponse.text();
-        return page(`DEBUG ${resendResponse.status}: ${detail}`, true, 502);
+      if (!brevoResponse.ok) {
+        const body = await brevoResponse.json().catch(() => null);
+        const alreadySubscribed = brevoResponse.status === 400 && body?.code === "duplicate_parameter";
+        if (!alreadySubscribed) {
+          return page("Something went wrong — please try again in a moment.", true, 502);
+        }
       }
 
       return page("You're subscribed. See you in your inbox tomorrow morning.", false, 200);

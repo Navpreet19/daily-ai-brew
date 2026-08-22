@@ -25,16 +25,16 @@ Cloudflare Workers project named `daily-ai-brew`. Every push (including the auto
 Stage 1) triggers a Cloudflare build that runs `npx wrangler deploy`, which publishes the repo
 root as static assets (per `wrangler.jsonc`'s `assets.directory: "."`) to stockfilter.app, fronted
 by a small Worker script (`src/worker.js`, wired via `wrangler.jsonc`'s `main` field) that handles
-one dynamic route — `POST /subscribe`, which forwards the submitted email to Resend's Contacts API
+one dynamic route — `POST /subscribe`, which forwards the submitted email to Brevo's Contacts API
 — and falls back to serving static assets for everything else. This deploy is config-driven:
 `wrangler.jsonc` and the pinned `wrangler` version in `package.json` exist specifically so the
 deploy targets the existing `daily-ai-brew` Worker deterministically — without a committed config
 file, `wrangler deploy` falls back to its "autoconfig" flow (regenerate config from scratch every
 run), which cannot prove ownership of an already-existing Worker of the same name and aborts the
 deploy as a safety measure. Do not delete `wrangler.jsonc` or unpin `wrangler` in `package.json`
-without understanding this failure mode. The Worker needs a `RESEND_API_KEY` secret configured in
+without understanding this failure mode. The Worker needs a `BREVO_API_KEY` secret configured in
 the Cloudflare dashboard (Workers & Pages → daily-ai-brew → Settings → Variables) — separate from
-the `RESEND_API_KEY` GitHub Actions secret used by Stage 1's daily send (STEP 9 below); same key
+the `BREVO_API_KEY` GitHub Actions secret used by Stage 1's daily send (STEP 9 below); same key
 value, two different places it needs to be configured.
 
 Because `package.json` exists, Cloudflare's build system auto-runs a package install (`bun
@@ -72,9 +72,9 @@ step in order:
 8. Commit (`git add ai-brew-*.md index.html`) and push directly to `main`. Skip the commit only
    if nothing is staged. If the push fails, surface the exact git error and exit non-zero —
    there's no human present to fix it mid-run.
-9. Send today's issue to subscribers via the Resend Broadcasts API (`RESEND_API_KEY` from workflow
+9. Send today's issue to subscribers via the Brevo Campaigns API (`BREVO_API_KEY` from workflow
    secrets). A failed send is logged but does not fail the run — the site has already published.
-10. Print a short summary (date, top headline, commit SHA, Resend send status) to the job log.
+10. Print a short summary (date, top headline, commit SHA, Brevo send status) to the job log.
 
 ## The two prompt files — different jobs, keep them separate
 
@@ -100,8 +100,8 @@ Header line → **The Snapshot** (4-6 number+quip signals plus one mood line) �
 (5-7 one-line emoji items) → **The Big Picture** (zoom-out take) → **One More Thing** (light
 closer) → **Sources** (numbered links). The `.md` and `.html` versions carry identical content;
 `.html` additionally has fixed inline styling, an email subscribe form (POSTs to this site's own
-`/subscribe` Worker route, which adds the contact to Resend; sending is a Resend Broadcast
-triggered from STEP 9 of the daily workflow), and an archive-pill footer.
+`/subscribe` Worker route, which adds the contact to Brevo; sending is a Brevo Campaign triggered
+from STEP 9 of the daily workflow), and an archive-pill footer.
 
 ## File conventions
 

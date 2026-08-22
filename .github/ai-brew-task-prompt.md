@@ -95,7 +95,7 @@ light card (background #F8FAFC, border 1px solid #E2E8F0, border-radius 8px,
 padding 16px 20px, margin 24px 0, flex layout wrapping on mobile) containing a
 short line of text ("Get this in your inbox every morning.") next to a
 subscribe form that POSTs to this site's own `/subscribe` route (handled by
-the Worker script at `src/worker.js`, which forwards the email to Resend's
+the Worker script at `src/worker.js`, which forwards the email to Brevo's
 Contacts API — see STEP 9). This block is fixed — reproduce it byte-for-byte
 every run, do not regenerate or rephrase it:
 
@@ -174,45 +174,54 @@ without further authentication setup. If the push fails, print the exact
 git error to the job log and exit non-zero so the run shows as failed in the
 Actions tab — there's no one to relay a chat message to today.
 
-## STEP 9 — Send today's issue via Resend
+## STEP 9 — Send today's issue via Brevo
 
-Send today's issue to subscribers by creating and sending a Resend
-broadcast. This is a two-part shape: `segment_id` targets the recipient
-list, and `send: true` is required or the broadcast is only saved as a
-draft and never actually goes out.
+Send today's issue to subscribers by creating and sending a Brevo email
+campaign. This is a two-call shape — creating a campaign does **not** send
+it; a separate "send now" call is required:
+
+1) Create the campaign:
 
 ```
-curl -s -X POST https://api.resend.com/broadcasts \
-  -H "Authorization: Bearer $RESEND_API_KEY" \
+curl -s -X POST https://api.brevo.com/v3/emailCampaigns \
+  -H "api-key: $BREVO_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
-    "segment_id": "c24c95ee-7012-4b11-bb9f-5b82c37a4978",
-    "from": "The AI Brew <newsletter@stockfilter.app>",
+    "name": "AI Brew <today'"'"'s date>",
     "subject": "<today'"'"'s headline>",
-    "html": "<today'"'"'s HTML content, with an unsubscribe footer appended: e.g. <p style=\"font-size:12px;color:#9CA3AF;\">Unsubscribe: {{{RESEND_UNSUBSCRIBE_URL}}}</p>>",
-    "send": true
+    "sender": {"name": "The AI Brew", "email": "newsletter@stockfilter.app"},
+    "htmlContent": "<today'"'"'s HTML content>",
+    "recipients": {"listIds": [BREVO_LIST_ID_PLACEHOLDER]}
   }'
 ```
 
+Capture the `id` from the JSON response.
+
+2) Send it immediately:
+
+```
+curl -s -X POST https://api.brevo.com/v3/emailCampaigns/<id>/sendNow \
+  -H "api-key: $BREVO_API_KEY"
+```
+
+(No request body. A 204 response means it sent.)
+
 Notes:
-- `$RESEND_API_KEY` is available in the environment. `segment_id` above is a
-  fixed literal value (this repo's Resend Segment ID) — do not regenerate or
-  guess it; if it's ever missing or invalid the API call will fail, which is
+- `$BREVO_API_KEY` is available in the environment. `BREVO_LIST_ID_PLACEHOLDER`
+  is a fixed literal integer (this repo's Brevo List ID) — do not regenerate
+  or guess it; if it's missing or invalid the create call will fail, which is
   fine (see below).
-- `html` must include the `{{{RESEND_UNSUBSCRIBE_URL}}}` merge tag somewhere
-  (Resend requires an unsubscribe link in every broadcast) — append a small
-  footer line with it after today's content rather than working it into the
-  issue itself.
-- Reuse the HTML already built for `index.html` in STEP 7 as the `html`
-  value (JSON-escaped), rather than re-deriving it from the Markdown file.
-- If the response body doesn't confirm the broadcast was sent (not left as
-  a draft), check Resend's current API docs before assuming the send worked.
+- `htmlContent` must be more than 10 characters and under 1MB — reuse the
+  HTML already built for `index.html` in STEP 7 (JSON-escaped), rather than
+  re-deriving it from the Markdown file.
+- The `sender.email` must be a verified sender in Brevo, or the create call
+  will fail.
+- If either call fails, print the exact error to the job log and continue to
+  STEP 10 rather than exiting non-zero.
 
 This step should not block or fail the run: the site (STEP 8) has already
 published successfully by this point, and a missed email is recoverable
-(resend manually) while a missed site publish is not. If the API call fails,
-print the exact error to the job log and continue to STEP 10 rather than
-exiting non-zero.
+(resend manually) while a missed site publish is not.
 
 ## STEP 10 — Summarize
 
