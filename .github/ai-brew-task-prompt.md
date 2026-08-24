@@ -193,7 +193,22 @@ Send today's issue to subscribers by creating and sending a Brevo email
 campaign. This is a two-call shape — creating a campaign does **not** send
 it; a separate "send now" call is required:
 
-1) Create the campaign:
+1) Build the email HTML, then create the campaign:
+
+Before sending, make two changes to the HTML that was built for `index.html`
+in STEP 7 — do this only for the copy sent to Brevo; `index.html` and the
+archived `.html` file are unaffected and keep both elements as-is:
+
+- Strip all `on<word>="..."` inline JS event attributes (`onmouseover`,
+  `onmouseout`, `onclick`, etc.) — the site's Sources-link hover effect
+  (STEP 7's SOURCES spec) uses exactly this pattern. Brevo's campaign API
+  rejects any `htmlContent` containing these as "executable code" — the
+  create call fails with a 400 `invalid_parameter` error.
+- Remove the subscribe form block entirely (the fixed `<div>...<form
+  action="/subscribe">...</form></div>` block from STEP 7's SUBSCRIBE spec).
+  Brevo doesn't reject it, but it's dead content in an email: most clients
+  (Gmail, Outlook, Apple Mail) strip or won't submit `<form>` elements, and
+  everyone on the recipient list is already subscribed.
 
 ```
 curl -s -X POST https://api.brevo.com/v3/emailCampaigns \
@@ -203,7 +218,7 @@ curl -s -X POST https://api.brevo.com/v3/emailCampaigns \
     "name": "AI Brew <today'"'"'s date>",
     "subject": "<today'"'"'s headline>",
     "sender": {"name": "The AI Brew", "email": "newsletter@stockfilter.app"},
-    "htmlContent": "<today'"'"'s HTML content>",
+    "htmlContent": "<today'"'"'s HTML content, with inline on* JS handlers and the subscribe form stripped>",
     "recipients": {"listIds": [2]}
   }'
 ```
@@ -225,7 +240,8 @@ Notes:
   if it's ever wrong the create call will fail, which is fine (see below).
 - `htmlContent` must be more than 10 characters and under 1MB — reuse the
   HTML already built for `index.html` in STEP 7 (JSON-escaped), rather than
-  re-deriving it from the Markdown file.
+  re-deriving it from the Markdown file. Strip inline `on*="..."` JS event
+  handlers and the subscribe form block first (see above).
 - The `sender.email` must be a verified sender in Brevo, or the create call
   will fail.
 - If either call fails, print the exact error to the job log and continue to
