@@ -79,8 +79,25 @@ stockfilter.app; overwrite it with today's content every run) and
 and write it to both paths unchanged — do not vary the content between them.
 
 DESIGN: Single self-contained HTML file, no external CSS or JS, no fonts from
-Google Fonts (use system stacks). Mobile-responsive, max-width 680px
-centered. Body font: Georgia, serif. Background: #FAFAF8. Text: #1a1a1a.
+Google Fonts (use system stacks), except the Google tag snippet below.
+Mobile-responsive, max-width 680px centered. Body font: Georgia, serif.
+Background: #FAFAF8. Text: #1a1a1a.
+
+ANALYTICS: Immediately after the opening `<head>` tag, insert this Google
+tag snippet verbatim — reproduce it byte-for-byte every run, do not alter
+the measurement ID:
+
+```html
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T0KWVW9R63"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T0KWVW9R63');
+</script>
+```
 
 TOPBAR: Full-width dark navy (#0F172A) strip, 14px centered text in #94A3B8,
 content: "☕ The AI Brew · stockfilter.app"
@@ -195,15 +212,20 @@ it; a separate "send now" call is required:
 
 1) Build the email HTML, then create the campaign:
 
-Before sending, make two changes to the HTML that was built for `index.html`
-in STEP 7 — do this only for the copy sent to Brevo; `index.html` and the
-archived `.html` file are unaffected and keep both elements as-is:
+Before sending, make three changes to the HTML that was built for
+`index.html` in STEP 7 — do this only for the copy sent to Brevo;
+`index.html` and the archived `.html` file are unaffected and keep all
+three elements as-is:
 
 - Strip all `on<word>="..."` inline JS event attributes (`onmouseover`,
   `onmouseout`, `onclick`, etc.) — the site's Sources-link hover effect
   (STEP 7's SOURCES spec) uses exactly this pattern. Brevo's campaign API
   rejects any `htmlContent` containing these as "executable code" — the
   create call fails with a 400 `invalid_parameter` error.
+- Strip the Google tag `<script>` block from STEP 7's ANALYTICS spec (the
+  `<!-- Google tag (gtag.js) -->` block right after `<head>`). Brevo rejects
+  any `<script>` tag in `htmlContent` the same way — analytics tracking is
+  also meaningless in an email client, since it never loads the page.
 - Remove the subscribe form block entirely (the fixed `<div>...<form
   action="/subscribe">...</form></div>` block from STEP 7's SUBSCRIBE spec).
   Brevo doesn't reject it, but it's dead content in an email: most clients
@@ -218,7 +240,7 @@ curl -s -X POST https://api.brevo.com/v3/emailCampaigns \
     "name": "AI Brew <today'"'"'s date>",
     "subject": "<today'"'"'s headline>",
     "sender": {"name": "The AI Brew", "email": "newsletter@stockfilter.app"},
-    "htmlContent": "<today'"'"'s HTML content, with inline on* JS handlers and the subscribe form stripped>",
+    "htmlContent": "<today'"'"'s HTML content, with inline on* JS handlers, the Google tag script, and the subscribe form stripped>",
     "recipients": {"listIds": [2]}
   }'
 ```
@@ -241,7 +263,8 @@ Notes:
 - `htmlContent` must be more than 10 characters and under 1MB — reuse the
   HTML already built for `index.html` in STEP 7 (JSON-escaped), rather than
   re-deriving it from the Markdown file. Strip inline `on*="..."` JS event
-  handlers and the subscribe form block first (see above).
+  handlers, the Google tag script, and the subscribe form block first (see
+  above).
 - The `sender.email` must be a verified sender in Brevo, or the create call
   will fail.
 - If either call fails, print the exact error to the job log and continue to
